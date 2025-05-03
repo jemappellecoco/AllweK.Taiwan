@@ -1,0 +1,698 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Seoul K-Pop Dance Experience</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #0a0a0a;
+      color: #f3f3f3;
+    }
+    .hero-gradient {
+      background: linear-gradient(135deg, rgba(0,0,0,0.8) 0%, rgba(139,0,0,0.7) 100%), url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Cg fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath opacity='.5' d='M96 95h4v1h-4v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9zm-1 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm9-10v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm9-10v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm9-10v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9z'/%3E%3Cpath d='M6 5V0H5v5H0v1h5v94h1V6h94V5H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+      background-size: cover;
+    }
+    .card {
+      transition: all 0.3s ease;
+      background: linear-gradient(135deg, rgba(40,40,40,0.9) 0%, rgba(20,20,20,0.9) 100%);
+      border: 1px solid rgba(255,0,0,0.2);
+    }
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px -5px rgba(255, 0, 0, 0.3), 0 10px 10px -5px rgba(0, 0, 0, 0.5);
+      border: 1px solid rgba(255,0,0,0.4);
+    }
+    .nav-link {
+      position: relative;
+    }
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: -2px;
+      left: 0;
+      background-color: #ff0000;
+      transition: width 0.3s ease;
+    }
+    .nav-link:hover::after {
+      width: 100%;
+    }
+    .active::after {
+      width: 100%;
+    }
+    .btn-primary {
+      background: linear-gradient(135deg, #ff0000 0%, #8b0000 100%);
+      transition: all 0.3s ease;
+    }
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(255, 0, 0, 0.4);
+    }
+    .studio-card {
+      overflow: hidden;
+    }
+    .studio-card img {
+      transition: transform 0.5s ease;
+    }
+    .studio-card:hover img {
+      transform: scale(1.05);
+    }
+    .tab-active {
+      background: linear-gradient(135deg, #ff0000 0%, #8b0000 100%);
+      color: white;
+    }
+    .tab {
+      transition: all 0.3s ease;
+    }
+    .tab:hover:not(.tab-active) {
+      background-color: rgba(255, 0, 0, 0.1);
+    }
+    .dance-icon {
+      filter: drop-shadow(0 0 3px rgba(255, 0, 0, 0.5));
+    }
+    .video-container {
+      position: relative;
+      padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+      height: 0;
+      overflow: hidden;
+    }
+    .video-container iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border-radius: 0.5rem;
+    }
+    .testimonial-card {
+      background: linear-gradient(135deg, rgba(40,40,40,0.7) 0%, rgba(20,20,20,0.7) 100%);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+    }
+    .highlight-text {
+      background: linear-gradient(90deg, #ff0000, #ff6b6b);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      display: inline;
+    }
+    .gallery-img {
+      transition: all 0.3s ease;
+    }
+    .gallery-img:hover {
+      transform: scale(1.03);
+      box-shadow: 0 5px 15px rgba(255, 0, 0, 0.4);
+    }
+    .timeline-dot {
+      box-shadow: 0 0 0 3px rgba(255, 0, 0, 0.3);
+    }
+    .timeline-line {
+      background: linear-gradient(to bottom, rgba(255, 0, 0, 0.3), rgba(255, 0, 0, 0.1));
+    }
+    .feature-icon {
+      filter: drop-shadow(0 0 5px rgba(255, 0, 0, 0.5));
+    }
+    .scroll-indicator {
+      animation: bounce 2s infinite;
+    }
+    @keyframes bounce {
+      0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+      }
+      40% {
+        transform: translateY(-10px);
+      }
+      60% {
+        transform: translateY(-5px);
+      }
+    }
+    .video-overlay {
+      background: rgba(0,0,0,0.5);
+      transition: all 0.3s ease;
+    }
+    .video-card:hover .video-overlay {
+      background: rgba(0,0,0,0.2);
+    }
+    .video-card:hover .play-icon {
+      transform: scale(1.2);
+    }
+    .play-icon {
+      transition: all 0.3s ease;
+      filter: drop-shadow(0 0 5px rgba(255, 0, 0, 0.7));
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="bg-black bg-opacity-90 shadow-lg sticky top-0 z-50">
+    <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+      <a href="#" class="text-2xl font-bold text-red-600">K-Dance Tour</a>
+      <div class="hidden md:flex space-x-8">
+        <a href="#home" class="nav-link active text-gray-200 hover:text-red-500 transition">Home</a>
+        <a href="#experience" class="nav-link text-gray-200 hover:text-red-500 transition">Experience</a>
+        <a href="#studios" class="nav-link text-gray-200 hover:text-red-500 transition">Studios</a>
+        <a href="#accommodation" class="nav-link text-gray-200 hover:text-red-500 transition">Accommodation</a>
+        <a href="#city-tour" class="nav-link text-gray-200 hover:text-red-500 transition">City Tour</a>
+        <a href="#booking" class="nav-link text-gray-200 hover:text-red-500 transition">Booking</a>
+      </div>
+      <button id="menu-toggle" class="md:hidden focus:outline-none text-white">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+      </button>
+    </div>
+    <!-- Mobile menu -->
+    <div id="mobile-menu" class="md:hidden hidden bg-black bg-opacity-95 shadow-md">
+      <div class="container mx-auto px-4 py-2 flex flex-col space-y-3">
+        <a href="#home" class="text-gray-200 hover:text-red-500 transition py-2">Home</a>
+        <a href="#experience" class="text-gray-200 hover:text-red-500 transition py-2">Experience</a>
+        <a href="#studios" class="text-gray-200 hover:text-red-500 transition py-2">Studios</a>
+        <a href="#accommodation" class="text-gray-200 hover:text-red-500 transition py-2">Accommodation</a>
+        <a href="#city-tour" class="text-gray-200 hover:text-red-500 transition py-2">City Tour</a>
+        <a href="#booking" class="text-gray-200 hover:text-red-500 transition py-2">Booking</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section with Video Background -->
+  <section id="home" class="relative h-screen flex items-center justify-center overflow-hidden">
+    <div class="absolute inset-0 bg-black bg-opacity-60 z-10"></div>
+    
+    <!-- Video Background (represented as a colored div for this example) -->
+    <div class="absolute inset-0 bg-gradient-to-br from-black via-red-900 to-black z-0">
+      <!-- In a real implementation, this would be a video element -->
+      <div class="w-full h-full flex items-center justify-center">
+        <svg class="w-64 h-64 text-red-600 opacity-10" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+          <path d="M12 14c1.66 0 3-1.34 3-3V5c0-1.66-1.34-3-3-3S9 3.34 9 5v6c0 1.66 1.34 3 3 3zm-1-9c0-.55.45-1 1-1s1 .45 1 1v6c0 .55-.45 1-1 1s-1-.45-1-1V5zm6 6c0 2.76-2.24 5-5 5s-5-2.24-5-5H5c0 3.53 2.61 6.43 6 6.92V21h2v-3.08c3.39-.49 6-3.39 6-6.92h-2z"/>
+        </svg>
+      </div>
+    </div>
+    
+    <div class="container mx-auto px-4 z-20 text-center">
+      <h1 class="text-5xl md:text-7xl font-bold mb-4 text-white">Seoul K-Pop <span class="highlight-text">Dance</span> Experience</h1>
+      <h2 class="text-xl md:text-3xl font-medium mb-8 text-gray-200">Learn from the Best Studios in Seoul</h2>
+      <p class="text-lg mb-10 max-w-2xl mx-auto text-gray-300">Join our exclusive dance tour program and learn choreography from Seoul's top dance studios. Stay in comfortable accommodations and explore the vibrant city with our guided tours.</p>
+      <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4">
+        <a href="#booking" class="btn-primary px-8 py-3 rounded-lg font-medium text-white">Book Now</a>
+        <a href="#experience" class="border-2 border-red-600 text-white px-8 py-3 rounded-lg font-medium hover:bg-red-600 hover:bg-opacity-20 transition">Watch Videos</a>
+      </div>
+      
+      <!-- Scroll indicator -->
+      <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 scroll-indicator">
+        <svg class="w-8 h-8 text-white animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- Experience Section with Videos -->
+  <section id="experience" class="py-20 bg-black">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl font-bold text-white mb-2">The K-Pop Dance Experience</h2>
+        <div class="w-20 h-1 bg-red-600 mx-auto"></div>
+        <p class="mt-4 text-gray-300 max-w-2xl mx-auto">Watch our videos to see what you'll experience during your dance tour</p>
+      </div>
+      
+      <!-- Featured Video -->
+      <div class="max-w-4xl mx-auto mb-16">
+        <div class="video-container shadow-2xl shadow-red-900/20 rounded-xl overflow-hidden">
+          <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent z-10 rounded-xl"></div>
+          <div class="bg-gray-900 w-full h-full flex items-center justify-center">
+            <div class="text-center">
+              <svg class="w-20 h-20 text-red-600 mx-auto mb-4 opacity-50" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z"/>
+              </svg>
+              <p class="text-gray-400">Featured Dance Studio Video</p>
+            </div>
+          </div>
+        </div>
+        <div class="mt-4 text-center">
+          <h3 class="text-xl font-semibold text-white">Experience Seoul's Premier Dance Studios</h3>
+          <p class="text-gray-400 mt-2">Learn from professional choreographers who work with K-pop idols</p>
+        </div>
+      </div>
+      
+      <!-- Video Gallery -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <!-- Video 1 -->
+        <div class="video-card rounded-xl overflow-hidden relative cursor-pointer">
+          <div class="aspect-w-16 aspect-h-9 bg-gray-800">
+            <div class="w-full h-full flex items-center justify-center">
+              <div class="video-overlay absolute inset-0 flex items-center justify-center">
+                <svg class="w-16 h-16 text-red-600 play-icon" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                  <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z"/>
+                </svg>
+              </div>
+            </div>
+          </div>
+          <div class="p-4">
+            <h3 class="text-lg font-medium text-white">1 Million Dance Studio Classes</h3>
+            <p class="text-gray-400 text-sm mt-1">Experience world-famous choreography sessions</p>
+          </div>
+        </div>
+        
+        <!-- Video 2 -->
+        <div class="video-card rounded-xl overflow-hidden relative cursor-pointer">
+          <div class="aspect-w-16 aspect-h-9 bg-gray-800">
+            <div class="w-full h-full flex items-center justify-center">
+              <div class="video-overlay absolute inset-0 flex items-center justify-center">
+                <svg class="w-16 h-16 text-red-600 play-icon" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                  <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z"/>
+                </svg>
+              </div>
+            </div>
+          </div>
+          <div class="p-4">
+            <h3 class="text-lg font-medium text-white">Seoul City Tour Highlights</h3>
+            <p class="text-gray-400 text-sm mt-1">Explore K-pop hotspots around the city</p>
+          </div>
+        </div>
+        
+        <!-- Video 3 -->
+        <div class="video-card rounded-xl overflow-hidden relative cursor-pointer">
+          <div class="aspect-w-16 aspect-h-9 bg-gray-800">
+            <div class="w-full h-full flex items-center justify-center">
+              <div class="video-overlay absolute inset-0 flex items-center justify-center">
+                <svg class="w-16 h-16 text-red-600 play-icon" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                  <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z"/>
+                </svg>
+              </div>
+            </div>
+          </div>
+          <div class="p-4">
+            <h3 class="text-lg font-medium text-white">Participant Performances</h3>
+            <p class="text-gray-400 text-sm mt-1">See previous tour participants showcase their skills</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Testimonials -->
+      <div class="mt-20">
+        <h3 class="text-2xl font-bold text-white text-center mb-10">What Our Dancers Say</h3>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <!-- Testimonial 1 -->
+          <div class="testimonial-card p-6 rounded-xl">
+            <div class="flex items-center mb-4">
+              <div class="w-12 h-12 rounded-full bg-red-600 flex items-center justify-center text-white font-bold text-xl">J</div>
+              <div class="ml-4">
+                <h4 class="text-white font-medium">Jessica T.</h4>
+                <p class="text-gray-400 text-sm">United States</p>
+              </div>
+            </div>
+            <p class="text-gray-300">"The dance classes were incredible! I learned so much from professional choreographers and made friends from all over the world. The accommodations were perfect too!"</p>
+            <div class="mt-4 flex">
+              <svg class="w-5 h-5 text-red-500" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+              </svg>
+              <svg class="w-5 h-5 text-red-500" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+              </svg>
+              <svg class="w-5 h-5 text-red-500" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+              </svg>
+              <svg class="w-5 h-5 text-red-500" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+              </svg>
+              <svg class="w-5 h-5 text-red-500" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+              </svg>
+            </div>
+          </div>
+          
+          <!-- Testimonial 2 -->
+          <div class="testimonial-card p-6 rounded-xl">
+            <div class="flex items-center mb-4">
+              <div class="w-12 h-12 rounded-full bg-red-600 flex items-center justify-center text-white font-bold text-xl">M</div>
+              <div class="ml-4">
+                <h4 class="text-white font-medium">Michael L.</h4>
+                <p class="text-gray-400 text-sm">Australia</p>
+              </div>
+            </div>
+            <p class="text-gray-300">"Dancing at 1 Million Studio was a dream come true! The city tour was amazing too - we got to see so many K-pop landmarks and even caught a street performance."</p>
+            <div class="mt-4 flex">
+              <svg class="w-5 h-5 text-red-500" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+              </svg>
+              <svg class="w-5 h-5 text-red-500" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+              </svg>
+              <svg class="w-5 h-5 text-red-500" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+              </svg>
+              <svg class="w-5 h-5 text-red-500" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+              </svg>
+              <svg class="w-5 h-5 text-red-500" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+              </svg>
+            </div>
+          </div>
+          
+          <!-- Testimonial 3 -->
+          <div class="testimonial-card p-6 rounded-xl">
+            <div class="flex items-center mb-4">
+              <div class="w-12 h-12 rounded-full bg-red-600 flex items-center justify-center text-white font-bold text-xl">S</div>
+              <div class="ml-4">
+                <h4 class="text-white font-medium">Sophia K.</h4>
+                <p class="text-gray-400 text-sm">Canada</p>
+              </div>
+            </div>
+            <p class="text-gray-300">"This tour exceeded all my expectations! The instructors were so talented and patient. I improved my dancing skills significantly and made lifelong memories in Seoul."</p>
+            <div class="mt-4 flex">
+              <svg class="w-5 h-5 text-red-500" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+              </svg>
+              <svg class="w-5 h-5 text-red-500" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+              </svg>
+              <svg class="w-5 h-5 text-red-500" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+              </svg>
+              <svg class="w-5 h-5 text-red-500" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+              </svg>
+              <svg class="w-5 h-5 text-red-500" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Program Features -->
+  <section class="py-20 bg-gradient-to-b from-black to-gray-900">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl font-bold text-white mb-2">Program Features</h2>
+        <div class="w-20 h-1 bg-red-600 mx-auto"></div>
+        <p class="mt-4 text-gray-300 max-w-2xl mx-auto">Everything included in your K-Pop dance experience</p>
+      </div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <!-- Feature 1 -->
+        <div class="card p-6 rounded-xl text-center">
+          <div class="w-16 h-16 mx-auto mb-4 bg-red-600 bg-opacity-20 rounded-full flex items-center justify-center">
+            <svg class="w-8 h-8 text-red-500 feature-icon" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+              <path d="M12 14c1.66 0 3-1.34 3-3V5c0-1.66-1.34-3-3-3S9 3.34 9 5v6c0 1.66 1.34 3 3 3zm-1-9c0-.55.45-1 1-1s1 .45 1 1v6c0 .55-.45 1-1 1s-1-.45-1-1V5zm6 6c0 2.76-2.24 5-5 5s-5-2.24-5-5H5c0 3.53 2.61 6.43 6 6.92V21h2v-3.08c3.39-.49 6-3.39 6-6.92h-2z"/>
+            </svg>
+          </div>
+          <h3 class="text-xl font-semibold text-white mb-2">Professional Classes</h3>
+          <p class="text-gray-300">Learn from Seoul's top choreographers at premier dance studios</p>
+        </div>
+        
+        <!-- Feature 2 -->
+        <div class="card p-6 rounded-xl text-center">
+          <div class="w-16 h-16 mx-auto mb-4 bg-red-600 bg-opacity-20 rounded-full flex items-center justify-center">
+            <svg class="w-8 h-8 text-red-500 feature-icon" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+              <path d="M20 9.557V3h-2v2H6V3H4v6.557C2.81 10.25 2 11.525 2 13v8h1v-1h18v1h1v-8c0-1.475-.811-2.75-2-3.443zM18 7v2h-5V7h5zM6 7h5v2H6V7zm-2 6c0-1.103.897-2 2-2h12c1.103 0 2 .897 2 2v2H4v-2z"/>
+            </svg>
+          </div>
+          <h3 class="text-xl font-semibold text-white mb-2">Comfortable Accommodation</h3>
+          <p class="text-gray-300">Stay in well-located accommodations in Hongdae or Gangnam areas</p>
+        </div>
+        
+        <!-- Feature 3 -->
+        <div class="card p-6 rounded-xl text-center">
+          <div class="w-16 h-16 mx-auto mb-4 bg-red-600 bg-opacity-20 rounded-full flex items-center justify-center">
+            <svg class="w-8 h-8 text-red-500 feature-icon" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+              <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+            </svg>
+          </div>
+          <h3 class="text-xl font-semibold text-white mb-2">Guided City Tour</h3>
+          <p class="text-gray-300">Explore Seoul's K-pop hotspots with our English-speaking guides</p>
+        </div>
+        
+        <!-- Feature 4 -->
+        <div class="card p-6 rounded-xl text-center">
+          <div class="w-16 h-16 mx-auto mb-4 bg-red-600 bg-opacity-20 rounded-full flex items-center justify-center">
+            <svg class="w-8 h-8 text-red-500 feature-icon" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+              <path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/>
+            </svg>
+          </div>
+          <h3 class="text-xl font-semibold text-white mb-2">Community Experience</h3>
+          <p class="text-gray-300">Connect with fellow dancers from around the world</p>
+        </div>
+      </div>
+      
+      <!-- Program Timeline -->
+      <div class="mt-20 max-w-4xl mx-auto">
+        <h3 class="text-2xl font-bold text-white text-center mb-10">Sample Program Schedule</h3>
+        
+        <div class="relative">
+          <!-- Timeline line -->
+          <div class="absolute left-8 top-0 bottom-0 w-1 timeline-line"></div>
+          
+          <!-- Day 1 -->
+          <div class="relative pl-20 pb-10">
+            <div class="absolute left-5 w-6 h-6 rounded-full bg-red-600 timeline-dot"></div>
+            <h4 class="text-xl font-semibold text-white mb-2">Day 1: Arrival & Orientation</h4>
+            <div class="card p-4 rounded-lg">
+              <ul class="space-y-2 text-gray-300">
+                <li class="flex items-start">
+                  <span class="text-red-500 mr-2">•</span>
+                  <span>Check-in to accommodation</span>
+                </li>
+                <li class="flex items-start">
+                  <span class="text-red-500 mr-2">•</span>
+                  <span>Welcome orientation and program overview</span>
+                </li>
+                <li class="flex items-start">
+                  <span class="text-red-500 mr-2">•</span>
+                  <span>Neighborhood walking tour</span>
+                </li>
+                <li class="flex items-start">
+                  <span class="text-red-500 mr-2">•</span>
+                  <span>Group welcome dinner (optional)</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+          
+          <!-- Day 2 -->
+          <div class="relative pl-20 pb-10">
+            <div class="absolute left-5 w-6 h-6 rounded-full bg-red-600 timeline-dot"></div>
+            <h4 class="text-xl font-semibold text-white mb-2">Day 2: First Dance Classes</h4>
+            <div class="card p-4 rounded-lg">
+              <ul class="space-y-2 text-gray-300">
+                <li class="flex items-start">
+                  <span class="text-red-500 mr-2">•</span>
+                  <span>Morning class at 1 Million Dance Studio</span>
+                </li>
+                <li class="flex items-start">
+                  <span class="text-red-500 mr-2">•</span>
+                  <span>Lunch break</span>
+                </li>
+                <li class="flex items-start">
+                  <span class="text-red-500 mr-2">•</span>
+                  <span>Afternoon class at Urban Play Academy</span>
+                </li>
+                <li class="flex items-start">
+                  <span class="text-red-500 mr-2">•</span>
+                  <span>Free evening to explore</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+          
+          <!-- Day 3 -->
+          <div class="relative pl-20">
+            <div class="absolute left-5 w-6 h-6 rounded-full bg-red-600 timeline-dot"></div>
+            <h4 class="text-xl font-semibold text-white mb-2">Day 3: City Tour Day</h4>
+            <div class="card p-4 rounded-lg">
+              <ul class="space-y-2 text-gray-300">
+                <li class="flex items-start">
+                  <span class="text-red-500 mr-2">•</span>
+                  <span>Morning free time</span>
+                </li>
+                <li class="flex items-start">
+                  <span class="text-red-500 mr-2">•</span>
+                  <span>Afternoon K-pop city tour (2PM - 8PM)</span>
+                </li>
+                <li class="flex items-start">
+                  <span class="text-red-500 mr-2">•</span>
+                  <span>Visit to entertainment companies</span>
+                </li>
+                <li class="flex items-start">
+                  <span class="text-red-500 mr-2">•</span>
+                  <span>K-pop merchandise shopping</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Dance Studios Section -->
+  <section id="studios" class="py-20 bg-gray-900">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl font-bold text-white mb-2">Featured Dance Studios</h2>
+        <div class="w-20 h-1 bg-red-600 mx-auto"></div>
+        <p class="mt-4 text-gray-300 max-w-2xl mx-auto">Learn from Seoul's top dance studios with professional instructors</p>
+      </div>
+      
+      <!-- Studio Tabs -->
+      <div class="max-w-5xl mx-auto mb-10">
+        <div class="flex flex-wrap justify-center mb-6">
+          <button class="tab tab-active px-6 py-2 rounded-full mx-2 mb-2">1 Million Dance</button>
+          <button class="tab px-6 py-2 rounded-full mx-2 mb-2 bg-gray-800 text-gray-300">Urban Play</button>
+          <button class="tab px-6 py-2 rounded-full mx-2 mb-2 bg-gray-800 text-gray-300">OFD Studio</button>
+          <button class="tab px-6 py-2 rounded-full mx-2 mb-2 bg-gray-800 text-gray-300">Prepix Movement</button>
+        </div>
+        
+        <!-- Studio Content -->
+        <div class="card rounded-xl overflow-hidden">
+          <div class="grid grid-cols-1 md:grid-cols-2">
+            <!-- Studio Image/Video -->
+            <div class="bg-black h-full min-h-[300px] flex items-center justify-center relative">
+              <div class="absolute inset-0 bg-gradient-to-br from-red-900/30 to-black/50"></div>
+              <svg class="w-24 h-24 text-red-600 opacity-30" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <path d="M12 14c1.66 0 3-1.34 3-3V5c0-1.66-1.34-3-3-3S9 3.34 9 5v6c0 1.66 1.34 3 3 3zm-1-9c0-.55.45-1 1-1s1 .45 1 1v6c0 .55-.45 1-1 1s-1-.45-1-1V5zm6 6c0 2.76-2.24 5-5 5s-5-2.24-5-5H5c0 3.53 2.61 6.43 6 6.92V21h2v-3.08c3.39-.49 6-3.39 6-6.92h-2z"/>
+              </svg>
+              <div class="absolute bottom-4 right-4 bg-red-600 text-white text-xs px-2 py-1 rounded-full">Featured Studio</div>
+            </div>
+            
+            <!-- Studio Info -->
+            <div class="p-8">
+              <h3 class="text-2xl font-bold text-white mb-4">1 Million Dance Studio</h3>
+              <p class="text-gray-300 mb-6">World-famous dance studio known for its YouTube channel with millions of subscribers. Learn from choreographers who work with K-pop idols and create viral dance routines.</p>
+              
+              <div class="space-y-4 mb-6">
+                <div class="flex items-start">
+                  <svg class="w-5 h-5 text-red-500 mt-0.5 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"></path>
+                  </svg>
+                  <div>
+                    <h4 class="font-medium text-white">Location</h4>
+                    <p class="text-gray-400 text-sm">Seongdong-gu, Ttukseom-ro 13-gil 33</p>
+                  </div>
+                </div>
+                
+                <div class="flex items-start">
+                  <svg class="w-5 h-5 text-red-500 mt-0.5 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd"></path>
+                  </svg>
+                  <div>
+                    <h4 class="font-medium text-white">Class Schedule</h4>
+                    <p class="text-gray-400 text-sm">Multiple classes daily from 10AM to 10PM</p>
+                  </div>
+                </div>
+                
+                <div class="flex items-start">
+                  <svg class="w-5 h-5 text-red-500 mt-0.5 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                  </svg>
+                  <div>
+                    <h4 class="font-medium text-white">Difficulty Levels</h4>
+                    <p class="text-gray-400 text-sm">Beginner, Intermediate, Advanced</p>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="flex space-x-4">
+                <a href="https://www.1milliondance.com/" target="_blank" class="text-red-500 hover:text-red-400 flex items-center">
+                  <svg class="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M11 3a1 1 0 100 2h2.586l-6.293 6.293a1 1 0 101.414 1.414L15 6.414V9a1 1 0 102 0V4a1 1 0 00-1-1h-5z"></path>
+                    <path d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z"></path>
+                  </svg>
+                  Visit Website
+                </a>
+                <button class="text-white bg-red-600 hover:bg-red-700 px-4 py-2 rounded-lg flex items-center">
+                  <svg class="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M10 12a2 2 0 100-4 2 2 0 000 4z"></path>
+                    <path fill-rule="evenodd" d="M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.064 7-9.542 7S1.732 14.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z" clip-rule="evenodd"></path>
+                  </svg>
+                  View Classes
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Studio Gallery -->
+      <div class="mt-16">
+        <h3 class="text-2xl font-bold text-white text-center mb-8">Studio Gallery</h3>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+          <!-- Gallery Image 1 -->
+          <div class="gallery-img rounded-lg overflow-hidden bg-gray-800 aspect-square flex items-center justify-center">
+            <svg class="w-16 h-16 text-red-600 opacity-30" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+              <path d="M12 14c1.66 0 3-1.34 3-3V5c0-1.66-1.34-3-3-3S9 3.34 9 5v6c0 1.66 1.34 3 3 3zm-1-9c0-.55.45-1 1-1s1 .45 1 1v6c0 .55-.45 1-1 1s-1-.45-1-1V5zm6 6c0 2.76-2.24 5-5 5s-5-2.24-5-5H5c0 3.53 2.61 6.43 6 6.92V21h2v-3.08c3.39-.49 6-3.39 6-6.92h-2z"/>
+            </svg>
+          </div>
+          
+          <!-- Gallery Image 2 -->
+          <div class="gallery-img rounded-lg overflow-hidden bg-gray-800 aspect-square flex items-center justify-center">
+            <svg class="w-16 h-16 text-red-600 opacity-30" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+              <path d="M12 14c1.66 0 3-1.34 3-3V5c0-1.66-1.34-3-3-3S9 3.34 9 5v6c0 1.66 1.34 3 3 3zm-1-9c0-.55.45-1 1-1s1 .45 1 1v6c0 .55-.45 1-1 1s-1-.45-1-1V5zm6 6c0 2.76-2.24 5-5 5s-5-2.24-5-5H5c0 3.53 2.61 6.43 6 6.92V21h2v-3.08c3.39-.49 6-3.39 6-6.92h-2z"/>
+            </svg>
+          </div>
+          
+          <!-- Gallery Image 3 -->
+          <div class="gallery-img rounded-lg overflow-hidden bg-gray-800 aspect-square flex items-center justify-center">
+            <svg class="w-16 h-16 text-red-600 opacity-30" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+              <path d="M12 14c1.66 0 3-1.34 3-3V5c0-1.66-1.34-3-3-3S9 3.34 9 5v6c0 1.66 1.34 3 3 3zm-1-9c0-.55.45-1 1-1s1 .45 1 1v6c0 .55-.45 1-1 1s-1-.45-1-1V5zm6 6c0 2.76-2.24 5-5 5s-5-2.24-5-5H5c0 3.53 2.61 6.43 6 6.92V21h2v-3.08c3.39-.49 6-3.39 6-6.92h-2z"/>
+            </svg>
+          </div>
+          
+          <!-- Gallery Image 4 -->
+          <div class="gallery-img rounded-lg overflow-hidden bg-gray-800 aspect-square flex items-center justify-center">
+            <svg class="w-16 h-16 text-red-600 opacity-30" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+              <path d="M12 14c1.66 0 3-1.34 3-3V5c0-1.66-1.34-3-3-3S9 3.34 9 5v6c0 1.66 1.34 3 3 3zm-1-9c0-.55.45-1 1-1s1 .45 1 1v6c0 .55-.45 1-1 1s-1-.45-1-1V5zm6 6c0 2.76-2.24 5-5 5s-5-2.24-5-5H5c0 3.53 2.61 6.43 6 6.92V21h2v-3.08c3.39-.49 6-3.39 6-6.92h-2z"/>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Accommodation Section -->
+  <section id="accommodation" class="py-20 bg-black">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl font-bold text-white mb-2">Accommodation</h2>
+        <div class="w-20 h-1 bg-red-600 mx-auto"></div>
+        <p class="mt-4 text-gray-300 max-w-2xl mx-auto">Comfortable and convenient accommodations in Seoul's most vibrant districts</p>
+      </div>
+      
+      <!-- Room Types -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
+        <!-- Standard Room -->
+        <div class="card rounded-xl overflow-hidden">
+          <div class="relative">
+            <div class="h-64 bg-gray-800 relative overflow-hidden">
+              <div class="absolute inset-0 flex items-center justify-center">
+                <svg class="w-24 h-24 text-red-600 opacity-20" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                  <path d="M20 9.557V3h-2v2H6V3H4v6.557C2.81 10.25 2 11.525 2 13v8h1v-1h18v1h1v-8c0-1.475-.811-2.75-2-3.443zM18 7v2h-5V7h5zM6 7h5v2H6V7zm-2 6c0-1.103.897-2 2-2h12c1.103 0 2 .897 2 2v2H4v-2z"/>
+                </svg>
+              </div>
+            </div>
+            <div class="absolute top-4 right-4 bg-red-600 text-white text-xs px-3 py-1 rounded-full">Popular</div>
+          </div>
+          <div class="p-6">
+            <div class="flex justify-between items-center mb-4">
+              <h3 class="text-xl font-semibold text-white">Standard Room</h3>
+              <div class="flex">
+                <svg class="w-5 h-5 text-red-500" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                </svg>
+                <svg class="w-5 h-5 text-red-500" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                </svg>
+                <svg class="w-5 h-5 text-red-500" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                </svg>
+                <svg class="w-5 h-5 text-red-500" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                  <path<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'93a0915fc03b330f',t:'MTc0NjI4Mzc5Ni4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script>
