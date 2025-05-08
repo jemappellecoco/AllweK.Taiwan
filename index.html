@@ -8,6 +8,14 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
+        #successMessage {
+            animation: fadeIn 0.6s ease-out forwards;
+          }
+          @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+          }
+          
         @keyframes pulse {
             0%, 100% {
                 transform: scale(1);
@@ -543,6 +551,8 @@
                           class="w-full bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-6 rounded-lg transition duration-300">
                           送出訊息
                         </button>
+                         <!-- ✅ 成功提示訊息 -->
+                         <p id="successMessage" class="hidden text-green-400 mt-4 text-center">✅ 成功送出！感謝您的聯繫～</p>
                       </form>
                          
                 </div>
@@ -583,6 +593,25 @@
                     </div>
                 </div> <!-- 如果之前有開 div -->
             </section> <!-- 關閉聯絡我們區塊 -->
+            <script>
+                document.getElementById("contactForm").addEventListener("submit", function (e) {
+                  e.preventDefault(); // 不跳轉
+              
+                  const form = e.target;
+                  const data = new FormData(form);
+              
+                  fetch("https://script.google.com/macros/s/AKfycbzgIq7Z9IXNxWs4lTHNnA1I2Hvkni6ne77L8ULsjU7SDJgero5QDWqhN_rXDJ3Z0JWZHA/exec", {
+                    method: "POST",
+                    body: data
+                  })
+                  .then(res => res.text())
+                  .then(result => {
+                    document.getElementById("successMessage").classList.remove("hidden");
+                    form.reset(); // 清空表單
+                  })
+                  .catch(error => alert("送出失敗，請稍後再試"));
+                });
+              </script>
             </body>
             </html>
                     <script>(function()
