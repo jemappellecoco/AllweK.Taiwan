@@ -15,7 +15,7 @@
             from { opacity: 0; transform: translateY(10px); }
             to { opacity: 1; transform: translateY(0); }
           }
-          
+
         @keyframes pulse {
             0%, 100% {
                 transform: scale(1);
@@ -24,7 +24,7 @@
                 transform: scale(1.05);
             }
         }
-        
+
         @keyframes fadeIn {
             from {
                 opacity: 0;
@@ -35,44 +35,44 @@
                 transform: translateY(0);
             }
         }
-        
+
         .animate-pulse-slow {
             animation: pulse 3s infinite;
         }
-        
+
         .animate-fade-in {
             animation: fadeIn 0.8s ease-out forwards;
         }
-        
+
         .delay-100 { animation-delay: 0.1s; }
         .delay-200 { animation-delay: 0.2s; }
         .delay-300 { animation-delay: 0.3s; }
         .delay-400 { animation-delay: 0.4s; }
         .delay-500 { animation-delay: 0.5s; }
-        
+
         body {
             font-family: 'Poppins', sans-serif;
             background-color: #0a0a0a;
             color: #ffffff;
         }
-        
+
         .hero-gradient {
             background: linear-gradient(135deg, rgba(220, 20, 60, 0.9), rgba(0, 0, 0, 0.8));
         }
-        
+
         .card-hover:hover {
             transform: translateY(-5px);
             box-shadow: 0 10px 25px -5px rgba(220, 20, 60, 0.4);
         }
-        
+
         .text-shadow {
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
         }
-        
+
         .nav-link {
             position: relative;
         }
-        
+
         .nav-link::after {
             content: '';
             position: absolute;
@@ -83,19 +83,19 @@
             background-color: #dc143c;
             transition: width 0.3s ease;
         }
-        
+
         .nav-link:hover::after {
             width: 100%;
         }
-        
+
         .custom-scrollbar::-webkit-scrollbar {
             width: 6px;
         }
-        
+
         .custom-scrollbar::-webkit-scrollbar-track {
             background: #1a1a1a;
         }
-        
+
         .custom-scrollbar::-webkit-scrollbar-thumb {
             background: #dc143c;
             border-radius: 3px;
@@ -107,17 +107,17 @@
     <nav class="fixed w-full bg-black bg-opacity-90 z-50 px-4 py-4 flex justify-between items-center border-b border-red-700">
         <div class="flex items-center">
             <div class="text-2xl font-bold text-white">
-                <span class="text-red-600">AllweK</span>    
+                <span class="text-red-600">AllweK</span>
             </div>
         </div>
-        
+
         <div class="hidden md:flex space-x-8">
             <a href="#" class="nav-link text-white hover:text-red-500 transition duration-300">首頁</a>
             <a href="#camps" class="nav-link text-white hover:text-red-500 transition duration-300">營隊項目</a>
             <a href="#custom" class="nav-link text-white hover:text-red-500 transition duration-300">客製旅遊</a>
             <a href="#contact" class="nav-link text-white hover:text-red-500 transition duration-300">聯絡我們</a>
         </div>
-        
+
         <div class="md:hidden">
             <button id="menu-toggle" class="text-white focus:outline-none">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -126,7 +126,7 @@
             </button>
         </div>
     </nav>
-    
+
     <!-- 行動裝置選單 -->
     <div id="mobile-menu" class="fixed inset-0 bg-black bg-opacity-95 z-40 hidden flex-col justify-center items-center">
         <button id="close-menu" class="absolute top-4 right-4 text-white">
@@ -147,7 +147,7 @@
         <div class="absolute inset-0 z-0">
             <div class="absolute inset-0 bg-black opacity-60"></div>
             <div class="absolute inset-0 hero-gradient opacity-80"></div>
-            
+
             <!-- 背景圖案 -->
             <div class="absolute inset-0 flex items-center justify-center">
                 <svg class="w-full h-full opacity-10" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
@@ -158,10 +158,10 @@
                 </svg>
             </div>
         </div>
-        
+
         <div class="container mx-auto px-6 relative z-10 text-center">
             <h1 class="text-5xl md:text-7xl font-bold mb-6 text-shadow animate-fade-in">
-                <span class="text-red-600">ALLweK Taiwan</span> 
+                <span class="text-red-600">ALLweK Taiwan</span>
             </h1>
             <p class="text-xl md:text-2xl mb-10 max-w-3xl mx-auto animate-fade-in delay-200">
                 專業韓流體驗，打造專屬於你的KPOP旅程，從練習生到舞台，實現你的韓流夢想
@@ -175,7 +175,7 @@
                 </a>
             </div>
         </div>
-        
+
         <div class="absolute bottom-10 left-0 right-0 flex justify-center animate-bounce">
             <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
@@ -190,7 +190,7 @@
                 <h2 class="text-3xl md:text-4xl font-bold mb-4">為什麼選擇 <span class="text-red-600">AllweK</span></h2>
                 <p class="text-gray-400 max-w-2xl mx-auto">我們提供最專業的KPOP體驗，讓你親身感受韓流文化的魅力</p>
             </div>
-            
+
             <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
                 <div class="bg-gray-900 rounded-xl p-8 border-b-4 border-red-600 transform transition duration-300 hover:-translate-y-2">
                     <div class="text-red-500 mb-4">
@@ -201,7 +201,7 @@
                     <h3 class="text-xl font-bold mb-3">專業舞蹈培訓</h3>
                     <p class="text-gray-400">由韓國專業舞蹈老師親自指導，學習最新最熱門的KPOP舞蹈，打造專屬於你的舞台魅力。</p>
                 </div>
-                
+
                 <div class="bg-gray-900 rounded-xl p-8 border-b-4 border-red-600 transform transition duration-300 hover:-translate-y-2">
                     <div class="text-red-500 mb-4">
                         <svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -212,7 +212,7 @@
                     <h3 class="text-xl font-bold mb-3">娛樂公司參訪</h3>
                     <p class="text-gray-400">獨家安排參觀韓國知名娛樂公司，了解偶像的培訓過程，近距離感受韓流產業的魅力。</p>
                 </div>
-                
+
                 <div class="bg-gray-900 rounded-xl p-8 border-b-4 border-red-600 transform transition duration-300 hover:-translate-y-2">
                     <div class="text-red-500 mb-4">
                         <svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -233,7 +233,7 @@
                 <h2 class="text-3xl md:text-4xl font-bold mb-4">熱門<span class="text-red-600">營隊項目</span></h2>
                 <p class="text-gray-400 max-w-2xl mx-auto">選擇適合你的KPOP體驗，開啟你的韓流之旅</p>
             </div>
-            
+
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <!-- 營隊卡片 1 -->
                 <div class="bg-gray-800 rounded-xl overflow-hidden shadow-lg card-hover transition duration-300">
@@ -258,7 +258,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- 營隊卡片 2 -->
                 <div class="bg-gray-800 rounded-xl overflow-hidden shadow-lg card-hover transition duration-300">
                     <div class="h-60 bg-red-700 relative overflow-hidden">
@@ -282,7 +282,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- 營隊卡片 3 -->
                 <div class="bg-gray-800 rounded-xl overflow-hidden shadow-lg card-hover transition duration-300">
                     <div class="h-60 bg-red-800 relative overflow-hidden">
@@ -307,7 +307,7 @@
                     </div>
                 </div>
             </div>
-            
+
             <div class="text-center mt-12">
                 <a href="#" class="inline-block border-2 border-red-600 text-red-600 hover:bg-red-600 hover:text-white font-bold py-3 px-8 rounded-full transition duration-300">
                     查看所有營隊
@@ -326,19 +326,19 @@
                 <rect width="100%" height="100%" fill="url(#pattern)" />
             </svg>
         </div>
-        
+
         <div class="container mx-auto px-6 relative z-10">
             <div class="text-center mb-16">
                 <h2 class="text-3xl md:text-4xl font-bold mb-4">客製化<span class="text-red-600">韓流旅程</span></h2>
                 <p class="text-gray-400 max-w-2xl mx-auto">打造專屬於你的KPOP體驗，實現你的韓流夢想</p>
             </div>
-            
+
             <div class="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
                 <div>
                     <div class="bg-black bg-opacity-50 backdrop-filter backdrop-blur-sm p-8 rounded-xl border border-gray-800">
                         <h3 class="text-2xl font-bold mb-6 text-red-500">專屬於你的韓流體驗</h3>
                         <ul class="space-y-4">
-                            
+
                             <li class="flex items-start">
                                 <svg class="w-6 h-6 text-red-500 mr-3 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
@@ -364,7 +364,7 @@
                                 <p class="text-gray-300">韓國美食與文化深度體驗</p>
                             </li>
                         </ul>
-                        
+
                         <div class="mt-8">
                             <a href="#contact" class="bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-8 rounded-full inline-block transition duration-300">
                                 立即諮詢
@@ -372,7 +372,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="grid grid-cols-2 gap-4">
                     <div class="bg-red-600 h-40 rounded-lg flex items-center justify-center p-4 animate-pulse-slow">
                         <svg class="w-16 h-16 text-white" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
@@ -406,7 +406,7 @@
                 <h2 class="text-3xl md:text-4xl font-bold mb-4">學員<span class="text-red-600">心得分享</span></h2>
                 <p class="text-gray-400 max-w-2xl mx-auto">聽聽參與過我們營隊的學員怎麼說</p>
             </div>
-            
+
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <!-- 心得 1 -->
                 <div class="bg-gray-900 p-6 rounded-xl border border-gray-800">
@@ -440,7 +440,7 @@
                     </div>
                     <p class="text-gray-300">「這是我人生中最棒的體驗！專業的舞蹈老師讓我在短短7天內學會了完整的舞蹈，最後的成果展讓我感受到了站在舞台上的魅力。」</p>
                 </div>
-                
+
                 <!-- 心得 2 -->
                 <div class="bg-gray-900 p-6 rounded-xl border border-gray-800">
                     <div class="flex items-center mb-4">
@@ -473,7 +473,7 @@
                     </div>
                     <p class="text-gray-300">「全方位的培訓讓我了解到成為偶像的不易，但也讓我更加堅定了追夢的決心。參觀娛樂公司的經歷讓我大開眼界，真的很感謝K-CAMP給我這個機會！」</p>
                 </div>
-                
+
                 <!-- 心得 3 -->
                 <div class="bg-gray-900 p-6 rounded-xl border border-gray-800">
                     <div class="flex items-center mb-4">
@@ -517,7 +517,7 @@
                 <h2 class="text-3xl md:text-4xl font-bold mb-4">聯絡<span class="text-red-600">我們</span></h2>
                 <p class="text-gray-400 max-w-2xl mx-auto">有任何問題或想了解更多資訊，請隨時與我們聯繫</p>
             </div>
-            
+
             <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
                 <div class="bg-gray-900 p-8 rounded-xl border border-gray-800">
                     <h3 class="text-2xl font-bold mb-6">聯絡表單</h3>
@@ -527,26 +527,26 @@
                           <input type="text" name="name" id="name" required
                             class="w-full bg-gray-800 border border-gray-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-red-500">
                         </div>
-                        
+
                         <div>
                           <label for="email" class="block text-white mb-1">電子郵件</label>
                           <input type="email" name="email" id="email" required
                             class="w-full bg-gray-800 border border-gray-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-red-500">
                         </div>
-                        
+
                         <div>
                           <label for="subject" class="block text-white mb-1">主旨</label>
                           <input type="text" name="subject" id="subject"
                             class="w-full bg-gray-800 border border-gray-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-red-500">
                         </div>
-                        
+
                         <div>
                           <label for="message" class="block text-white mb-1">訊息</label>
                           <textarea name="message" id="message" rows="5" required
                             class="w-full bg-gray-800 border border-gray-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-red-500"
                             placeholder="請輸入您的訊息"></textarea>
                         </div>
-                        
+
                         <button type="submit"
                           class="w-full bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-6 rounded-lg transition duration-300">
                           送出訊息
@@ -554,9 +554,9 @@
                          <!-- ✅ 成功提示訊息 -->
                          <p id="successMessage" class="hidden text-green-400 mt-4 text-center">✅ 成功送出！感謝您的聯繫～</p>
                       </form>
-                         
+
                 </div>
-                
+
                 <div>
                     <div class="bg-gray-900 p-8 rounded-xl border border-gray-800 mb-8">
                         <h3 class="text-2xl font-bold mb-6">聯絡資訊</h3>
@@ -596,10 +596,10 @@
             <script>
                 document.getElementById("contactForm").addEventListener("submit", function (e) {
                   e.preventDefault(); // 不跳轉
-              
+
                   const form = e.target;
                   const data = new FormData(form);
-              
+
                   fetch("https://script.google.com/macros/s/AKfycbzgIq7Z9IXNxWs4lTHNnA1I2Hvkni6ne77L8ULsjU7SDJgero5QDWqhN_rXDJ3Z0JWZHA/exec", {
                     method: "POST",
                     body: data

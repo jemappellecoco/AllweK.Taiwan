@@ -9,7 +9,7 @@ header {
     font-size: 2rem;
     margin-bottom: 0.5rem;
   }
-  
+
   /* ========= Card / Grid ========= */
   .cards, .grid {
     display: flex;
@@ -17,7 +17,7 @@ header {
     gap: 1.5rem;
     justify-content: center;
   }
-  
+
   .card, .trip-card {
     background: #fff0f0;
     border: 2px solid #c94f4f;
@@ -25,7 +25,7 @@ header {
     padding: 1.5rem;
     box-sizing: border-box;
   }
-  
+
   .card {
     flex: 1 1 calc(50% - 0.75rem);
     box-shadow: 0 4px 10px rgba(0,0,0,0.05);
@@ -38,7 +38,7 @@ header {
   .card-full {
     flex: 1 1 100%;
   }
-  
+
   .card h3 {
     color: #c94f4f;
     margin-top: 0;
@@ -56,7 +56,7 @@ header {
     display: block;
     margin-bottom: 0.5rem;
   }
-  
+
   /* ========= Trip Card ========= */
   .trip-card h3 {
     margin-top: 0;
@@ -70,7 +70,7 @@ header {
   .trip-card a:hover {
     text-decoration: underline;
   }
-  
+
   /* ========= Button Links ========= */
   .back-link, .line-link {
     display: inline-block;
@@ -84,7 +84,7 @@ header {
   .back-link:hover, .line-link:hover {
     background-color: #a33c3c;
   }
-  
+
   /* ========= Back Section ========= */
   .back {
     text-align: center;
@@ -98,7 +98,7 @@ header {
   .back a:hover {
     text-decoration: underline;
   }
-  
+
   /* ========= Footer Links ========= */
   .footer-links {
     margin-top: 3rem;
@@ -117,7 +117,7 @@ header {
   .footer-links a:hover {
     background-color: #a33c3c;
   }
-  
+
   /* ========= Common Tags ========= */
   ul {
     padding-left: 1.5rem;
@@ -146,7 +146,7 @@ header {
     display: block;
     margin-bottom: 1rem;
   }
-  
+
   /* ========= Register / CTA Buttons ========= */
   .register-button, .cta-button {
     display: inline-block;
@@ -166,27 +166,27 @@ header {
     background-color: #a83838;
     transform: translateY(-2px);
   }
-  
+
   /* ========= Emphasis / Star Text ========= */
   .hero-highlight .star {
     color: #c94f4f;
     font-weight: bold;
     animation: sparkle 1.5s infinite;
   }
-  
+
   /* ========= Responsive ========= */
   @media screen and (max-width: 768px) {
     .card, .card-full {
       flex: 1 1 100%;
     }
-  
+
     .footer-links a,
     .back-link, .line-link {
       display: block;
       margin: 0.5rem auto;
       text-align: center;
     }
-  
+
     .cards, .grid {
       flex-direction: column;
     }
@@ -201,7 +201,7 @@ header {
     background-color: #f8f8f8;
     border-top: 1px solid #e0e0e0;
   }
-  
+
   .footer-left a,
   .footer-right a {
     margin-right: 1rem;
@@ -209,13 +209,13 @@ header {
     color: #ffffff;
     font-weight: bold;
   }
-  
+
   .footer-right {
     display: flex;
     align-items: center;
     flex-wrap: wrap; /* 手機版時能自動換行 */
   }
-  
+
   .footer-right a:last-child {
     margin-right: 0;
   }
@@ -224,21 +224,21 @@ header {
     text-align: center;
     margin-bottom: 2rem;
   }
-  
+
   .grid {
     display: flex;
     flex-wrap: wrap;
     gap: 1.5rem;
     justify-content: center;
   }
-  
+
   .card-link {
     text-decoration: none;
     color: inherit;
     display: block;
     width: 280px;
   }
-  
+
   .card {
     background: #fff0f0;
     border: 2px solid #c94f4f;
@@ -252,19 +252,19 @@ header {
     align-items: center;
     text-align: center;
   }
-  
+
   .card:hover {
     transform: translateY(-4px);
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   }
-  
+
   .card-title {
     font-size: 1.2rem;
     font-weight: bold;
     margin-bottom: 0.5rem;
     color: #c94f4f;
   }
-  
+
   .card p {
     font-size: 0.95rem;
     color: #555;
@@ -311,20 +311,20 @@ header {
       width: 100%;
     }
   }
-  
+
   /* 手機版 (寬度小於 600px 時) 自動上下排 */
   @media (max-width: 600px) {
     .page-footer {
       flex-direction: column;
       align-items: flex-start;
     }
-    
+
     .footer-right {
       flex-direction: column;
       align-items: flex-start;
       margin-top: 1rem;
     }
-    
+
     .footer-right a {
       margin: 0.25rem 0;
     }
@@ -343,12 +343,12 @@ header {
     z-index: 1000;
     transition: background-color 0.3s ease, transform 0.3s ease;
   }
-  
+
   .back-to-home:hover {
     background-color: #a83e3e;
     transform: translateY(-5px);
   }
-  
+
   /* 手機版（螢幕寬度小於600px）按鈕變小 */
   @media (max-width: 600px) {
     .back-to-home {
@@ -411,7 +411,7 @@ header {
 
 .announcement-banner strong {
   color: #d84315;
-} 
+}
 /* 手機版調整：按鈕變小一點，間距也縮短 */
 @media (max-width: 600px) {
   .back-to-home, .back-to-line {
@@ -426,4 +426,3 @@ header {
     bottom: 15px;
   }
 }
- 

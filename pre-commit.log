@@ -1,0 +1,40 @@
+### version information
+
+```
+pre-commit version: 3.5.0
+git --version: git version 2.31.1.windows.1
+sys.version:
+    3.8.5 (default, Sep  3 2020, 21:29:08) [MSC v.1916 64 bit (AMD64)]
+sys.executable: c:\users\coco\anaconda3\python.exe
+os.name: nt
+sys.platform: win32
+```
+
+### error information
+
+```
+An error has occurred: InvalidConfigError:
+=====> .pre-commit-config.yaml is not a file
+```
+
+```
+Traceback (most recent call last):
+  File "c:\users\coco\anaconda3\lib\site-packages\pre_commit\error_handler.py", line 73, in error_handler
+    yield
+  File "c:\users\coco\anaconda3\lib\site-packages\pre_commit\main.py", line 414, in main
+    return run(args.config, store, args)
+  File "c:\users\coco\anaconda3\lib\site-packages\pre_commit\commands\run.py", line 422, in run
+    config = load_config(config_file)
+  File "c:\users\coco\anaconda3\lib\site-packages\cfgv.py", line 416, in load_from_filename
+    return apply_defaults(data, schema)
+  File "c:\users\coco\anaconda3\lib\contextlib.py", line 131, in __exit__
+    self.gen.throw(type, value, traceback)
+  File "c:\users\coco\anaconda3\lib\site-packages\cfgv.py", line 45, in reraise_as
+    raise tp(e).with_traceback(tb) from None
+  File "c:\users\coco\anaconda3\lib\site-packages\cfgv.py", line 42, in reraise_as
+    yield
+  File "c:\users\coco\anaconda3\lib\site-packages\cfgv.py", line 401, in load_from_filename
+    raise ValidationError(f'{display_filename} is not a file')
+pre_commit.clientlib.InvalidConfigError:
+=====> .pre-commit-config.yaml is not a file
+```

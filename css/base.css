@@ -12,7 +12,7 @@ body {
     margin-left: auto;
     margin-right: auto;
   }
-  
+
  h1{
   color: #c94f4f;
   text-align: center;
@@ -65,14 +65,14 @@ h3,h2 {
     0% { opacity: 0; transform: translateY(50px) rotate(-3deg); }
     100% { opacity: 1; transform: translateY(0) rotate(0); }
   }
-  
+
   /* 響應式調整 */
   @media screen and (max-width: 768px) {
     body {
       padding: 1rem;
     }
   }
-  
+
   /* 表格樣式 */
   table {
     width: 100%;
@@ -86,4 +86,3 @@ h3,h2 {
     padding: 0.5rem;
     text-align: left;
   }
-  
