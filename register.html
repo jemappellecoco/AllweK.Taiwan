@@ -1,0 +1,551 @@
+
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>報名資訊｜KPOP DREAM CAMP 2025</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Noto Sans TC', sans-serif;
+      background-color: #0a0a0a;
+      color: #f1f1f1;
+      background-image:
+        radial-gradient(circle at 10% 20%, rgba(255, 0, 0, 0.05) 0%, transparent 30%),
+        radial-gradient(circle at 90% 80%, rgba(255, 0, 0, 0.05) 0%, transparent 30%);
+    }
+    .highlight {
+      background: linear-gradient(120deg, #ff0000, #cc0000);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .section {
+      padding: 2.5rem 1.5rem;
+      border-radius: 1rem;
+      background-color: rgba(20, 20, 20, 0.7);
+      backdrop-filter: blur(10px);
+      margin-bottom: 1.5rem;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .section:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(255, 0, 0, 0.1);
+    }
+    .glow-button {
+      position: relative;
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
+    .glow-button:before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: linear-gradient(45deg, rgba(255,0,0,0), rgba(255,0,0,0.3), rgba(255,0,0,0));
+      transform: rotate(45deg);
+      animation: glowEffect 3s infinite;
+    }
+    @keyframes glowEffect {
+      0% { transform: translateX(-100%) rotate(45deg); }
+      100% { transform: translateX(100%) rotate(45deg); }
+    }
+    .countdown-timer {
+      background: rgba(30, 30, 30, 0.8);
+      border: 1px solid rgba(255, 0, 0, 0.2);
+      border-radius: 0.5rem;
+    }
+    .tab-active {
+      background: linear-gradient(120deg, #ff0000, #cc0000);
+      color: white;
+    }
+    .accordion-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+    }
+    .accordion-open .accordion-content {
+      max-height: 500px;
+    }
+    .accordion-icon {
+      transition: transform 0.3s ease;
+    }
+    .accordion-open .accordion-icon {
+      transform: rotate(180deg);
+    }
+    .star {
+      position: absolute;
+      background-color: white;
+      border-radius: 50%;
+      animation: twinkle 4s infinite;
+      z-index: -1;
+    }
+    @keyframes twinkle {
+      0%, 100% { opacity: 0.1; }
+      50% { opacity: 0.7; }
+    }
+  </style>
+</head>
+<body class="relative">
+  <!-- Background stars -->
+  <div id="stars-container"></div>
+
+  <!-- Header with animated background -->
+  <header class="relative overflow-hidden bg-gradient-to-b from-black to-transparent py-16">
+    <div class="absolute inset-0 z-0">
+      <div class="absolute top-0 left-0 w-full h-full bg-[radial-gradient(ellipse_at_center,_rgba(255,0,0,0.15)_0%,_rgba(0,0,0,0)_70%)]"></div>
+    </div>
+
+    <div class="relative z-10 max-w-4xl mx-auto px-4 text-center">
+      <div class="inline-block mb-4 px-4 py-1 rounded-full bg-red-900/30 border border-red-800/50">
+        <span class="text-red-400 font-medium">2025 年 7 月 18-24 日・韓國首爾</span>
+      </div>
+      <h1 class="text-5xl md:text-6xl font-black mb-4">
+        <span class="highlight">KPOP DREAM CAMP</span>
+      </h1>
+      <p class="text-xl md:text-2xl text-gray-300 mb-8">成為下一個 K-POP 明星的機會</p>
+
+      <!-- Countdown Timer -->
+      <div class="countdown-timer inline-flex gap-4 p-4 mb-8">
+        <div class="text-center">
+          <div id="days" class="text-3xl font-bold text-red-400">00</div>
+          <div class="text-xs text-gray-400">天</div>
+        </div>
+        <div class="text-center">
+          <div id="hours" class="text-3xl font-bold text-red-400">00</div>
+          <div class="text-xs text-gray-400">時</div>
+        </div>
+        <div class="text-center">
+          <div id="minutes" class="text-3xl font-bold text-red-400">00</div>
+          <div class="text-xs text-gray-400">分</div>
+        </div>
+        <div class="text-center">
+          <div id="seconds" class="text-3xl font-bold text-red-400">00</div>
+          <div class="text-xs text-gray-400">秒</div>
+        </div>
+      </div>
+
+      <div class="flex justify-center">
+        <a href="#registration" class="glow-button relative inline-block px-8 py-3 bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 text-white font-bold text-lg rounded-full shadow-lg transition-all duration-300 z-10">
+          <span class="relative z-10">立即報名</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main class="max-w-4xl mx-auto px-4 py-12">
+    <!-- Navigation Tabs -->
+    <div class="flex flex-wrap justify-center mb-8 gap-2">
+      <button class="tab-button tab-active px-4 py-2 rounded-full text-sm md:text-base font-medium" data-tab="info">活動資訊</button>
+      <button class="tab-button px-4 py-2 rounded-full bg-gray-800 hover:bg-gray-700 text-sm md:text-base font-medium" data-tab="schedule">課程內容</button>
+      <button class="tab-button px-4 py-2 rounded-full bg-gray-800 hover:bg-gray-700 text-sm md:text-base font-medium" data-tab="faq">常見問題</button>
+    </div>
+
+    <!-- Tab Content -->
+    <div id="tab-content">
+      <!-- Info Tab (Default) -->
+      <div id="info-content" class="tab-content">
+        <section class="section">
+          <h2 class="text-2xl font-semibold mb-4 flex items-center">
+            <span class="inline-block mr-2 text-3xl">📅</span> 活動時間與地點
+          </h2>
+          <ul class="list-none space-y-3 text-lg text-gray-300">
+            <li class="flex items-start">
+              <span class="text-red-400 mr-2">•</span>
+              <span><strong>時間：</strong>2025 年 7 月 18 日－7 月 24 日</span>
+            </li>
+            <li class="flex items-start">
+              <span class="text-red-400 mr-2">•</span>
+              <span><strong>地點：</strong>韓國首爾・Tongyang Center</span>
+            </li>
+            <li class="flex items-start">
+              <span class="text-red-400 mr-2">•</span>
+              <span><strong>出團方式：</strong>五人即可成團，台灣工作人員陪同前往</span>
+            </li>
+          </ul>
+        </section>
+
+        <section class="section">
+          <h2 class="text-2xl font-semibold mb-4 flex items-center">
+            <span class="inline-block mr-2 text-3xl">💰</span> 費用說明
+          </h2>
+          <div class="bg-gradient-to-r from-red-900/20 to-red-800/10 p-4 rounded-lg mb-4">
+            <div class="flex justify-between items-center mb-2">
+              <span class="text-lg text-gray-300">正式費用：</span>
+              <span class="text-xl font-bold text-red-400">NT$45,000</span>
+            </div>
+            <div class="flex justify-between items-center">
+              <span class="text-lg text-gray-300">早鳥優惠（6/20 前）：</span>
+              <span class="text-xl font-bold text-red-400">NT$43,800</span>
+            </div>
+          </div>
+          <div class="bg-gray-800/50 p-4 rounded-lg">
+            <h3 class="font-medium mb-2 text-white">費用包含：</h3>
+            <ul class="grid grid-cols-1 md:grid-cols-2 gap-2 text-gray-300">
+              <li class="flex items-center">
+                <span class="text-red-400 mr-2">✓</span> 住宿（雙人房）
+              </li>
+              <li class="flex items-center">
+                <span class="text-red-400 mr-2">✓</span> 每日三餐
+              </li>
+              <li class="flex items-center">
+                <span class="text-red-400 mr-2">✓</span> 專業課程
+              </li>
+              <li class="flex items-center">
+                <span class="text-red-400 mr-2">✓</span> 比賽報名費
+              </li>
+              <li class="flex items-center">
+                <span class="text-red-400 mr-2">✓</span> MV 錄影
+              </li>
+              <li class="flex items-center">
+                <span class="text-red-400 mr-2">✓</span> 觀光行程
+              </li>
+            </ul>
+          </div>
+        </section>
+
+        <section class="section">
+          <h2 class="text-2xl font-semibold mb-4 flex items-center">
+            <span class="inline-block mr-2 text-3xl">📌</span> 加購選項
+          </h2>
+          <div class="space-y-4">
+            <div class="flex items-center justify-between p-3 bg-gray-800/50 rounded-lg hover:bg-gray-700/50 transition-colors">
+              <div class="flex items-center">
+                <span class="text-2xl mr-3">✈️</span>
+                <span class="text-lg">團體機票代訂</span>
+              </div>
+              <span class="text-lg font-medium text-red-400">NT$9,500（預估）</span>
+            </div>
+            <div class="flex items-center justify-between p-3 bg-gray-800/50 rounded-lg hover:bg-gray-700/50 transition-colors">
+              <div class="flex items-center">
+                <span class="text-2xl mr-3">🏨</span>
+                <span class="text-lg">7/18 提前入住一晚</span>
+              </div>
+              <span class="text-lg font-medium text-red-400">NT$1,450</span>
+            </div>
+            <div class="flex items-center justify-between p-3 bg-gray-800/50 rounded-lg hover:bg-gray-700/50 transition-colors">
+              <div class="flex items-center">
+                <span class="text-2xl mr-3">🚐</span>
+                <span class="text-lg">韓國當地機場接送</span>
+              </div>
+              <span class="text-lg font-medium text-red-400">NT$1,200（來回）</span>
+            </div>
+          </div>
+        </section>
+
+        <section class="section">
+          <h2 class="text-2xl font-semibold mb-4 flex items-center">
+            <span class="inline-block mr-2 text-3xl">👨‍👩‍👧</span> 家長同行方案
+          </h2>
+          <div class="bg-gradient-to-r from-red-900/20 to-red-800/10 p-4 rounded-lg mb-4">
+            <div class="flex justify-between items-center">
+              <span class="text-lg text-gray-300">費用：</span>
+              <span class="text-xl font-bold text-red-400">NT$26,500 / 人</span>
+            </div>
+          </div>
+          <p class="text-gray-300">含住宿、三餐與觀光行程（不含課程參與）</p>
+        </section>
+      </div>
+
+      <!-- Schedule Tab -->
+      <!-- Schedule Tab -->
+        <div id="schedule-content" class="tab-content hidden">
+        <section class="section">
+            <h2 class="text-2xl font-semibold mb-6 text-center">課程內容與行程</h2>
+
+            <div class="space-y-6">
+            <!-- 課程行程圖片 -->
+            <img src="./image/schedule.png" alt="課程總覽圖片" class="w-full max-w-3xl mx-auto rounded-lg shadow-lg">
+            </div>
+            <p class="text-center text-sm text-gray-400 mt-2">* 課程安排如有更動將另行公告</p>
+
+        </section>
+        </div>
+
+
+      <!-- FAQ Tab -->
+      <div id="faq-content" class="tab-content hidden">
+        <section class="section">
+          <h2 class="text-2xl font-semibold mb-6 text-center">常見問題</h2>
+
+          <div class="space-y-4">
+            <!-- FAQ Item 1 -->
+            <div class="accordion border border-gray-700 rounded-lg overflow-hidden">
+              <div class="accordion-header flex justify-between items-center p-4 bg-gray-800 cursor-pointer">
+                <h3 class="text-lg font-medium">需要有舞蹈或唱歌基礎嗎？</h3>
+                <svg class="accordion-icon w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                </svg>
+              </div>
+              <div class="accordion-content bg-gray-900 px-4 py-0">
+                <p class="py-4 text-gray-300">不需要！我們的課程適合各種程度的學員，從零基礎到有經驗的都歡迎。教練會根據學員程度調整教學內容，讓每位學員都能有所收穫。</p>
+              </div>
+            </div>
+
+            <!-- FAQ Item 2 -->
+            <div class="accordion border border-gray-700 rounded-lg overflow-hidden">
+              <div class="accordion-header flex justify-between items-center p-4 bg-gray-800 cursor-pointer">
+                <h3 class="text-lg font-medium">有年齡限制嗎？</h3>
+                <svg class="accordion-icon w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                </svg>
+              </div>
+              <div class="accordion-content bg-gray-900 px-4 py-0">
+                <p class="py-4 text-gray-300">若學員未滿 12 歲，也可參加，但需由家長全程陪同。我們接受 12 歲以上的學員報名，未滿 18 歲需要家長同意書。沒有上限年齡，只要對 K-POP 有熱情都歡迎參加！</p>
+              </div>
+            </div>
+
+            <!-- FAQ Item 3 -->
+            <div class="accordion border border-gray-700 rounded-lg overflow-hidden">
+              <div class="accordion-header flex justify-between items-center p-4 bg-gray-800 cursor-pointer">
+                <h3 class="text-lg font-medium">需要會韓語嗎？</h3>
+                <svg class="accordion-icon w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                </svg>
+              </div>
+              <div class="accordion-content bg-gray-900 px-4 py-0">
+                <p class="py-4 text-gray-300">不需要！我們有中文翻譯全程陪同，課程中會有翻譯協助溝通。不過，如果您會一些簡單的韓語，將有助於與韓國老師和當地人交流。</p>
+              </div>
+            </div>
+
+            <!-- FAQ Item 4 -->
+            <div class="accordion border border-gray-700 rounded-lg overflow-hidden">
+              <div class="accordion-header flex justify-between items-center p-4 bg-gray-800 cursor-pointer">
+                <h3 class="text-lg font-medium">如何繳費？可以分期嗎？</h3>
+                <svg class="accordion-icon w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                </svg>
+              </div>
+              <div class="accordion-content bg-gray-900 px-4 py-0">
+                <p class="py-4 text-gray-300">報名確認後，我們將提供匯款資訊。需先支付總金額的 1/3 作為訂金，其餘款項須於出發前一個月內繳清。付款方式可選擇匯款或現金支付，如需使用信用卡，將酌收 5% 手續費</p>
+              </div>
+            </div>
+
+            <!-- FAQ Item 5 -->
+            <div class="accordion border border-gray-700 rounded-lg overflow-hidden">
+              <div class="accordion-header flex justify-between items-center p-4 bg-gray-800 cursor-pointer">
+                <h3 class="text-lg font-medium">如果要取消報名，可以退費嗎？</h3>
+                <svg class="accordion-icon w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                </svg>
+              </div>
+              <div class="accordion-content bg-gray-900 px-4 py-0">
+                <p class="py-4 text-gray-300">
+                  退費規定如下：<br>
+                  - 出發前 60 天以上：全額退款（扣除手續費 NT$1,000）<br>
+                  - 出發前 30-59 天：退還 70% 費用<br>
+                  - 出發前 15-29 天：退還 50% 費用<br>
+                  - 出發前 14 天內：恕不退費
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+
+    <!-- Registration Section -->
+    <section id="registration" class="section mt-12 relative overflow-hidden">
+      <div class="absolute inset-0 z-0 opacity-20">
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <pattern id="smallGrid" width="10" height="10" patternUnits="userSpaceOnUse">
+              <path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,0,0,0.3)" stroke-width="0.5"/>
+            </pattern>
+          </defs>
+          <rect width="100%" height="100%" fill="url(#smallGrid)" />
+        </svg>
+      </div>
+
+      <div class="relative z-10">
+        <h2 class="text-3xl font-bold text-center mb-6">立即報名</h2>
+        <p class="text-center text-lg mb-8">名額有限，請盡快報名以確保您的位置！</p>
+
+        <div class="flex flex-col items-center">
+          <div class="w-full max-w-md p-6 bg-gray-800/70 rounded-xl mb-6">
+            <div class="flex items-center justify-between mb-4">
+              <span class="text-lg">早鳥優惠倒數</span>
+              <span id="early-bird-countdown" class="font-bold text-red-400">--天--時--分</span>
+            </div>
+            <div class="w-full bg-gray-700 rounded-full h-2 mb-6">
+              <div class="bg-gradient-to-r from-red-500 to-red-700 h-2 rounded-full" style="width: 65%"></div>
+            </div>
+            <div class="flex items-center justify-between text-sm">
+              <span>已報名：65%</span>
+              <span>剩餘名額：35%</span>
+            </div>
+          </div>
+
+          <a href="https://docs.google.com/forms/d/e/1FAIpQLSfXQazZF6hRklztv5FFwppgzchfUthyZIP8Qtck2-F0oPxtFA/viewform?usp=header" target="_blank" class="glow-button relative inline-block px-10 py-4 bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 text-white font-bold text-xl rounded-full shadow-lg transition-all duration-300 z-10">
+            <span class="relative z-10 flex items-center">
+              <svg class="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+              </svg>
+              立即報名
+            </span>
+          </a>
+
+          <p class="mt-6 text-gray-400 text-center">有任何問題？請聯繫我們：<br>
+            <a href="mailto:info@kpopdreamcamp.com" class="text-red-400 hover:underline">allwek.taiwan@gmail.com</a>
+            <br><br>
+           <a href="https://lin.ee/9fKEoGN" target="_blank" class="inline-flex items-center gap-2 bg-red-900 hover:bg-red-800 text-white font-semibold py-2 px-4 rounded-full transition">
+  <img src="./image/KPOP_teacher/82105.png" alt="LINE Icon" class="w-5 h-5" />
+  加入 LINE
+</a>
+
+
+</a>
+
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="bg-black py-8 mt-12 border-t border-gray-800">
+    <div class="max-w-4xl mx-auto px-4 text-center">
+      <h2 class="text-2xl font-bold mb-4"><span class="highlight">KPOP DREAM CAMP</span></h2>
+      <p class="text-gray-400 mb-6">成為下一個 K-POP 明星的機會</p>
+
+      <div class="flex justify-center space-x-6 mb-6">
+        <a href="#" class="text-gray-400 hover:text-red-400">
+          <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"></path>
+          </svg>
+        </a>
+        <a href="#" class="text-gray-400 hover:text-red-400">
+          <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.067.06 1.407.06 4.123v.08c0 2.643-.012 2.987-.06 4.043-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.067.048-1.407.06-4.123.06h-.08c-2.643 0-2.987-.012-4.043-.06-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.047-1.024-.06-1.379-.06-3.808v-.63c0-2.43.013-2.784.06-3.808.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 015.45 2.525c.636-.247 1.363-.416 2.427-.465C8.901 2.013 9.256 2 11.685 2h.63zm-.081 1.802h-.468c-2.456 0-2.784.011-3.807.058-.975.045-1.504.207-1.857.344-.467.182-.8.398-1.15.748-.35.35-.566.683-.748 1.15-.137.353-.3.882-.344 1.857-.047 1.023-.058 1.351-.058 3.807v.468c0 2.456.011 2.784.058 3.807.045.975.207 1.504.344 1.857.182.466.399.8.748 1.15.35.35.683.566 1.15.748.353.137.882.3 1.857.344 1.054.048 1.37.058 4.041.058h.08c2.597 0 2.917-.01 3.96-.058.976-.045 1.505-.207 1.858-.344.466-.182.8-.398 1.15-.748.35-.35.566-.683.748-1.15.137-.353.3-.882.344-1.857.048-1.055.058-1.37.058-4.041v-.08c0-2.597-.01-2.917-.058-3.96-.045-.976-.207-1.505-.344-1.858a3.097 3.097 0 00-.748-1.15 3.098 3.098 0 00-1.15-.748c-.353-.137-.882-.3-1.857-.344-1.023-.047-1.351-.058-3.807-.058zM12 6.865a5.135 5.135 0 110 10.27 5.135 5.135 0 010-10.27zm0 1.802a3.333 3.333 0 100 6.666 3.333 3.333 0 000-6.666zm5.338-3.205a1.2 1.2 0 110 2.4 1.2 1.2 0 010-2.4z"></path>
+          </svg>
+        </a>
+        <a href="#" class="text-gray-400 hover:text-red-400">
+          <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84"></path>
+          </svg>
+        </a>
+      </div>
+
+      <p class="text-sm text-gray-500">© 2024 KPOP DREAM CAMP. 版權所有。</p>
+    </div>
+  </footer>
+
+  <script>
+    // Create background stars
+    function createStars() {
+      const starsContainer = document.getElementById('stars-container');
+      const starCount = 50;
+
+      for (let i = 0; i < starCount; i++) {
+        const star = document.createElement('div');
+        star.classList.add('star');
+
+        // Random position
+        const x = Math.random() * 100;
+        const y = Math.random() * 100;
+
+        // Random size
+        const size = Math.random() * 2 + 1;
+
+        // Random animation delay
+        const delay = Math.random() * 4;
+
+        star.style.left = `${x}%`;
+        star.style.top = `${y}%`;
+        star.style.width = `${size}px`;
+        star.style.height = `${size}px`;
+        star.style.animationDelay = `${delay}s`;
+
+        starsContainer.appendChild(star);
+      }
+    }
+
+    // Tab functionality
+    function setupTabs() {
+      const tabButtons = document.querySelectorAll('.tab-button');
+      const tabContents = document.querySelectorAll('.tab-content');
+
+      tabButtons.forEach(button => {
+        button.addEventListener('click', () => {
+          // Remove active class from all buttons
+          tabButtons.forEach(btn => {
+            btn.classList.remove('tab-active');
+            btn.classList.add('bg-gray-800');
+          });
+
+          // Add active class to clicked button
+          button.classList.add('tab-active');
+          button.classList.remove('bg-gray-800');
+
+          // Hide all tab contents
+          tabContents.forEach(content => {
+            content.classList.add('hidden');
+          });
+
+          // Show selected tab content
+          const tabId = button.getAttribute('data-tab');
+          document.getElementById(`${tabId}-content`).classList.remove('hidden');
+        });
+      });
+    }
+
+    // Accordion functionality
+    function setupAccordions() {
+      const accordionHeaders = document.querySelectorAll('.accordion-header');
+
+      accordionHeaders.forEach(header => {
+        header.addEventListener('click', () => {
+          const accordion = header.parentElement;
+          accordion.classList.toggle('accordion-open');
+        });
+      });
+    }
+
+    // Countdown timer
+    function updateCountdown() {
+      const eventDate = new Date('June 15, 2025 00:00:00').getTime();
+      const earlyBirdDate = new Date('June 15, 2025 00:00:00').getTime();
+      const now = new Date().getTime();
+
+      // Main countdown
+      const distance = eventDate - now;
+
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      document.getElementById('days').innerText = days.toString().padStart(2, '0');
+      document.getElementById('hours').innerText = hours.toString().padStart(2, '0');
+      document.getElementById('minutes').innerText = minutes.toString().padStart(2, '0');
+      document.getElementById('seconds').innerText = seconds.toString().padStart(2, '0');
+
+      // Early bird countdown
+      const earlyBirdDistance = earlyBirdDate - now;
+      if (earlyBirdDistance > 0) {
+        const ebDays = Math.floor(earlyBirdDistance / (1000 * 60 * 60 * 24));
+        const ebHours = Math.floor((earlyBirdDistance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const ebMinutes = Math.floor((earlyBirdDistance % (1000 * 60 * 60)) / (1000 * 60));
+
+        document.getElementById('early-bird-countdown').innerText =
+          `${ebDays}天${ebHours}時${ebMinutes}分`;
+      } else {
+        document.getElementById('early-bird-countdown').innerText = '已結束';
+      }
+    }
+
+    // Initialize everything when DOM is loaded
+    document.addEventListener('DOMContentLoaded', () => {
+      createStars();
+      setupTabs();
+      setupAccordions();
+      updateCountdown();
+      setInterval(updateCountdown, 1000);
+    });
+  </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'944b7aa127f3b30a',t:'MTc0ODA3NTkzMC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
