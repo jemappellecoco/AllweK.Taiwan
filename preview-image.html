@@ -1,0 +1,44 @@
+const express = require('express');
+const path = require('path');
+const app = express();
+const port = 3000;
+
+// 提供 PDF.js viewer 和 PDF 檔案的靜態路徑
+app.use('/pdfjs', express.static(path.join(__dirname, 'pdfjs')));
+app.use('/pdf', express.static(path.join(__dirname, 'public/pdf')));
+
+// 主頁，顯示按鈕連到 PDF 無工具列的預覽頁
+app.get('/', (req, res) => {
+  res.send(`
+    <!DOCTYPE html>
+    <html lang="zh-Hant">
+    <head>
+      <meta charset="UTF-8">
+      <title>PDF 預覽</title>
+      <style>
+        body { font-family: sans-serif; text-align: center; padding-top: 100px; background-color: #fffdf9; }
+        a.button {
+          display: inline-block;
+          padding: 12px 24px;
+          background-color: #c94f4f;
+          color: white;
+          font-weight: bold;
+          text-decoration: none;
+          border-radius: 9999px;
+          transition: background-color 0.3s;
+        }
+        a.button:hover { background-color: #a83838; }
+      </style>
+    </head>
+    <body>
+      <a href="/pdfjs/web/viewer-no-toolbar.html?file=/pdf/schedule.pdf" target="_blank" class="button">
+        查看完整活動表
+      </a>
+    </body>
+    </html>
+  `);
+});
+
+app.listen(port, () => {
+  console.log(`✅ Node.js PDF viewer running at http://localhost:${port}`);
+});

@@ -1,120 +1,77 @@
 <!DOCTYPE html>
-<html lang="zh-TW">
+<html lang="zh-Hant">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>KPOP 營隊課表</title>
-  <script src="https://cdn.tailwindcss.com"></script>
+  <title>行程表</title>
   <style>
-    /* 自訂紅黑配色 */
-    .bg-schedule-red { background-color: #b3001b; } /* 接近你原圖的紅 */
-    .bg-schedule-black { background-color: #111111; }
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #000;
+      color: #fff;
+      padding: 2rem;
+    }
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      table-layout: fixed;
+    }
+    th, td {
+      border: 1px solid #999;
+      padding: 8px;
+      font-size: 13px;
+      vertical-align: top;
+      text-align: center;
+      word-break: break-word;
+    }
+    thead th {
+      background-color: #c62828;
+      color: white;
+    }
+    .black-cell {
+      background-color: black;
+      color: white;
+    }
+    tbody tr:nth-child(even) td {
+      background-color: #fff;
+      color: #000;
+    }
   </style>
 </head>
-<body class="bg-black text-white font-sans">
-  <div class="max-w-6xl mx-auto px-4 py-8">
-    <h1 class="text-3xl font-bold mb-6 text-center text-white">K-POP 營隊行程表</h1>
+<body>
+<table>
+  <thead>
+    <tr>
+      <th>07/18<br>(Friday)</th>
+      <th>07/19<br>(Saturday)</th>
+      <th>07/20<br>(Sunday)</th>
+      <th>07/21<br>(Monday)</th>
+      <th>07/22<br>(Tuesday)</th>
+      <th>07/23<br>(Wednesday)</th>
+      <th>07/24<br>(Thursday)</th>
 
-<div class="overflow-x-auto">
-  <table class="table-auto border-collapse w-full text-sm text-white">
-    <thead>
-      <tr class="bg-red-700 text-white">
-        <th class="p-2 border border-gray-600">Time</th>
-        <th class="p-2 border border-gray-600">07/18<br><span class="text-xs">(Saturday)</span></th>
-        <th class="p-2 border border-gray-600">07/19<br><span class="text-xs">(Sunday)</span></th>
-        <th class="p-2 border border-gray-600">07/20<br><span class="text-xs">(Monday)</span></th>
-        <th class="p-2 border border-gray-600">07/21<br><span class="text-xs">(Tuesday)</span></th>
-        <th class="p-2 border border-gray-600">07/22<br><span class="text-xs">(Wednesday)</span></th>
-        <th class="p-2 border border-gray-600">07/23<br><span class="text-xs">(Thursday)</span></th>
-      </tr>
-    </thead>
-    <tbody class="text-gray-100">
-      <tr>
-        <td class="p-2 border border-gray-600">08:00 - 09:00</td>
-        <td class="p-2 border border-gray-600">飛機</td>
-        <td class="p-2 border border-gray-600"></td>
-        <td class="p-2 border border-gray-600">早餐</td>
-        <td class="p-2 border border-gray-600">早餐</td>
-        <td class="p-2 border border-gray-600">早餐</td>
-        <td class="p-2 border border-gray-600">早餐</td>
-      </tr>
-      <tr>
-        <td class="p-2 border border-gray-600">09:00 - 12:00</td>
-        <td class="p-2 border border-gray-600"></td>
-        <td class="p-2 border border-gray-600">分組說明會<br>開場活動</td>
-        <td class="p-2 border border-gray-600">偶像養成訓練計劃</td>
-        <td class="p-2 border border-gray-600">偶像養成訓練計劃</td>
-        <td class="p-2 border border-gray-600">形象總整理與成品拍攝<br>團隊特色規劃</td>
-        <td class="p-2 border border-gray-600">自由時間 / 退房</td>
-      </tr>
-      <tr>
-        <td class="p-2 border border-gray-600">12:00 - 13:00</td>
-        <td class="p-2 border border-gray-600"></td>
-        <td class="p-2 border border-gray-600">午餐</td>
-        <td class="p-2 border border-gray-600">午餐</td>
-        <td class="p-2 border border-gray-600">午餐</td>
-        <td class="p-2 border border-gray-600">午餐</td>
-        <td class="p-2 border border-gray-600">午餐</td>
-      </tr>
-      <tr>
-        <td class="p-2 border border-gray-600">13:00 - 16:00</td>
-        <td class="p-2 border border-gray-600"></td>
-        <td class="p-2 border border-gray-600">角色設定<br>形象設計</td>
-        <td class="p-2 border border-gray-600">Model Workshop</td>
-        <td class="p-2 border border-gray-600">貼近市場造型</td>
-        <td class="p-2 border border-gray-600">自由訓練 / 活動彩排</td>
-        <td class="p-2 border border-gray-600"></td>
-      </tr>
-      <tr>
-        <td class="p-2 border border-gray-600">16:00 - 18:00</td>
-        <td class="p-2 border border-gray-600"></td>
-        <td class="p-2 border border-gray-600">舞蹈工作坊 #1</td>
-        <td class="p-2 border border-gray-600">舞蹈工作坊 #2</td>
-        <td class="p-2 border border-gray-600">舞蹈工作坊 #3</td>
-        <td class="p-2 border border-gray-600"></td>
-        <td class="p-2 border border-gray-600"></td>
-      </tr>
-      <tr>
-        <td class="p-2 border border-gray-600">18:00 - 19:00</td>
-        <td class="p-2 border border-gray-600"></td>
-        <td class="p-2 border border-gray-600">晚餐</td>
-        <td class="p-2 border border-gray-600">晚餐</td>
-        <td class="p-2 border border-gray-600">晚餐</td>
-        <td class="p-2 border border-gray-600">晚餐</td>
-        <td class="p-2 border border-gray-600"></td>
-      </tr>
-      <tr>
-        <td class="p-2 border border-gray-600">19:00 - 20:30</td>
-        <td class="p-2 border border-gray-600"></td>
-        <td class="p-2 border border-gray-600"></td>
-        <td class="p-2 border border-gray-600"></td>
-        <td class="p-2 border border-gray-600"></td>
-        <td class="p-2 border border-gray-600"></td>
-        <td class="p-2 border border-gray-600"></td>
-      </tr>
-      <tr>
-        <td class="p-2 border border-gray-600">20:00 - 22:00</td>
-        <td class="p-2 border border-gray-600">抵達 / 搭車前往宿舍</td>
-        <td class="p-2 border border-gray-600">迎新晚會</td>
-        <td class="p-2 border border-gray-600">偶像養成訓練回顧</td>
-        <td class="p-2 border border-gray-600">晚安 / 自由選擇</td>
-        <td class="p-2 border border-gray-600">成果發表會</td>
-        <td class="p-2 border border-gray-600">深夜搭機<br>（台北 OK）</td>
-      </tr>
-      <tr>
-        <td class="p-2 border border-gray-600">22:00 - 23:00</td>
-        <td class="p-2 border border-gray-600"></td>
-        <td class="p-2 border border-gray-600"></td>
-        <td class="p-2 border border-gray-600"></td>
-        <td class="p-2 border border-gray-600"></td>
-        <td class="p-2 border border-gray-600"></td>
-        <td class="p-2 border border-gray-600">搭機送機</td>
-      </tr>
-    </tbody>
-  </table>
-</div>
+    </tr>
+  </thead>
+  <tbody>
 
-    <!-- 將你剛才那段表格貼在這裡 -->
-  </div>
+    <tr><td>10:00 - 12:00</td><td>08:00 - 09:00</td><td>08:00 - 09:00</td><td>08:00 - 09:00</td><td>08:00 - 09:00</td><td>08:00 - 09:00</td><td></td></tr>
+    <tr><td class="black-cell">高陽旅遊</td><td class="black-cell">早餐</td><td class="black-cell">早餐</td><td class="black-cell">早餐</td><td class="black-cell">早餐</td><td class="black-cell">早餐</td><td class="black-cell"></td></tr>
+    <tr><td>12:00 -13:00</td><td>09:00 -10:30</td><td>09:00 -12:00</td><td>09:00 - 13:00</td><td>10:00 - 12:00</td><td>09:00 - 11:00</td><td></td></tr>
+    <tr><td class="black-cell">午餐</td><td class="black-cell">與教練進行團隊訓練</td><td class="black-cell">與教練進行團隊訓練</td><td class="black-cell">A組舞蹈錄製及個人、<br>團隊形象拍攝</td><td class="black-cell">自由訓練與最終檢查</td><td class="black-cell">自由時間/退房</td><td class="black-cell"></td></tr>
+    <tr><td>13:00 - 14:00</td><td>10:30 - 12:00</td><td></td><td>13:00 - 22:00</td><td>12:00 - 13:00</td><td>11:00 - 12:00</td><td></td></tr>
+    <tr><td class="black-cell">相見歡</td><td class="black-cell">Model Workshop</td><td></td><td class="black-cell">B組舞蹈錄製及個人、<br>團隊形象拍攝<br>(拍攝後與導師自由訓練)</td><td class="black-cell">午餐</td><td class="black-cell">結業典禮</td><td class="black-cell"></td></tr>
+    <tr><td>14:00 -15:30</td><td>12:00 - 13:00</td><td>12:00 - 13:00</td><td></td><td>13:30 -16:00</td><td>12:00 -13:00</td><td></td></tr>
+    <tr><td class="black-cell">團隊會議與訓練</td><td class="black-cell">午餐</td><td class="black-cell">午餐</td><td></td><td class="black-cell">自由時間</td><td class="black-cell">午餐</td><td></td></tr>
+    <tr><td>16:00 - 17:30</td><td>14:00 -15:30</td><td>13:30 - 17:00</td><td></td><td>16:00 -18:00</td><td>13:00</td><td></td></tr>
+    <tr><td class="black-cell">舞蹈工作坊 #1</td><td class="black-cell">舞蹈工作坊 #2</td><td class="black-cell">弘大市區遊覽</td><td></td><td class="black-cell">個人競賽</td><td class="black-cell">機場送機</td><td></td></tr>
+    <tr><td>18:00 - 19:00</td><td>16:00 -17:30</td><td></td><td>18:00 -19:00</td><td></td><td></td><td></td></tr>
+    <tr><td class="black-cell">晚餐</td><td class="black-cell">舞蹈工作坊 #3</td><td class="black-cell">17:00 - 18:00</td><td></td><td class="black-cell">晚餐</td><td></td><td></td></tr>
+    <tr><td class="black-cell">飛機</td><td class="black-cell">20:00 - 22:00</td><td></td><td class="black-cell">晚餐/自由選擇</td><td></td><td></td><td></td></tr>
+    <tr><td class="black-cell">晚班機抵達<br>機場接送</td><td class="black-cell">娛樂活動</td><td class="black-cell">18:00 - 19:00</td><td class="black-cell">18:00</td><td></td><td class="black-cell">20:00 - 22:00</td><td></td></tr>
+    <tr><td></td><td class="black-cell">晚餐</td><td class="black-cell">(接駁)-前往漢江公園</td><td></td><td class="black-cell">團體競賽</td><td></td><td></td></tr>
+    <tr><td></td><td class="black-cell">20:00 - 22:00</td><td class="black-cell">19:00 - 20:30</td><td></td><td class="black-cell">22:00 - 24:00</td><td></td><td></td></tr>
+    <tr><td></td><td class="black-cell">與教練進行團隊訓練</td><td class="black-cell">隨機播放舞蹈錄製<br>（漢江公園）</td><td></td><td></td><td></td><td></td></tr>
+    <tr><td></td><td></td><td></td><td></td><td></td><td class="black-cell">派對時間<br>（卡拉OK）</td><td></td></tr>
+  </tbody>
+</table>
 </body>
 </html>
