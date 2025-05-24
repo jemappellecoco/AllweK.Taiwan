@@ -1,0 +1,77 @@
+<footer class="bg-black py-6 border-t border-gray-800 text-center text-sm text-gray-400">
+  <div class="max-w-4xl mx-auto px-4">
+    <strong class="text-gray-500">© 2025 AllweK Taiwan. 版權所有。</strong>
+  </div>
+</footer>
+
+<!-- 浮動按鈕 -->
+<a href="../KPOP.html" class="floating-btn home-btn" title="回首頁">🏠</a>
+<a href="https://lin.ee/uEoGQ41" target="_blank" class="floating-btn line-btn" title="加入官方LINE">
+  <img src="./image/KPOP_teacher/LINE.png" alt="LINE icon" />
+</a>
+
+<a href="javascript:history.back()" class="floating-btn prev-btn" title="上一頁">⭠</a>
+
+<style>
+  .floating-btn {
+    position: fixed;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    color: white;
+    text-align: center;
+    line-height: 50px;
+    font-size: 26px;
+    text-decoration: none;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    transition: all 0.3s ease;
+    z-index: 999;
+  }
+
+  .floating-btn:hover {
+    transform: scale(1.1);
+    opacity: 0.85;
+  }
+
+  .home-btn {
+    bottom: 4vh;
+    right: 4vw;
+    background-color: #ed9191; /* 酒紅 */
+  }
+
+  .line-btn {
+    bottom: 14vh;
+    right: 4vw;
+    <!-- background-color: #ed9191; /* LINE 綠 */ -->
+  }
+
+  .prev-btn {
+    bottom: 4vh;
+    left: 4vw;
+    background-color: #ed9191; /* 深灰藍 */
+  }
+
+  @media (max-width: 768px) {
+    .floating-btn {
+      width: 44px;
+      height: 44px;
+      line-height: 44px;
+      font-size: 22px;
+    }
+
+    .home-btn {
+      bottom: 3vh;
+      right: 3vw;
+    }
+
+    .line-btn {
+      bottom: 12vh;
+      right: 3vw;
+    }
+
+    .prev-btn {
+      bottom: 3vh;
+      left: 3vw;
+    }
+  }
+</style>
