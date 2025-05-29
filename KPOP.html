@@ -104,9 +104,9 @@
             <div class="hidden md:flex space-x-8">
                 <a href="#home" class="nav-link text-white hover:text-red-500">首頁</a>
                 <a href="#activities" class="nav-link text-white hover:text-red-500">活動內容</a>
-                <a href="#schedule" class="nav-link text-white hover:text-red-500">課程安排</a>
+                <a href="./register.html" class="nav-link text-white hover:text-red-500">課程安排</a>
                 <a href="#instructors" class="nav-link text-white hover:text-red-500">師資陣容</a>
-                <a href="#register" class="nav-link text-white hover:text-red-500">報名資訊</a>
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSdoOoL6c4EBYJDe6kgLD_OOWbtzQx-_AKpGatnOd3TtDYBB9w/viewform?usp=header" class="nav-link text-white hover:text-red-500">報名資訊</a>
             </div>
             <div class="md:hidden">
                 <button class="text-white focus:outline-none">
@@ -132,7 +132,7 @@
                         成為下一個 K-POP 明星！專業訓練、真實舞台體驗，打造你的偶像夢想
                     </p>
                     <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
-                        <a href="https://docs.google.com/forms/d/e/1FAIpQLSfXQazZF6hRklztv5FFwppgzchfUthyZIP8Qtck2-F0oPxtFA/viewform?usp=header" class="btn-primary px-8 py-3 rounded-full text-white font-bold text-lg shadow-lg">
+                        <a href="https://docs.google.com/forms/d/e/1FAIpQLSdoOoL6c4EBYJDe6kgLD_OOWbtzQx-_AKpGatnOd3TtDYBB9w/viewform?usp=header" class="btn-primary px-8 py-3 rounded-full text-white font-bold text-lg shadow-lg">
                             立即報名
                         </a>
                         <a href="#activities" class="px-8 py-3 rounded-full border-2 border-white text-white font-bold text-lg hover:bg-white hover:text-black transition-all">
@@ -181,7 +181,7 @@
         </iframe>
                     </div>
                     <div class="absolute -bottom-6 -right-6 bg-black p-4 rounded-lg shadow-lg border border-red-800">
-                        <div class="text-sm font-bold text-red-500">倒數計時</div>
+                        <div class="text-sm font-bold text-red-500">活動倒數</div>
                         <div id="countdown-days" class="text-2xl font-black">--</div>
                     </div>
                 </div>
@@ -196,8 +196,12 @@
 
     <!-- Countdown Section -->
     <section class="py-8 bg-black">
+        <!-- Early Bird Countdown -->
+
         <div class="max-w-7xl mx-auto px-6">
+            <div class="text-white text-center md:text-left text-lg font-bold mb-4">早鳥優惠倒數</div>
             <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+
                 <div class="bg-gradient-to-r from-red-900 to-black p-6 rounded-lg text-center countdown-item">
                     <div id="days" class="text-4xl font-black text-white">--</div>
                     <div class="text-sm uppercase tracking-wider text-gray-400">天</div>
@@ -709,7 +713,7 @@
                         <a href="https://docs.google.com/forms/d/e/1FAIpQLSfXQazZF6hRklztv5FFwppgzchfUthyZIP8Qtck2-F0oPxtFA/viewform?usp=header" class="btn-primary px-8 py-3 rounded-full text-white font-bold text-lg shadow-lg">
                             立即報名
                         </a>
-                        <a href="#" class="px-8 py-3 rounded-full border-2 border-red-600 text-red-500 font-bold text-lg hover:bg-red-600 hover:text-white transition-all">
+                        <a href="https://lin.ee/uEoGQ41" class="px-8 py-3 rounded-full border-2 border-red-600 text-red-500 font-bold text-lg hover:bg-red-600 hover:text-white transition-all">
                             聯絡我們
                         </a>
                     </div>
@@ -738,9 +742,9 @@
                     <ul class="space-y-2 text-sm">
                         <li><a href="#home" class="text-gray-400 hover:text-red-500">首頁</a></li>
                         <li><a href="#activities" class="text-gray-400 hover:text-red-500">活動內容</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-red-500">課程安排</a></li>
+                        <!-- <li><a href="./register.html" class="text-gray-400 hover:text-red-500">課程安排</a></li> -->
                         <li><a href="#instructors" class="text-gray-400 hover:text-red-500">師資陣容</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-red-500">報名資訊</a></li>
+                        <!-- <li><a href="#" class="text-gray-400 hover:text-red-500">報名資訊</a></li> -->
                     </ul>
                 </div>
                 <div>
@@ -807,10 +811,13 @@
     <script>
         // Updated countdown timer to target June 15, 2025
         function updateCountdown() {
-            const targetDate = new Date('June 15, 2025 00:00:00').getTime();
-            const now = new Date().getTime();
-            const difference = targetDate - now;
+            const earlyBirdDate = new Date('June 20, 2025 23:59:59').getTime();
+            // 活動倒數
+            const targetDate = new Date('July 18, 2025 00:00:00').getTime();
 
+            const now = new Date().getTime();
+            const difference = earlyBirdDate - now;
+            const event_difference = targetDate - now;
             const days = Math.floor(difference / (1000 * 60 * 60 * 24));
             const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
             const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
@@ -823,7 +830,7 @@
             document.getElementById('seconds').innerText = seconds;
 
             // Update the small countdown in the hero section
-            document.getElementById('countdown-days').innerText = days + " 天";
+            document.getElementById('countdown-days').innerText = Math.floor(event_difference / (1000 * 60 * 60 * 24)) + " 天";
         }
 
         // Smooth scrolling for anchor links
@@ -844,5 +851,6 @@
         updateCountdown();
         setInterval(updateCountdown, 1000);
     </script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'93a02fedf3663311',t:'MTc0NjI3OTgwNS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+<script>
+    (function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'93a02fedf3663311',t:'MTc0NjI3OTgwNS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
