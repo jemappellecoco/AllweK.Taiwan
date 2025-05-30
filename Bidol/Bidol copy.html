@@ -1,0 +1,124 @@
+
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BIDOL 韓國舞台實戰營</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Noto Sans TC', sans-serif;
+      background-color: #0a0a0a;
+      color: #f1f1f1;
+      overflow-x: hidden;
+    }
+    .highlight {
+      background: linear-gradient(120deg, #ff0000, #cc0000);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .glow-button {
+      position: relative;
+      transition: all 0.3s ease;
+    }
+    .glow-button::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: linear-gradient(45deg, rgba(255,0,0,0), rgba(255,0,0,0.3), rgba(255,0,0,0));
+      transform: rotate(45deg);
+      animation: glowEffect 3s infinite;
+      z-index: 0;
+    }
+    @keyframes glowEffect {
+      0% { transform: translateX(-100%) rotate(45deg); }
+      100% { transform: translateX(100%) rotate(45deg); }
+    }
+    .star {
+      position: absolute;
+      background-color: white;
+      border-radius: 50%;
+      animation: twinkle 4s infinite;
+      z-index: -1;
+    }
+    @keyframes twinkle {
+      0%, 100% { opacity: 0.1; }
+      50% { opacity: 0.7; }
+    }
+  </style>
+</head>
+<body class="relative">
+  <!-- 背景星星 -->
+  <div id="stars-container"></div>
+
+  <!-- Hero 區 -->
+  <header class="relative py-24 text-center bg-gradient-to-b from-black to-red-900">
+    <h1 class="text-5xl md:text-6xl font-black mb-4 highlight">BIDOL 韓國舞台實戰營</h1>
+    <p class="text-xl text-gray-300 mb-6">站上屬於你的舞台・打造未來可能</p>
+    <a href="Bidol_register.html" class="glow-button inline-block px-8 py-3 bg-red-600 hover:bg-red-700 text-white font-bold text-lg rounded-full z-10 relative">
+      立即報名
+    </a>
+  </header>
+
+  <!-- 活動亮點卡片 -->
+  <section class="py-16 px-6 max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6">
+    <div class="rounded-xl bg-black/70 border border-red-600 p-6 shadow-xl">
+      <h2 class="text-xl font-bold text-red-400 mb-2">🎤 專業訓練</h2>
+      <p>由韓國業界師資指導，課程涵蓋唱歌、舞蹈與舞台表現。</p>
+    </div>
+    <div class="rounded-xl bg-black/70 border border-red-600 p-6 shadow-xl">
+      <h2 class="text-xl font-bold text-red-400 mb-2">🌟 實戰比賽</h2>
+      <p>最後一天參與舞台比賽，總獎金高達 1150 萬韓元。</p>
+    </div>
+    <div class="rounded-xl bg-black/70 border border-red-600 p-6 shadow-xl">
+      <h2 class="text-xl font-bold text-red-400 mb-2">📸 MV 錄製</h2>
+      <p>拍攝個人或團體 MV，留下你的舞台紀錄與作品。</p>
+    </div>
+  </section>
+
+  <!-- 說明段落（可再擴充） -->
+  <section class="py-12 px-6 max-w-4xl mx-auto text-center">
+    <h2 class="text-3xl font-bold mb-6 highlight">為什麼選擇 BIDOL？</h2>
+    <p class="text-gray-300 leading-relaxed">
+      不只是體驗營，而是一次真實舞台的實戰演出。<br>
+      給你最接近練習生的生活節奏、表演壓力與蛻變的可能。
+    </p>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-black py-8 text-center border-t border-gray-800 text-sm text-gray-400">
+    <div class="max-w-4xl mx-auto px-4">
+      <strong class="text-gray-500">© 2025 AllweK Taiwan. 版權所有。</strong>
+    </div>
+  </footer>
+
+  <!-- 星星 JS -->
+  <script>
+    function createStars() {
+      const starsContainer = document.getElementById('stars-container');
+      const starCount = 60;
+      for (let i = 0; i < starCount; i++) {
+        const star = document.createElement('div');
+        star.classList.add('star');
+        const x = Math.random() * 100;
+        const y = Math.random() * 100;
+        const size = Math.random() * 2 + 1;
+        const delay = Math.random() * 4;
+        star.style.left = `${x}%`;
+        star.style.top = `${y}%`;
+        star.style.width = `${size}px`;
+        star.style.height = `${size}px`;
+        star.style.animationDelay = `${delay}s`;
+        starsContainer.appendChild(star);
+      }
+    }
+    document.addEventListener('DOMContentLoaded', createStars);
+  </script>
+</body>
+</html>

@@ -1,0 +1,1057 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>B.IDOL 韓國舞台實戰營 2025</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Noto Sans TC', sans-serif;
+      background-color: #0a0a0a;
+      color: #fff;
+    }
+
+    .hero-gradient {
+      background: linear-gradient(135deg, rgba(255,0,128,0.8) 0%, rgba(128,0,255,0.8) 100%);
+    }
+
+    .card {
+      transition: all 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(255, 0, 128, 0.3);
+    }
+
+    .glow-text {
+      text-shadow: 0 0 10px rgba(255, 0, 128, 0.7);
+    }
+
+    .glow-button {
+      box-shadow: 0 0 15px rgba(255, 0, 128, 0.5);
+      transition: all 0.3s ease;
+    }
+
+    .glow-button:hover {
+      box-shadow: 0 0 25px rgba(255, 0, 128, 0.8);
+      transform: translateY(-2px);
+    }
+
+    .star {
+      position: absolute;
+      background-color: white;
+      border-radius: 50%;
+      animation: twinkle 4s infinite;
+      opacity: 0;
+    }
+
+    @keyframes twinkle {
+      0% { opacity: 0; }
+      50% { opacity: 1; }
+      100% { opacity: 0; }
+    }
+
+    .timeline-dot {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #ff0080 0%, #7928ca 100%);
+      position: absolute;
+      left: -10px;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    .timeline-line {
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 1px;
+      background: linear-gradient(to bottom, rgba(255,0,128,0.5), rgba(121,40,202,0.5));
+    }
+
+    .image-card {
+      overflow: hidden;
+      position: relative;
+    }
+
+    .image-card img {
+      transition: transform 0.5s ease;
+    }
+
+    .image-card:hover img {
+      transform: scale(1.05);
+    }
+
+    .image-overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0) 100%);
+      padding: 2rem 1.5rem 1.5rem;
+      transition: all 0.3s ease;
+    }
+
+    .image-card:hover .image-overlay {
+      background: linear-gradient(to top, rgba(255,0,128,0.8) 0%, rgba(0,0,0,0) 100%);
+    }
+
+    .poster-container {
+      position: relative;
+      overflow: hidden;
+      border-radius: 1rem;
+      box-shadow: 0 10px 30px rgba(255, 0, 128, 0.3);
+    }
+
+    .poster-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(255,0,128,0.3) 0%, rgba(128,0,255,0.3) 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .poster-container:hover .poster-overlay {
+      opacity: 1;
+    }
+
+    .instructor-card {
+      position: relative;
+      overflow: hidden;
+      border-radius: 1rem;
+    }
+
+    .instructor-image {
+      height: 300px;
+      background-position: center;
+      background-size: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .instructor-card:hover .instructor-image {
+      transform: scale(1.05);
+    }
+
+    .instructor-info {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0) 100%);
+      padding: 2rem 1.5rem 1.5rem;
+      transition: all 0.3s ease;
+    }
+
+    .instructor-card:hover .instructor-info {
+      background: linear-gradient(to top, rgba(255,0,128,0.8) 0%, rgba(0,0,0,0) 100%);
+    }
+
+    .course-card {
+      height: 100%;
+      transition: all 0.3s ease;
+    }
+
+    .course-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(255, 0, 128, 0.3);
+    }
+
+    .gallery-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: 1rem;
+      cursor: pointer;
+    }
+
+    .gallery-item img {
+      transition: transform 0.5s ease;
+    }
+
+    .gallery-item:hover img {
+      transform: scale(1.05);
+    }
+
+    .gallery-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0) 70%);
+      display: flex;
+      align-items: flex-end;
+      padding: 1.5rem;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .gallery-item:hover .gallery-overlay {
+      opacity: 1;
+    }
+
+    .video-container {
+      position: relative;
+      overflow: hidden;
+      border-radius: 1rem;
+      box-shadow: 0 10px 30px rgba(255, 0, 128, 0.3);
+    }
+
+    .video-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.5);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.3s ease;
+    }
+
+    .video-container:hover .video-overlay {
+      background: rgba(255,0,128,0.3);
+    }
+
+    .play-button {
+      width: 80px;
+      height: 80px;
+      background: rgba(255,255,255,0.2);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.3s ease, background 0.3s ease;
+    }
+
+    .video-container:hover .play-button {
+      transform: scale(1.1);
+      background: rgba(255,255,255,0.3);
+    }
+
+    .modal {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.9);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 100;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+
+    .modal.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .modal-content {
+      position: relative;
+      max-width: 90%;
+      max-height: 90%;
+    }
+
+    .close-button {
+      position: absolute;
+      top: -40px;
+      right: 0;
+      background: transparent;
+      border: none;
+      color: white;
+      font-size: 24px;
+      cursor: pointer;
+    }
+
+    .course-image-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .course-image {
+      position: relative;
+      border-radius: 1rem;
+      overflow: hidden;
+      aspect-ratio: 16/9;
+    }
+
+    .course-image-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0) 70%);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 1.5rem;
+      transition: all 0.3s ease;
+    }
+
+    .course-image:hover .course-image-overlay {
+      background: linear-gradient(to top, rgba(255,0,128,0.8) 0%, rgba(0,0,0,0) 70%);
+    }
+
+    .tab-button {
+      padding: 0.75rem 1.5rem;
+      border-radius: 0.5rem;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+
+    .tab-button.active {
+      background: linear-gradient(135deg, #ff0080 0%, #7928ca 100%);
+      color: white;
+    }
+
+    .tab-content {
+      display: none;
+    }
+
+    .tab-content.active {
+      display: block;
+    }
+
+    .poster-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .poster-item {
+      position: relative;
+      border-radius: 1rem;
+      overflow: hidden;
+      aspect-ratio: 3/4;
+      cursor: pointer;
+    }
+
+    .poster-item-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0) 70%);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 1.5rem;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .poster-item:hover .poster-item-overlay {
+      opacity: 1;
+    }
+  </style>
+</head>
+<body>
+  <!-- 星空背景 -->
+  <div id="stars-container" class="fixed inset-0 z-0"></div>
+
+  <!-- 導航欄 -->
+  <nav class="sticky top-0 z-50 bg-black/80 backdrop-blur-md border-b border-pink-900/30">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <div class="flex items-center">
+          <span class="text-xl font-bold bg-gradient-to-r from-pink-500 to-purple-600 bg-clip-text text-transparent glow-text">B.IDOL</span>
+        </div>
+        <div class="hidden md:block">
+          <div class="ml-10 flex items-baseline space-x-4">
+            <a href="#about" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">關於營隊</a>
+            <a href="#posters" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">活動海報</a>
+            <a href="#videos" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">宣傳影片</a>
+            <a href="#courses" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">課程介紹</a>
+            <a href="#instructors" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">師資陣容</a>
+            <a href="#gallery" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">活動照片</a>
+            <a href="#schedule" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">活動流程</a>
+            <a href="#register" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">報名方式</a>
+          </div>
+        </div>
+        <div class="md:hidden">
+          <button id="mobile-menu-button" class="text-gray-400 hover:text-white focus:outline-none">
+            <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- 行動版選單 -->
+    <div id="mobile-menu" class="hidden md:hidden bg-black/95 border-b border-pink-900/30">
+      <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+        <a href="#about" class="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium">關於營隊</a>
+        <a href="#posters" class="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium">活動海報</a>
+        <a href="#videos" class="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium">宣傳影片</a>
+        <a href="#courses" class="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium">課程介紹</a>
+        <a href="#instructors" class="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium">師資陣容</a>
+        <a href="#gallery" class="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium">活動照片</a>
+        <a href="#schedule" class="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium">活動流程</a>
+        <a href="#register" class="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium">報名方式</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- 英雄區塊 -->
+  <section class="relative min-h-screen flex items-center justify-center py-20 px-4">
+    <div class="absolute inset-0 bg-black z-0"></div>
+    <div class="absolute inset-0 opacity-30 z-0">
+      <svg class="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
+        <defs>
+          <radialGradient id="hero-gradient" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
+            <stop offset="0%" stop-color="#ff0080" />
+            <stop offset="100%" stop-color="#7928ca" />
+          </radialGradient>
+        </defs>
+        <circle cx="50" cy="50" r="50" fill="url(#hero-gradient)" />
+      </svg>
+    </div>
+
+    <div class="relative z-10 max-w-5xl mx-auto text-center">
+      <h1 class="text-5xl md:text-7xl font-extrabold mb-6">
+        <span class="bg-gradient-to-r from-pink-500 to-purple-600 bg-clip-text text-transparent glow-text">B.IDOL</span>
+      </h1>
+      <h2 class="text-3xl md:text-5xl font-bold mb-8 text-white">韓國舞台實戰營</h2>
+      <p class="text-xl md:text-2xl text-gray-300 mb-8">2025年度官方活動資訊總整理</p>
+
+      <!-- 倒數計時器 -->
+      <div class="max-w-3xl mx-auto mb-12">
+        <div class="grid grid-cols-4 gap-4">
+          <div class="bg-black/60 backdrop-blur-md border border-pink-500/30 rounded-lg p-4">
+            <div id="days" class="text-3xl font-bold text-white">--</div>
+            <div class="text-xs uppercase tracking-wider text-gray-400">天</div>
+          </div>
+          <div class="bg-black/60 backdrop-blur-md border border-pink-500/30 rounded-lg p-4">
+            <div id="hours" class="text-3xl font-bold text-white">--</div>
+            <div class="text-xs uppercase tracking-wider text-gray-400">小時</div>
+          </div>
+          <div class="bg-black/60 backdrop-blur-md border border-pink-500/30 rounded-lg p-4">
+            <div id="minutes" class="text-3xl font-bold text-white">--</div>
+            <div class="text-xs uppercase tracking-wider text-gray-400">分鐘</div>
+          </div>
+          <div class="bg-black/60 backdrop-blur-md border border-pink-500/30 rounded-lg p-4">
+            <div id="seconds" class="text-3xl font-bold text-white">--</div>
+            <div class="text-xs uppercase tracking-wider text-gray-400">秒</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="flex flex-col sm:flex-row justify-center gap-4">
+        <a href="#about" class="glow-button bg-gradient-to-r from-pink-600 to-purple-600 text-white font-bold py-3 px-8 rounded-full text-lg hover:from-pink-500 hover:to-purple-500 transition-all duration-300">
+          了解更多
+        </a>
+        <a href="#register" class="bg-white/10 backdrop-blur-md text-white font-bold py-3 px-8 rounded-full text-lg hover:bg-white/20 transition-all duration-300">
+          立即報名
+        </a>
+      </div>
+    </div>
+  </section>
+  <section id="about" class="py-20 px-4 bg-gradient-to-b from-black to-purple-950/20">
+    <div class="max-w-7xl mx-auto">
+      <h2 class="text-3xl md:text-4xl font-bold text-center mb-16 bg-gradient-to-r from-pink-500 to-purple-600 bg-clip-text text-transparent glow-text">
+        關於 B.IDOL 韓國舞台實戰營
+      </h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+        <div>
+          <h3 class="text-2xl font-bold text-white mb-6">活動時間與地點</h3>
+          <div class="space-y-4 text-gray-300">
+            <div class="flex items-start">
+              <svg class="h-6 w-6 text-pink-500 mr-3 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+              </svg>
+              <div>
+                <p class="font-bold text-white">活動時間</p>
+                <p>2025年 7月24日（四）11:00 ～ 8月4日（一）14:00</p>
+              </div>
+            </div>
+
+            <div class="flex items-start">
+              <svg class="h-6 w-6 text-pink-500 mr-3 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+              </svg>
+              <div>
+                <p class="font-bold text-white">住宿地點</p>
+                <p>Hi Seoul Youth Hostel（首爾永登浦區永新路200號）</p>
+              </div>
+            </div>
+
+            <div class="flex items-start">
+              <svg class="h-6 w-6 text-pink-500 mr-3 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+              </svg>
+              <div>
+                <p class="font-bold text-white">主要訓練場地</p>
+                <p>地下一樓教室（75.4m²）</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-8">
+            <p class="text-gray-300 mb-4">
+              這是一場面向全球青少年打造的偶像培訓營隊，為期12天的密集訓練，讓你親身體驗韓國偶像的培訓過程。
+            </p>
+            <p class="text-gray-300">
+              由韓國頂尖師資親自指導，打造專業舞台實力，為你的偶像夢想奠定堅實基礎。
+            </p>
+          </div>
+        </div>
+
+        <div class="bg-gradient-to-br from-pink-900/20 to-purple-900/20 backdrop-blur-md border border-pink-500/30 rounded-2xl p-8">
+          <h3 class="text-2xl font-bold text-white mb-6 text-center">營隊特色</h3>
+
+          <div class="space-y-4">
+            <div class="flex items-center bg-black/40 rounded-lg p-4 backdrop-blur-md">
+              <div class="bg-gradient-to-br from-pink-500 to-purple-600 rounded-full p-2 mr-4">
+                <svg class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-3" />
+                </svg>
+              </div>
+              <span class="text-white">韓國舞蹈訓練（K-POP 編舞）</span>
+            </div>
+
+            <div class="flex items-center bg-black/40 rounded-lg p-4 backdrop-blur-md">
+              <div class="bg-gradient-to-br from-pink-500 to-purple-600 rounded-full p-2 mr-4">
+                <svg class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
+                </svg>
+              </div>
+              <span class="text-white">專業 MV 拍攝（含造型＋棚內錄影）</span>
+            </div>
+
+            <div class="flex items-center bg-black/40 rounded-lg p-4 backdrop-blur-md">
+              <div class="bg-gradient-to-br from-pink-500 to-purple-600 rounded-full p-2 mr-4">
+                <svg class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 10a1 1 0 011-1h4a1 1 0 011 1v4a1 1 0 01-1 1h-4a1 1 0 01-1-1v-4z" />
+                </svg>
+              </div>
+              <span class="text-white">舞台表演排練</span>
+            </div>
+
+            <div class="flex items-center bg-black/40 rounded-lg p-4 backdrop-blur-md">
+              <div class="bg-gradient-to-br from-pink-500 to-purple-600 rounded-full p-2 mr-4">
+                <svg class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
+                </svg>
+              </div>
+              <span class="text-white">模擬選秀試鏡流程</span>
+            </div>
+
+            <div class="flex items-center bg-black/40 rounded-lg p-4 backdrop-blur-md">
+              <div class="bg-gradient-to-br from-pink-500 to-purple-600 rounded-full p-2 mr-4">
+                <svg class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129" />
+                </svg>
+              </div>
+              <span class="text-white">語言課程（韓文班）</span>
+            </div>
+
+            <div class="flex items-center bg-black/40 rounded-lg p-4 backdrop-blur-md">
+              <div class="bg-gradient-to-br from-pink-500 to-purple-600 rounded-full p-2 mr-4">
+                <svg class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                </svg>
+              </div>
+              <span class="text-white">與韓國專業導師一對一互動練習</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 活動海報區塊 -->
+  <section id="posters" class="py-20 px-4 bg-black">
+    <div class="max-w-7xl mx-auto">
+      <h2 class="text-3xl md:text-4xl font-bold text-center mb-16 bg-gradient-to-r from-pink-500 to-purple-600 bg-clip-text text-transparent glow-text">
+        活動海報
+      </h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center mb-16">
+        <div class="poster-container">
+          <!-- 主海報圖片 -->
+          <div class="bg-gradient-to-br from-pink-900/50 to-purple-900/50 aspect-[3/4] rounded-xl flex items-center justify-center">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-24 w-24 text-white/50" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+            </svg>
+          </div>
+          <div class="poster-overlay">
+            <button class="bg-white/20 backdrop-blur-md text-white px-4 py-2 rounded-full hover:bg-white/30 transition-all duration-300 poster-view-btn" data-poster="main">
+              查看大圖
+            </button>
+          </div>
+        </div>
+
+        <div class="space-y-6">
+          <h3 class="text-2xl font-bold text-white">2025 B.IDOL 韓國舞台實戰營</h3>
+          <p class="text-gray-300">
+            這是一場專為熱愛 K-POP 的青少年打造的專業培訓營隊，由韓國頂尖師資親自指導，讓你在短短 12 天內體驗韓國偶像的培訓過程。
+          </p>
+          <p class="text-gray-300">
+            無論你是想成為專業表演者，還是單純熱愛 K-POP 文化，這個營隊都能讓你獲得難忘的體驗與專業成長。
+          </p>
+
+          <div class="bg-gradient-to-br from-black to-pink-900/20 border border-pink-500/30 rounded-xl p-6">
+            <h4 class="text-xl font-bold text-white mb-4">活動亮點</h4>
+            <ul class="space-y-2">
+              <li class="flex items-start">
+                <svg class="h-5 w-5 text-pink-500 mr-2 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span class="text-gray-300">參訪韓國頂尖舞蹈工作室：Just Jerk Academy、1Million Dance Studio</span>
+              </li>
+              <li class="flex items-start">
+                <svg class="h-5 w-5 text-pink-500 mr-2 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span class="text-gray-300">由知名韓國偶像訓練師親自授課</span>
+              </li>
+              <li class="flex items-start">
+                <svg class="h-5 w-5 text-pink-500 mr-2 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span class="text-gray-300">專業 MV 拍攝與製作，可作為個人作品集</span>
+              </li>
+              <li class="flex items-start">
+                <svg class="h-5 w-5 text-pink-500 mr-2 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span class="text-gray-300">模擬選秀試鏡，獲得專業評審回饋</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="flex justify-center md:justify-start">
+            <a href="#register" class="glow-button bg-gradient-to-r from-pink-600 to-purple-600 text-white font-bold py-3 px-8 rounded-full text-lg hover:from-pink-500 hover:to-purple-500 transition-all duration-300">
+              立即報名
+            </a>
+          </div>
+        </div>
+      </div>
+       <!-- 更多海報展示 -->
+      <h3 class="text-2xl font-bold text-white mb-8 text-center">更多活動海報</h3>
+      <div class="poster-grid">
+        <!-- 海報1 -->
+        <div class="poster-item">
+          <div class="bg-gradient-to-br from-pink-900/50 to-purple-900/50 h-full flex items-center justify-center">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16 text-white/50" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+            </svg>
+          </div>
+          <div class="poster-item-overlay">
+            <h4 class="text-white font-bold">舞蹈課程海報</h4>
+            <button class="mt-2 bg-white/20 backdrop-blur-md text-white px-3 py-1 rounded-full text-sm hover:bg-white/30 transition-all duration-300 poster-view-btn" data-poster="dance">
+              查看大圖
+            </button>
+          </div>
+        </div>
+
+        <!-- 海報2 -->
+        <div class="poster-item">
+          <div class="bg-gradient-to-br from-pink-900/50 to-purple-900/50 h-full flex items-center justify-center">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16 text-white/50" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+            </svg>
+          </div>
+          <div class="poster-item-overlay">
+            <h4 class="text-white font-bold">聲樂課程海報</h4>
+            <button class="mt-2 bg-white/20 backdrop-blur-md text-white px-3 py-1 rounded-full text-sm hover:bg-white/30 transition-all duration-300 poster-view-btn" data-poster="vocal">
+              查看大圖
+            </button>
+          </div>
+        </div>
+
+        <!-- 海報3 -->
+        <div class="poster-item">
+          <div class="bg-gradient-to-br from-pink-900/50 to-purple-900/50 h-full flex items-center justify-center">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16 text-white/50" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+            </svg>
+          </div>
+          <div class="poster-item-overlay">
+            <h4 class="text-white font-bold">韓語課程海報</h4>
+            <button class="mt-2 bg-white/20 backdrop-blur-md text-white px-3 py-1 rounded-full text-sm hover:bg-white/30 transition-all duration-300 poster-view-btn" data-poster="korean">
+              查看大圖
+            </button>
+          </div>
+        </div>
+
+        <!-- 海報4 -->
+        <div class="poster-item">
+          <div class="bg-gradient-to-br from-pink-900/50 to-purple-900/50 h-full flex items-center justify-center">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16 text-white/50" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+            </svg>
+          </div>
+          <div class="poster-item-overlay">
+            <h4 class="text-white font-bold">模特兒課程海報</h4>
+            <button class="mt-2 bg-white/20 backdrop-blur-md text-white px-3 py-1 rounded-full text-sm hover:bg-white/30 transition-all duration-300 poster-view-btn" data-poster="model">
+              查看大圖
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+   <!-- 宣傳影片區塊 -->
+  <section id="videos" class="py-20 px-4 bg-gradient-to-b from-black to-purple-950/20">
+    <div class="max-w-7xl mx-auto">
+      <h2 class="text-3xl md:text-4xl font-bold text-center mb-16 bg-gradient-to-r from-pink-500 to-purple-600 bg-clip-text text-transparent glow-text">
+        宣傳影片
+      </h2>
+
+      <!-- 主要宣傳影片 -->
+      <div class="mb-16">
+        <div class="video-container aspect-video">
+          <div class="bg-gradient-to-br from-pink-900/50 to-purple-900/50 h-full w-full"></div>
+          <div class="video-overlay">
+            <div class="play-button video-play-btn" data-video="main">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+            </div>
+          </div>
+        </div>
+        <div class="mt-4 text-center">
+          <h3 class="text-xl font-bold text-white">B.IDOL 2025 官方宣傳片</h3>
+          <p class="text-gray-400">體驗韓國偶像培訓的精彩旅程</p>
+        </div>
+      </div>
+
+      <!-- 更多影片 -->
+      <h3 class="text-2xl font-bold text-white mb-8 text-center">更多精彩影片</h3>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <!-- 影片1 -->
+        <div>
+          <div class="video-container aspect-video">
+            <div class="bg-gradient-to-br from-pink-900/50 to-purple-900/50 h-full w-full"></div>
+            <div class="video-overlay">
+              <div class="play-button video-play-btn" data-video="dance">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+              </div>
+            </div>
+          </div>
+          <div class="mt-4">
+            <h4 class="text-lg font-bold text-white">舞蹈課程花絮</h4>
+            <p class="text-gray-400">Just Jerk Academy 專業訓練實況</p>
+          </div>
+        </div>
+
+        <!-- 影片2 -->
+        <div>
+          <div class="video-container aspect-video">
+            <div class="bg-gradient-to-br from-pink-900/50 to-purple-900/50 h-full w-full"></div>
+            <div class="video-overlay">
+              <div class="play-button video-play-btn" data-video="vocal">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+              </div>
+            </div>
+          </div>
+          <div class="mt-4">
+            <h4 class="text-lg font-bold text-white">聲樂訓練實況</h4>
+            <p class="text-gray-400">Jiae Kim 老師的專業聲樂指導</p>
+          </div>
+        </div>
+
+        <!-- 影片3 -->
+        <div>
+          <div class="video-container aspect-video">
+            <div class="bg-gradient-to-br from-pink-900/50 to-purple-900/50 h-full w-full"></div>
+            <div class="video-overlay">
+              <div class="play-button video-play-btn" data-video="mv">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+              </div>
+            </div>
+          </div>
+          <div class="mt-4">
+            <h4 class="text-lg font-bold text-white">MV 拍攝花絮</h4>
+            <p class="text-gray-400">專業攝影棚內的 MV 拍攝過程</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+   <!-- 課程介紹 -->
+  <section id="courses" class="py-20 px-4 bg-black">
+    <div class="max-w-7xl mx-auto">
+      <h2 class="text-3xl md:text-4xl font-bold text-center mb-16 bg-gradient-to-r from-pink-500 to-purple-600 bg-clip-text text-transparent glow-text">
+        專業課程介紹
+      </h2>
+
+      <!-- 課程分類標籤 -->
+      <div class="flex flex-wrap justify-center gap-4 mb-12">
+        <button class="tab-button active" data-tab="all">全部課程</button>
+        <button class="tab-button" data-tab="korean">韓語課程</button>
+        <button class="tab-button" data-tab="dance">舞蹈課程</button>
+        <button class="tab-button" data-tab="vocal">聲樂課程</button>
+        <button class="tab-button" data-tab="model">模特兒課程</button>
+      </div>
+
+      <!-- 課程內容 - 全部 -->
+      <div class="tab-content active" id="tab-all">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <!-- 韓語課程 -->
+          <div class="bg-gradient-to-br from-black to-pink-900/20 border border-pink-500/30 rounded-xl overflow-hidden course-card">
+            <div class="relative">
+              <div class="h-64 bg-gradient-to-br from-pink-900/50 to-purple-900/50 flex items-center justify-center">
+                <!-- 韓語課程圖片 -->
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-24 w-24 text-white/50" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129" />
+                </svg>
+              </div>
+              <div class="absolute top-4 left-4 bg-gradient-to-r from-pink-500 to-purple-600 text-white text-xs font-bold py-1 px-3 rounded-full">
+                TOPIK 2 級別
+              </div>
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold text-white mb-2">韓語課程 (Korean Language)</h3>
+              <p class="text-gray-300 mb-4">
+                由知名韓語教師授課，專為 TOPIK 2 級別學員設計的課程，幫助你掌握韓國娛樂產業常用詞彙與表達方式。
+              </p>
+              <div class="space-y-2">
+                <div class="flex items-start">
+                  <svg class="h-5 w-5 text-pink-500 mr-2 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                  </svg>
+                  <span class="text-gray-300">娛樂產業專業術語</span>
+                </div>
+                <div class="flex items-start">
+                  <svg class="h-5 w-5 text-pink-500 mr-2 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                  </svg>
+                  <span class="text-gray-300">自我介紹與面試用語</span>
+                </div>
+                <div class="flex items-start">
+                  <svg class="h-5 w-5 text-pink-500 mr-2 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                  </svg>
+                  <span class="text-gray-300">日常對話與文化交流</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 舞蹈課程 -->
+          <div class="bg-gradient-to-br from-black to-pink-900/20 border border-pink-500/30 rounded-xl overflow-hidden course-card">
+            <div class="relative">
+              <div class="h-64 bg-gradient-to-br from-pink-900/50 to-purple-900/50 flex items-center justify-center">
+                <!-- 舞蹈課程圖片 -->
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-24 w-24 text-white/50" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-3" />
+                </svg>
+              </div>
+              <div class="absolute top-4 left-4 bg-gradient-to-r from-pink-500 to-purple-600 text-white text-xs font-bold py-1 px-3 rounded-full">
+                頂尖舞蹈工作室
+              </div>
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold text-white mb-2">舞蹈課程 (Dance Classes)</h3>
+              <p class="text-gray-300 mb-4">
+                參訪韓國最具代表性的舞蹈工作室，由專業舞者教授 K-POP 舞蹈技巧與表演魅力。
+              </p>
+              <div class="space-y-2">
+                <div class="flex items-start">
+                  <svg class="h-5 w-5 text-pink-500 mr-2 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                  </svg>
+                  <span class="text-gray-300">Just Jerk Academy 專業課程</span>
+                </div>
+                <div class="flex items-start">
+                  <svg class="h-5 w-5 text-pink-500 mr-2 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                  </svg>
+                  <span class="text-gray-300">1Million Dance Studio 特別課程</span>
+                </div>
+                <div class="flex items-start">
+                  <svg class="h-5 w-5 text-pink-500 mr-2 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                  </svg>
+                  <span class="text-gray-300">K-Pop 舞蹈基礎與進階技巧</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 聲樂課程 -->
+          <div class="bg-gradient-to-br from-black to-pink-900/20 border border-pink-500/30 rounded-xl overflow-hidden course-card">
+            <div class="relative">
+              <div class="h-64 bg-gradient-to-br from-pink-900/50 to-purple-900/50 flex items-center justify-center">
+                <!-- 聲樂課程圖片 -->
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-24 w-24 text-white/50" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-3" />
+                </svg>
+              </div>
+              <div class="absolute top-4 left-4 bg-gradient-to-r from-pink-500 to-purple-600 text-white text-xs font-bold py-1 px-3 rounded-full">
+                頂尖偶像聲樂訓練
+              </div>
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold text-white mb-2">聲樂課程 (Vocal Classes)</h3>
+              <p class="text-gray-300 mb-4">
+                由知名聲樂教練 Jiae Kim (@keepgoing_z.ae) 親自授課，她曾指導過眾多知名偶像團體的成員。
+              </p>
+              <div class="space-y-2">
+                <div class="flex items-start">
+                  <svg class="h-5 w-5 text-pink-500 mr-2 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                  </svg>
+                  <span class="text-gray-300">曾指導：SNSD、Red Velvet、Mamamoo 等</span>
+                </div>
+                <div class="flex items-start">
+                  <svg class="h-5 w-5 text-pink-500 mr-2 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                  </svg>
+                  <span class="text-gray-300">K-Pop 歌唱技巧與呼吸控制</span>
+                </div>
+                <div class="flex items-start">
+                  <svg class="h-5 w-5 text-pink-500 mr-2 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                  </svg>
+                  <span class="text-gray-300">舞台表演與歌唱結合技巧</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 模特兒課程 -->
+          <div class="bg-gradient-to-br from-black to-pink-900/20 border border-pink-500/30 rounded-xl overflow-hidden course-card">
+            <div class="relative">
+              <div class="h-64 bg-gradient-to-br from-pink-900/50 to-purple-900/50 flex items-center justify-center">
+                <!-- 模特兒課程圖片 -->
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-24 w-24 text-white/50" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                </svg>
+              </div>
+              <div class="absolute top-4 left-4 bg-gradient-to-r from-pink-500 to-purple-600 text-white text-xs font-bold py-1 px-3 rounded-full">
+                專業模特兒訓練
+              </div>
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold text-white mb-2">模特兒課程 (Modeling Classes)</h3>
+              <p class="text-gray-300 mb-4">
+                由專業模特兒 Gimu 指導，學習專業的舞台走姿、姿態與鏡頭前的表現技巧。
+              </p>
+              <div class="space-y-2">
+                <div class="flex items-start">
+                  <svg class="h-5 w-5 text-pink-500 mr-2 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                  </svg>
+                  <span class="text-gray-300">專業模特兒走姿與姿態訓練</span>
+                </div>
+                <div class="flex items-start">
+                  <svg class="h-5 w-5 text-pink-500 mr-2 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                  </svg>
+                  <span class="text-gray-300">鏡頭前的表情管理與肢體語言</span>
+                </div>
+                <div class="flex items-start">
+                  <svg class="h-5 w-5 text-pink-500 mr-2 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                  </svg>
+                  <span class="text-gray-300">時尚造型與個人風格塑造</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 課程內容 - 韓語 -->
+      <div class="tab-content" id="tab-korean">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+          <div>
+            <h3 class="text-2xl font-bold text-white mb-4">韓語課程 (Korean Language)</h3>
+            <p class="text-gray-300 mb-6">
+              專為 TOPIK 2 級別學員設計的韓語課程，由知名韓語教師授課，幫助你掌握韓國娛樂產業常用詞彙與表達方式。
+            </p>
+
+            <div class="bg-gradient-to-br from-black to-pink-900/20 border border-pink-500/30 rounded-xl p-6 mb-6">
+              <h4 class="text-xl font-bold text-white mb-4">課程內容</h4>
+              <ul class="space-y-3">
+                <li class="flex items-start">
+                  <svg class="h-5 w-5 text-pink-500 mr-2 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                  </svg>
+                  <span class="text-gray-300">娛樂產業專業術語與常用詞彙</span>
+                </li>
+                <li class="flex items-start">
+                  <svg class="h-5 w-5 text-pink-500 mr-2 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                  </svg>
+                  <span class="text-gray-300">自我介紹與面試用語訓練</span>
+                </li>
+                <li class="flex items-start">
+                  <svg class="h-5 w-5 text-pink-500 mr-2 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                  </svg>
+                  <span class="text-gray-300">日常對話與文化交流表達</span>
+                </li>
+                <li class="flex items-start">
+                  <svg class="h-5 w-5 text-pink-500 mr-2 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                  </svg>
+                  <span class="text-gray-300">K-POP 歌詞理解與發音練習</span>
+                </li>
+                <li class="flex items-start">
+                  <svg class="h-5 w-5 text-pink-500 mr-2 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                  </svg>
+                  <span class="text-gray-300">韓國流行文化與娛樂產業背景知識</span>
+                </li>
+              </ul>
+            </div>
+
+            <div class="bg-gradient-to-br from-black to-pink-900/20 border border-pink-500/30 rounded-xl p-6">
+              <h4 class="text-xl font-bold text-white mb-4">課程特色</h4>
+              <ul class="space-y-3">
+                <li class="flex items-start">
+                  <svg class="h-5 w-5 text-pink-500 mr-2 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                  </svg>
+                  <span class="text-gray-300">小班制教學，確保每位學員都能得到充分指導</span>
+                </li>
+                <li class="flex items-start">
+                  <svg class="h-5 w-5 text-pink-500 mr-2 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                  </svg>
+                  <span class="text-gray-300">實用對話練習，著重於實際應用場景</span>
+                </li>
+                <li class="flex items-start">
+                  <svg class="h-5 w-5 text-pink-500 mr-2 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                  </svg>
+                  <span class="text-gray-300">由韓國本土教師授課，確保地道發音與表達</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="course-image">
+            <!-- 韓語課程圖片 -->
+            <div class="bg-gradient-to-br from-pink-900/50 to-purple-900/50 h-full flex items-center justify-center">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-24 w-24 text-white/50" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129" />
+              </svg>
+            </div>
+            <div class="course-image-overlay">
+              <h4 class="text-lg font-bold text-white">韓語課程實景</h4>
+              <p class="text-sm text-gray-200">專業韓語教室環境</p>
+            </div>
+          </div>
+        </div>
+      </div>
+</body>
+</html>
