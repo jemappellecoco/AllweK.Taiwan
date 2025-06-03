@@ -343,6 +343,11 @@
     .poster-item:hover .poster-item-overlay {
       opacity: 1;
     }
+    .tab-button.active {
+  background: linear-gradient(135deg, #ff0080, #7928ca);
+  color: white;
+  font-weight: 700;
+}
   </style>
 </head>
 <body>
@@ -572,16 +577,11 @@
       <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center mb-16">
         <div class="poster-container">
           <!-- 主海報圖片 -->
-          <div class="bg-gradient-to-br from-pink-900/50 to-purple-900/50 aspect-[3/4] rounded-xl flex items-center justify-center">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-24 w-24 text-white/50" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-            </svg>
+          <div class="relative aspect-[9/6] rounded-2xl overflow-hidden shadow-[0_0_60px_rgba(255,0,128,0.5)] border-4 border-pink-500/30 ring-4 ring-purple-500/30 backdrop-blur-md">
+            <img src="./img/Bidol_title.gif" alt="B.IDOL Title Animation"
+           class="w-full h-full object-cover rounded-2xl ">
           </div>
-          <div class="poster-overlay">
-            <button class="bg-white/20 backdrop-blur-md text-white px-4 py-2 rounded-full hover:bg-white/30 transition-all duration-300 poster-view-btn" data-poster="main">
-              查看大圖
-            </button>
-          </div>
+          <div class="absolute -inset-2 z-[-1] rounded-2xl bg-gradient-to-br from-pink-500/40 via-purple-500/30 to-black blur-2xl opacity-70 animate-spin-slow"></div>
         </div>
 
         <div class="space-y-6">
@@ -784,6 +784,7 @@
       </div>
     </div>
   </section>
+
    <!-- 課程介紹 -->
   <section id="courses" class="py-20 px-4 bg-black">
     <div class="max-w-7xl mx-auto">
@@ -792,19 +793,19 @@
       </h2>
 
       <!-- 課程分類標籤 -->
-      <div class="flex flex-wrap justify-center gap-4 mb-12">
-        <button class="tab-button active" data-tab="all">全部課程</button>
-        <button class="tab-button" data-tab="korean">韓語課程</button>
-        <button class="tab-button" data-tab="dance">舞蹈課程</button>
-        <button class="tab-button" data-tab="vocal">聲樂課程</button>
-        <button class="tab-button" data-tab="model">模特兒課程</button>
-      </div>
+  <div class="flex flex-wrap justify-center gap-4 mb-12">
+  <button class="tab-button active" data-tab="all">全部課程</button>
+  <button class="tab-button" data-tab="korean">韓語課程</button>
+  <button class="tab-button" data-tab="dance">舞蹈課程</button>
+  <button class="tab-button" data-tab="vocal">聲樂課程</button>
+  <button class="tab-button" data-tab="model">模特兒課程</button>
+</div>
 
       <!-- 課程內容 - 全部 -->
-      <div class="tab-content active" id="tab-all">
+     <div id="tab-all" class="block transition-all duration-500 opacity-100">
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
           <!-- 韓語課程 -->
-          <div class="bg-gradient-to-br from-black to-pink-900/20 border border-pink-500/30 rounded-xl overflow-hidden course-card">
+         <div class="bg-gradient-to-br from-black to-pink-900/20 border border-pink-500/30 rounded-xl overflow-hidden course-card" data-category="korean">
             <div class="relative">
               <div class="h-64 bg-gradient-to-br from-pink-900/50 to-purple-900/50 flex items-center justify-center">
                 <!-- 韓語課程圖片 -->
@@ -845,8 +846,7 @@
           </div>
 
           <!-- 舞蹈課程 -->
-          <div class="bg-gradient-to-br from-black to-pink-900/20 border border-pink-500/30 rounded-xl overflow-hidden course-card">
-            <div class="relative">
+          	<div class="bg-gradient-to-br from-black to-pink-900/20 border border-pink-500/30 rounded-xl overflow-hidden course-card" data-category="dance"> <div class="relative">
               <div class="h-64 bg-gradient-to-br from-pink-900/50 to-purple-900/50 flex items-center justify-center">
                 <!-- 舞蹈課程圖片 -->
                  <img src="./img/dance.png" alt="舞蹈課程圖片" class="rounded-xl shadow-lg w-full h-full object-cover">
@@ -885,8 +885,7 @@
           </div>
 
           <!-- 聲樂課程 -->
-          <div class="bg-gradient-to-br from-black to-pink-900/20 border border-pink-500/30 rounded-xl overflow-hidden course-card">
-            <div class="relative">
+          <div class="bg-gradient-to-br from-black to-pink-900/20 border border-pink-500/30 rounded-xl overflow-hidden course-card" data-category="vocal">  <div class="relative">
               <div class="h-64 bg-gradient-to-br from-pink-900/50 to-purple-900/50 flex items-center justify-center">
                 <!-- 聲樂課程圖片 -->
                 <img src="./img/vocal.png" alt="聲樂" class="rounded-xl shadow-lg w-full h-full object-cover">
@@ -924,8 +923,7 @@
           </div>
 
           <!-- 模特兒課程 -->
-          <div class="bg-gradient-to-br from-black to-pink-900/20 border border-pink-500/30 rounded-xl overflow-hidden course-card">
-            <div class="relative">
+          <div class="bg-gradient-to-br from-black to-pink-900/20 border border-pink-500/30 rounded-xl overflow-hidden course-card" data-category="model">  <div class="relative">
               <div class="h-64 bg-gradient-to-br from-pink-900/50 to-purple-900/50 flex items-center justify-center">
                 <!-- 模特兒課程圖片 -->
                 <img src="./img/model.png" alt="聲樂" class="rounded-xl shadow-lg w-full h-full object-cover">
@@ -965,7 +963,7 @@
       </div>
 
       <!-- 課程內容 - 韓語 -->
-      <div class="tab-content" id="tab-korean">
+      <div class="hidden opacity-0 transition-all duration-500">
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
           <div>
             <h3 class="text-2xl font-bold text-white mb-4">韓語課程 (Korean Language)</h3>
@@ -1048,5 +1046,34 @@
           </div>
         </div>
       </div>
-</body>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const tabButtons = document.querySelectorAll('.tab-button');
+    const cards = document.querySelectorAll('.course-card');
+
+    tabButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        const category = button.getAttribute('data-tab');
+
+        // 切換按鈕樣式
+        tabButtons.forEach(btn => btn.classList.remove('active'));
+        button.classList.add('active');
+
+        // 顯示或隱藏卡片
+        cards.forEach(card => {
+          const cardCategory = card.getAttribute('data-category');
+          if (category === 'all' || cardCategory === category) {
+            card.style.display = 'block';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      });
+    });
+  });
+</script>
+
+  </body>
+
 </html>
