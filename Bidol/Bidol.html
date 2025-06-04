@@ -20,7 +20,7 @@
         }
         .section-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(255, 0, 0, 0.15);
+            box-shadow: 0 10px 25px rgba(255, 0, 128, 0.15);
         }
         .tab-button {
             transition: all 0.2s ease;
@@ -29,9 +29,9 @@
             border: 1px solid #333;
         }
         .tab-button.active {
-            background-color: #e60000;
+            background: linear-gradient(120deg, #ff0080, #7928ca);
             color: white;
-            border-color: #e60000;
+            border-color: transparent;
         }
         .tab-content {
             display: none;
@@ -45,14 +45,20 @@
             to { opacity: 1; transform: translateY(0); }
         }
         .highlight {
-            background: linear-gradient(120deg, rgba(230, 0, 0, 0.2) 0%, rgba(230, 0, 0, 0.2) 100%);
+            background: linear-gradient(120deg, rgba(255, 0, 128, 0.2) 0%, rgba(121, 40, 202, 0.2) 100%);
             background-repeat: no-repeat;
             background-size: 100% 40%;
             background-position: 0 90%;
         }
+        .text-gradient {
+            background: linear-gradient(120deg, #ff0080, #7928ca);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
         table thead th {
             background-color: #1a1a1a;
-            color: #e60000;
+            color: #ff0080;
         }
         table tbody tr:nth-child(odd) {
             background-color: #1a1a1a;
@@ -77,7 +83,7 @@
 <body>
     <div class="min-h-screen">
         <!-- Header -->
-        <header class="bg-gradient-to-r from-red-900 to-black text-white py-12 px-4 sm:px-6 lg:px-8 text-center">
+        <header class="bg-gradient-to-r from-[#ff0080] to-[#7928ca] text-white py-12 px-4 sm:px-6 lg:px-8 text-center">
             <div class="max-w-4xl mx-auto">
                 <h1 class="text-4xl md:text-5xl font-bold mb-4">
                     <span class="inline-block animate-bounce mr-2">🌟</span>
@@ -85,10 +91,10 @@
                 </h1>
                 <p class="text-xl md:text-2xl font-medium mb-6">2025 夏季韓國偶像體驗營 參與手冊</p>
                 <div class="flex justify-center space-x-2 mb-6">
-                    <span class="bg-red-800 bg-opacity-70 px-3 py-1 rounded-full text-sm font-medium">K-POP</span>
-                    <span class="bg-red-800 bg-opacity-70 px-3 py-1 rounded-full text-sm font-medium">舞蹈</span>
-                    <span class="bg-red-800 bg-opacity-70 px-3 py-1 rounded-full text-sm font-medium">首爾</span>
-                    <span class="bg-red-800 bg-opacity-70 px-3 py-1 rounded-full text-sm font-medium">2025夏季</span>
+                    <span class="bg-pink-800 bg-opacity-70 px-3 py-1 rounded-full text-sm font-medium">K-POP</span>
+                    <span class="bg-pink-800 bg-opacity-70 px-3 py-1 rounded-full text-sm font-medium">舞蹈</span>
+                    <span class="bg-pink-800 bg-opacity-70 px-3 py-1 rounded-full text-sm font-medium">首爾</span>
+                    <span class="bg-pink-800 bg-opacity-70 px-3 py-1 rounded-full text-sm font-medium">2025夏季</span>
                 </div>
                 <p class="text-lg opacity-90 max-w-2xl mx-auto">
                     感謝您參與 B.IDOL 夏季首爾營！這是一場集結全球年輕舞者的教育與交流活動，我們的師資與工作人員將全力支持每一位參加者，盡情揮灑汗水、綻放笑容吧！
@@ -119,53 +125,53 @@
             <!-- Tab Content -->
             <div class="tab-content active" id="info">
                 <div class="section-card rounded-2xl shadow-lg p-8 mb-8">
-                    <h2 class="text-2xl font-bold mb-6 text-red-500">活動基本資訊</h2>
+                    <h2 class="text-2xl font-bold mb-6 text-gradient">活動基本資訊</h2>
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <div class="flex items-start">
-                            <div class="flex-shrink-0 h-10 w-10 rounded-full bg-red-900 bg-opacity-30 flex items-center justify-center">
+                            <div class="flex-shrink-0 h-10 w-10 rounded-full bg-purple-900 bg-opacity-30 flex items-center justify-center">
                                 <span class="text-xl">📅</span>
                             </div>
                             <div class="ml-4">
-                                <h3 class="text-lg font-medium text-red-400">日期</h3>
+                                <h3 class="text-lg font-medium text-gradient">日期</h3>
                                 <p class="mt-1 text-gray-300">2025 年 7 月 24 日上午 11 點 ～ 2025 年 8 月 4 日下午 2 點</p>
                             </div>
                         </div>
                         <div class="flex items-start">
-                            <div class="flex-shrink-0 h-10 w-10 rounded-full bg-red-900 bg-opacity-30 flex items-center justify-center">
+                            <div class="flex-shrink-0 h-10 w-10 rounded-full bg-purple-900 bg-opacity-30 flex items-center justify-center">
                                 <span class="text-xl">📍</span>
                             </div>
                             <div class="ml-4">
-                                <h3 class="text-lg font-medium text-red-400">地點</h3>
+                                <h3 class="text-lg font-medium text-gradient">地點</h3>
                                 <p class="mt-1 text-gray-300">Hi Seoul Youth Hostel（首爾永登浦區永新路 200 號）</p>
                             </div>
                         </div>
                         <div class="flex items-start">
-                            <div class="flex-shrink-0 h-10 w-10 rounded-full bg-red-900 bg-opacity-30 flex items-center justify-center">
+                            <div class="flex-shrink-0 h-10 w-10 rounded-full bg-purple-900 bg-opacity-30 flex items-center justify-center">
                                 <span class="text-xl">📱</span>
                             </div>
                             <div class="ml-4">
-                                <h3 class="text-lg font-medium text-red-400">聯絡方式</h3>
+                                <h3 class="text-lg font-medium text-gradient">聯絡方式</h3>
                                 <p class="mt-1 text-gray-300">活動前 1 週開設 WhatsApp 群組</p>
                             </div>
                         </div>
                         <div class="flex items-start">
-                            <div class="flex-shrink-0 h-10 w-10 rounded-full bg-red-900 bg-opacity-30 flex items-center justify-center">
+                            <div class="flex-shrink-0 h-10 w-10 rounded-full bg-purple-900 bg-opacity-30 flex items-center justify-center">
                                 <span class="text-xl">📞</span>
                             </div>
                             <div class="ml-4">
-                                <h3 class="text-lg font-medium text-red-400">緊急聯絡人</h3>
+                                <h3 class="text-lg font-medium text-gradient">緊急聯絡人</h3>
                                 <p class="mt-1 text-gray-300">Alex Lee（+82-10-3205-5954）</p>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="bg-gradient-to-r from-red-900 to-black bg-opacity-50 rounded-2xl p-6 border border-red-900">
+                <div class="bg-gradient-to-r from-[#ff0080] to-[#7928ca] bg-opacity-50 rounded-2xl p-6 border border-[#7928ca]">
                     <div class="flex items-center mb-4">
-                        <div class="h-12 w-12 rounded-full bg-red-900 bg-opacity-30 flex items-center justify-center mr-4">
+                        <div class="h-12 w-12 rounded-full bg-purple-900 bg-opacity-30 flex items-center justify-center mr-4">
                             <span class="text-2xl">✈️</span>
                         </div>
-                        <h3 class="text-xl font-bold text-red-400">接機資訊</h3>
+                        <h3 class="text-xl font-bold text-gradient">接機資訊</h3>
                     </div>
                     <p class="text-gray-300 mb-4">
                         我們將在仁川國際機場第一航廈與第二航廈安排接機人員，請提前告知您的航班資訊。
@@ -182,19 +188,19 @@
                     <div class="section-card rounded-2xl shadow-lg p-6">
                         <div class="flex items-center mb-4">
                             <span class="text-3xl mr-3">🛏</span>
-                            <h3 class="text-xl font-bold text-red-500">住宿資訊</h3>
+                            <h3 class="text-xl font-bold text-gradient">住宿資訊</h3>
                         </div>
                         <ul class="space-y-2 text-gray-300">
                             <li class="flex items-start">
-                                <span class="text-red-500 mr-2">•</span>
+                                <span class="text-gradient mr-2">•</span>
                                 <span>三人房（如需與朋友同住請提前告知）</span>
                             </li>
                             <li class="flex items-start">
-                                <span class="text-red-500 mr-2">•</span>
+                                <span class="text-gradient mr-2">•</span>
                                 <span>房內設施：獨立衛浴、冷暖空調、電視、冰箱、電熱壺、茶杯組、拖鞋、吹風機、毛巾、洗髮精、沐浴乳</span>
                             </li>
                             <li class="flex items-start">
-                                <span class="text-red-500 mr-2">•</span>
+                                <span class="text-gradient mr-2">•</span>
                                 <span>免費 Wi-Fi</span>
                             </li>
                         </ul>
@@ -204,15 +210,15 @@
                     <div class="section-card rounded-2xl shadow-lg p-6">
                         <div class="flex items-center mb-4">
                             <span class="text-3xl mr-3">🍽</span>
-                            <h3 class="text-xl font-bold text-red-500">餐食資訊</h3>
+                            <h3 class="text-xl font-bold text-gradient">餐食資訊</h3>
                         </div>
                         <ul class="space-y-2 text-gray-300">
                             <li class="flex items-start">
-                                <span class="text-red-500 mr-2">•</span>
+                                <span class="text-gradient mr-2">•</span>
                                 <span>早餐與午餐在一樓餐廳提供</span>
                             </li>
                             <li class="flex items-start">
-                                <span class="text-red-500 mr-2">•</span>
+                                <span class="text-gradient mr-2">•</span>
                                 <span>一樓另設有咖啡烘焙坊（另行付費）</span>
                             </li>
                         </ul>
@@ -222,23 +228,23 @@
                     <div class="section-card rounded-2xl shadow-lg p-6">
                         <div class="flex items-center mb-4">
                             <span class="text-3xl mr-3">👨‍🍳</span>
-                            <h3 class="text-xl font-bold text-red-500">公用廚房</h3>
+                            <h3 class="text-xl font-bold text-gradient">公用廚房</h3>
                         </div>
                         <ul class="space-y-2 text-gray-300">
                             <li class="flex items-start">
-                                <span class="text-red-500 mr-2">•</span>
+                                <span class="text-gradient mr-2">•</span>
                                 <span>位置：三樓</span>
                             </li>
                             <li class="flex items-start">
-                                <span class="text-red-500 mr-2">•</span>
+                                <span class="text-gradient mr-2">•</span>
                                 <span>設備：5 個電磁爐、5 個洗手槽、1 台微波爐、2 台大型冰箱、1 台電子鍋</span>
                             </li>
                             <li class="flex items-start">
-                                <span class="text-red-500 mr-2">•</span>
+                                <span class="text-gradient mr-2">•</span>
                                 <span>營運時間：07:00～22:00</span>
                             </li>
                             <li class="flex items-start">
-                                <span class="text-red-500 mr-2">•</span>
+                                <span class="text-gradient mr-2">•</span>
                                 <span>歡迎自備食材體驗韓國自煮生活</span>
                             </li>
                         </ul>
@@ -248,19 +254,19 @@
                     <div class="section-card rounded-2xl shadow-lg p-6">
                         <div class="flex items-center mb-4">
                             <span class="text-3xl mr-3">🏢</span>
-                            <h3 class="text-xl font-bold text-red-500">課程教室</h3>
+                            <h3 class="text-xl font-bold text-gradient">課程教室</h3>
                         </div>
                         <ul class="space-y-2 text-gray-300">
                             <li class="flex items-start">
-                                <span class="text-red-500 mr-2">•</span>
+                                <span class="text-gradient mr-2">•</span>
                                 <span>地點：地下一樓</span>
                             </li>
                             <li class="flex items-start">
-                                <span class="text-red-500 mr-2">•</span>
+                                <span class="text-gradient mr-2">•</span>
                                 <span>面積：75.4 平方公尺</span>
                             </li>
                             <li class="flex items-start">
-                                <span class="text-red-500 mr-2">•</span>
+                                <span class="text-gradient mr-2">•</span>
                                 <span>開放時間：09:00～13:00</span>
                             </li>
                         </ul>
@@ -270,15 +276,15 @@
                     <div class="section-card rounded-2xl shadow-lg p-6">
                         <div class="flex items-center mb-4">
                             <span class="text-3xl mr-3">💻</span>
-                            <h3 class="text-xl font-bold text-red-500">休憩與上網空間</h3>
+                            <h3 class="text-xl font-bold text-gradient">休憩與上網空間</h3>
                         </div>
                         <ul class="space-y-2 text-gray-300">
                             <li class="flex items-start">
-                                <span class="text-red-500 mr-2">•</span>
+                                <span class="text-gradient mr-2">•</span>
                                 <span>三樓休息室（07:00～24:00）：大螢幕電視</span>
                             </li>
                             <li class="flex items-start">
-                                <span class="text-red-500 mr-2">•</span>
+                                <span class="text-gradient mr-2">•</span>
                                 <span>一樓網路區（07:00～24:00）：提供電腦（₩500 / 每 30 分鐘）</span>
                             </li>
                         </ul>
@@ -288,27 +294,27 @@
                     <div class="section-card rounded-2xl shadow-lg p-6">
                         <div class="flex items-center mb-4">
                             <span class="text-3xl mr-3">🧺</span>
-                            <h3 class="text-xl font-bold text-red-500">洗衣房</h3>
+                            <h3 class="text-xl font-bold text-gradient">洗衣房</h3>
                         </div>
                         <ul class="space-y-2 text-gray-300">
                             <li class="flex items-start">
-                                <span class="text-red-500 mr-2">•</span>
+                                <span class="text-gradient mr-2">•</span>
                                 <span>地點：三樓</span>
                             </li>
                             <li class="flex items-start">
-                                <span class="text-red-500 mr-2">•</span>
+                                <span class="text-gradient mr-2">•</span>
                                 <span>營運時間：07:00～22:00</span>
                             </li>
                             <li class="flex items-start">
-                                <span class="text-red-500 mr-2">•</span>
+                                <span class="text-gradient mr-2">•</span>
                                 <span>設備：洗衣機 4 台、烘鞋機（需向櫃檯借鑰匙）</span>
                             </li>
                             <li class="flex items-start">
-                                <span class="text-red-500 mr-2">•</span>
+                                <span class="text-gradient mr-2">•</span>
                                 <span>費用：₩2,000 / 次（₩1,000 紙鈔或 ₩500 硬幣）</span>
                             </li>
                             <li class="flex items-start">
-                                <span class="text-red-500 mr-2">•</span>
+                                <span class="text-gradient mr-2">•</span>
                                 <span>洗衣粉可於自動販賣機購買</span>
                             </li>
                         </ul>
@@ -318,19 +324,19 @@
                     <div class="section-card rounded-2xl shadow-lg p-6 md:col-span-2">
                         <div class="flex items-center mb-4">
                             <span class="text-3xl mr-3">🧼</span>
-                            <h3 class="text-xl font-bold text-red-500">其他補充</h3>
+                            <h3 class="text-xl font-bold text-gradient">其他補充</h3>
                         </div>
                         <ul class="space-y-2 text-gray-300">
                             <li class="flex items-start">
-                                <span class="text-red-500 mr-2">•</span>
+                                <span class="text-gradient mr-2">•</span>
                                 <span>每人每日提供一條毛巾</span>
                             </li>
                             <li class="flex items-start">
-                                <span class="text-red-500 mr-2">•</span>
+                                <span class="text-gradient mr-2">•</span>
                                 <span>提供洗髮精與香皂（建議自備習慣用品）</span>
                             </li>
                             <li class="flex items-start">
-                                <span class="text-red-500 mr-2">•</span>
+                                <span class="text-gradient mr-2">•</span>
                                 <span>現場有飲水機，請自備水壺</span>
                             </li>
                         </ul>
@@ -340,19 +346,19 @@
 
             <div class="tab-content" id="schedule">
                 <div class="section-card rounded-2xl shadow-lg p-8">
-                    <h2 class="text-2xl font-bold mb-6 text-red-500">活動時間表</h2>
+                    <h2 class="text-2xl font-bold mb-6 text-gradient">活動時間表</h2>
                     <div class="overflow-x-auto">
                         <table class="min-w-full divide-y divide-gray-700">
                             <thead>
                                 <tr>
-                                    <th class="px-6 py-3 text-left text-xs font-medium text-red-400 uppercase tracking-wider">時間</th>
-                                    <th class="px-6 py-3 text-left text-xs font-medium text-red-400 uppercase tracking-wider">活動內容</th>
-                                    <th class="px-6 py-3 text-left text-xs font-medium text-red-400 uppercase tracking-wider">地點</th>
+                                    <th class="px-6 py-3 text-left text-xs font-medium text-gradient uppercase tracking-wider">時間</th>
+                                    <th class="px-6 py-3 text-left text-xs font-medium text-gradient uppercase tracking-wider">活動內容</th>
+                                    <th class="px-6 py-3 text-left text-xs font-medium text-gradient uppercase tracking-wider">地點</th>
                                 </tr>
                             </thead>
                             <tbody class="divide-y divide-gray-800">
-                                <tr class="bg-red-900 bg-opacity-20">
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-red-400" colspan="3">第一天 (7/24)</td>
+                                <tr class="bg-purple-900 bg-opacity-20">
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gradient" colspan="3">第一天 (7/24)</td>
                                 </tr>
                                 <tr>
                                     <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-300">11:00 - 13:00</td>
@@ -375,8 +381,8 @@
                                     <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-300">一樓餐廳</td>
                                 </tr>
 
-                                <tr class="bg-red-900 bg-opacity-20">
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-red-400" colspan="3">第二天 (7/25) - 第十天 (8/3)</td>
+                                <tr class="bg-purple-900 bg-opacity-20">
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gradient" colspan="3">第二天 (7/25) - 第十天 (8/3)</td>
                                 </tr>
                                 <tr>
                                     <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-300">07:30 - 08:30</td>
@@ -409,8 +415,8 @@
                                     <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-300">地下一樓教室</td>
                                 </tr>
 
-                                <tr class="bg-red-900 bg-opacity-20">
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-red-400" colspan="3">最後一天 (8/4)</td>
+                                <tr class="bg-purple-900 bg-opacity-20">
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gradient" colspan="3">最後一天 (8/4)</td>
                                 </tr>
                                 <tr>
                                     <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-300">07:30 - 08:30</td>
@@ -435,9 +441,9 @@
                             </tbody>
                         </table>
                     </div>
-                    <div class="mt-6 bg-red-900 bg-opacity-20 p-4 rounded-lg">
+                    <div class="mt-6 bg-purple-900 bg-opacity-20 p-4 rounded-lg">
                         <p class="text-sm text-gray-300">
-                            <span class="font-bold text-red-400">備註：</span> 活動時間表可能會根據實際情況進行調整，請留意每日公告。
+                            <span class="font-bold text-gradient">備註：</span> 活動時間表可能會根據實際情況進行調整，請留意每日公告。
                         </p>
                     </div>
                 </div>
@@ -445,98 +451,98 @@
 
             <div class="tab-content" id="rules">
                 <div class="section-card rounded-2xl shadow-lg p-8">
-                    <h2 class="text-2xl font-bold mb-6 text-red-500">活動規定</h2>
+                    <h2 class="text-2xl font-bold mb-6 text-gradient">活動規定</h2>
 
                     <div class="space-y-6">
-                        <div class="bg-red-900 bg-opacity-20 p-5 rounded-xl">
-                            <h3 class="text-lg font-semibold text-red-400 mb-3">🕒 出席與時間管理</h3>
+                        <div class="bg-purple-900 bg-opacity-20 p-5 rounded-xl">
+                            <h3 class="text-lg font-semibold text-gradient mb-3">🕒 出席與時間管理</h3>
                             <ul class="space-y-2 text-gray-300">
                                 <li class="flex items-start">
-                                    <span class="text-red-500 mr-2">•</span>
+                                    <span class="text-gradient mr-2">•</span>
                                     <span>所有課程均需準時參加，如有特殊情況請提前向工作人員請假</span>
                                 </li>
                                 <li class="flex items-start">
-                                    <span class="text-red-500 mr-2">•</span>
+                                    <span class="text-gradient mr-2">•</span>
                                     <span>每日晚上 22:00 後請保持安靜，尊重他人休息時間</span>
                                 </li>
                                 <li class="flex items-start">
-                                    <span class="text-red-500 mr-2">•</span>
+                                    <span class="text-gradient mr-2">•</span>
                                     <span>外出活動請於晚上 21:00 前返回宿舍</span>
                                 </li>
                             </ul>
                         </div>
 
-                        <div class="bg-red-900 bg-opacity-20 p-5 rounded-xl">
-                            <h3 class="text-lg font-semibold text-red-400 mb-3">🧹 環境維護</h3>
+                        <div class="bg-purple-900 bg-opacity-20 p-5 rounded-xl">
+                            <h3 class="text-lg font-semibold text-gradient mb-3">🧹 環境維護</h3>
                             <ul class="space-y-2 text-gray-300">
                                 <li class="flex items-start">
-                                    <span class="text-red-500 mr-2">•</span>
+                                    <span class="text-gradient mr-2">•</span>
                                     <span>請保持房間與公共區域整潔</span>
                                 </li>
                                 <li class="flex items-start">
-                                    <span class="text-red-500 mr-2">•</span>
+                                    <span class="text-gradient mr-2">•</span>
                                     <span>使用公共廚房後請清理乾淨</span>
                                 </li>
                                 <li class="flex items-start">
-                                    <span class="text-red-500 mr-2">•</span>
+                                    <span class="text-gradient mr-2">•</span>
                                     <span>禁止在房間內烹飪食物</span>
                                 </li>
                             </ul>
                         </div>
 
-                        <div class="bg-red-900 bg-opacity-20 p-5 rounded-xl">
-                            <h3 class="text-lg font-semibold text-red-400 mb-3">🤝 團隊合作</h3>
+                        <div class="bg-purple-900 bg-opacity-20 p-5 rounded-xl">
+                            <h3 class="text-lg font-semibold text-gradient mb-3">🤝 團隊合作</h3>
                             <ul class="space-y-2 text-gray-300">
                                 <li class="flex items-start">
-                                    <span class="text-red-500 mr-2">•</span>
+                                    <span class="text-gradient mr-2">•</span>
                                     <span>尊重所有參與者與工作人員</span>
                                 </li>
                                 <li class="flex items-start">
-                                    <span class="text-red-500 mr-2">•</span>
+                                    <span class="text-gradient mr-2">•</span>
                                     <span>積極參與小組活動與練習</span>
                                 </li>
                                 <li class="flex items-start">
-                                    <span class="text-red-500 mr-2">•</span>
+                                    <span class="text-gradient mr-2">•</span>
                                     <span>遇到困難時主動尋求協助</span>
                                 </li>
                             </ul>
                         </div>
 
-                        <div class="bg-red-900 bg-opacity-20 p-5 rounded-xl">
-                            <h3 class="text-lg font-semibold text-red-400 mb-3">📱 社群媒體使用</h3>
+                        <div class="bg-purple-900 bg-opacity-20 p-5 rounded-xl">
+                            <h3 class="text-lg font-semibold text-gradient mb-3">📱 社群媒體使用</h3>
                             <ul class="space-y-2 text-gray-300">
                                 <li class="flex items-start">
-                                    <span class="text-red-500 mr-2">•</span>
+                                    <span class="text-gradient mr-2">•</span>
                                     <span>歡迎分享活動照片與影片，請使用標籤 #Bidol2025</span>
                                 </li>
                                 <li class="flex items-start">
-                                    <span class="text-red-500 mr-2">•</span>
+                                    <span class="text-gradient mr-2">•</span>
                                     <span>未經同意，請勿發布其他參與者的照片或影片</span>
                                 </li>
                                 <li class="flex items-start">
-                                    <span class="text-red-500 mr-2">•</span>
+                                    <span class="text-gradient mr-2">•</span>
                                     <span>請勿在社群媒體上發布負面或不當內容</span>
                                 </li>
                             </ul>
                         </div>
 
-                        <div class="bg-red-900 bg-opacity-20 p-5 rounded-xl">
-                            <h3 class="text-lg font-semibold text-red-400 mb-3">⚠️ 安全事項</h3>
+                        <div class="bg-purple-900 bg-opacity-20 p-5 rounded-xl">
+                            <h3 class="text-lg font-semibold text-gradient mb-3">⚠️ 安全事項</h3>
                             <ul class="space-y-2 text-gray-300">
                                 <li class="flex items-start">
-                                    <span class="text-red-500 mr-2">•</span>
+                                    <span class="text-gradient mr-2">•</span>
                                     <span>請隨時保管好個人貴重物品</span>
                                 </li>
                                 <li class="flex items-start">
-                                    <span class="text-red-500 mr-2">•</span>
+                                    <span class="text-gradient mr-2">•</span>
                                     <span>外出時請結伴同行，注意人身安全</span>
                                 </li>
                                 <li class="flex items-start">
-                                    <span class="text-red-500 mr-2">•</span>
+                                    <span class="text-gradient mr-2">•</span>
                                     <span>如有身體不適，請立即通知工作人員</span>
                                 </li>
                                 <li class="flex items-start">
-                                    <span class="text-red-500 mr-2">•</span>
+                                    <span class="text-gradient mr-2">•</span>
                                     <span>嚴禁攜帶或使用酒精、煙草及其他違禁品</span>
                                 </li>
                             </ul>
@@ -547,7 +553,7 @@
 
             <div class="tab-content" id="audition">
                 <div class="section-card rounded-2xl shadow-lg p-8">
-                    <h2 class="text-2xl font-bold mb-6 text-red-500">試鏡流程</h2>
+                    <h2 class="text-2xl font-bold mb-6 text-gradient">試鏡流程</h2>
 
                     <div class="mb-8">
                         <p class="text-gray-300 mb-4">
@@ -558,12 +564,12 @@
                     <div class="space-y-8">
                         <div class="flex">
                             <div class="flex-shrink-0">
-                                <div class="flex items-center justify-center h-12 w-12 rounded-md bg-red-800 text-white">
+                                <div class="flex items-center justify-center h-12 w-12 rounded-md bg-pink-800 text-white">
                                     <span class="font-bold">1</span>
                                 </div>
                             </div>
                             <div class="ml-4">
-                                <h3 class="text-lg font-medium text-red-400">試鏡時間</h3>
+                                <h3 class="text-lg font-medium text-gradient">試鏡時間</h3>
                                 <p class="mt-1 text-gray-300">
                                     試鏡將於 8 月 2 日下午 2:00 - 6:00 進行，每位參與者有 3 分鐘的展示時間。
                                 </p>
@@ -572,12 +578,12 @@
 
                         <div class="flex">
                             <div class="flex-shrink-0">
-                                <div class="flex items-center justify-center h-12 w-12 rounded-md bg-red-800 text-white">
+                                <div class="flex items-center justify-center h-12 w-12 rounded-md bg-pink-800 text-white">
                                     <span class="font-bold">2</span>
                                 </div>
                             </div>
                             <div class="ml-4">
-                                <h3 class="text-lg font-medium text-red-400">準備內容</h3>
+                                <h3 class="text-lg font-medium text-gradient">準備內容</h3>
                                 <p class="mt-1 text-gray-300">
                                     請準備一段 1-2 分鐘的舞蹈表演，可以是營隊中學習的舞蹈或自選曲目。如有其他才藝（唱歌、樂器等），也可以在剩餘時間展示。
                                 </p>
@@ -586,12 +592,12 @@
 
                         <div class="flex">
                             <div class="flex-shrink-0">
-                                <div class="flex items-center justify-center h-12 w-12 rounded-md bg-red-800 text-white">
+                                <div class="flex items-center justify-center h-12 w-12 rounded-md bg-pink-800 text-white">
                                     <span class="font-bold">3</span>
                                 </div>
                             </div>
                             <div class="ml-4">
-                                <h3 class="text-lg font-medium text-red-400">音樂準備</h3>
+                                <h3 class="text-lg font-medium text-gradient">音樂準備</h3>
                                 <p class="mt-1 text-gray-300">
                                     請提前準備好表演音樂的 MP3 檔案，並於 8 月 1 日前交給工作人員。檔案請以「姓名_曲目名稱」格式命名。
                                 </p>
@@ -600,12 +606,12 @@
 
                         <div class="flex">
                             <div class="flex-shrink-0">
-                                <div class="flex items-center justify-center h-12 w-12 rounded-md bg-red-800 text-white">
+                                <div class="flex items-center justify-center h-12 w-12 rounded-md bg-pink-800 text-white">
                                     <span class="font-bold">4</span>
                                 </div>
                             </div>
                             <div class="ml-4">
-                                <h3 class="text-lg font-medium text-red-400">服裝建議</h3>
+                                <h3 class="text-lg font-medium text-gradient">服裝建議</h3>
                                 <p class="mt-1 text-gray-300">
                                     請穿著合適的表演服裝，展現個人風格。建議選擇舒適且便於活動的服裝，妝容自然得體。
                                 </p>
@@ -614,12 +620,12 @@
 
                         <div class="flex">
                             <div class="flex-shrink-0">
-                                <div class="flex items-center justify-center h-12 w-12 rounded-md bg-red-800 text-white">
+                                <div class="flex items-center justify-center h-12 w-12 rounded-md bg-pink-800 text-white">
                                     <span class="font-bold">5</span>
                                 </div>
                             </div>
                             <div class="ml-4">
-                                <h3 class="text-lg font-medium text-red-400">評審陣容</h3>
+                                <h3 class="text-lg font-medium text-gradient">評審陣容</h3>
                                 <p class="mt-1 text-gray-300">
                                     評審包括來自 JYP、SM、HYBE 等知名娛樂公司的代表，他們將根據表演技巧、舞台魅力、潛力等方面進行評估。
                                 </p>
@@ -627,27 +633,27 @@
                         </div>
                     </div>
 
-                    <div class="mt-8 bg-red-900 bg-opacity-20 p-6 rounded-xl">
-                        <h3 class="text-lg font-semibold text-red-400 mb-3">💡 試鏡小提示</h3>
+                    <div class="mt-8 bg-purple-900 bg-opacity-20 p-6 rounded-xl">
+                        <h3 class="text-lg font-semibold text-gradient mb-3">💡 試鏡小提示</h3>
                         <ul class="space-y-2 text-gray-300">
                             <li class="flex items-start">
-                                <span class="text-red-500 mr-2">•</span>
+                                <span class="text-gradient mr-2">•</span>
                                 <span>保持自信，展現真實的自我</span>
                             </li>
                             <li class="flex items-start">
-                                <span class="text-red-500 mr-2">•</span>
+                                <span class="text-gradient mr-2">•</span>
                                 <span>充分利用空間，展示舞台表現力</span>
                             </li>
                             <li class="flex items-start">
-                                <span class="text-red-500 mr-2">•</span>
+                                <span class="text-gradient mr-2">•</span>
                                 <span>與評審保持適當的眼神交流</span>
                             </li>
                             <li class="flex items-start">
-                                <span class="text-red-500 mr-2">•</span>
+                                <span class="text-gradient mr-2">•</span>
                                 <span>試鏡前做好充分的熱身準備</span>
                             </li>
                             <li class="flex items-start">
-                                <span class="text-red-500 mr-2">•</span>
+                                <span class="text-gradient mr-2">•</span>
                                 <span>記得在表演結束後有禮貌地感謝評審</span>
                             </li>
                         </ul>
@@ -658,13 +664,13 @@
 
         <!-- FAQ Section -->
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-            <h2 class="text-2xl font-bold mb-8 text-center text-red-500">常見問題</h2>
+            <h2 class="text-2xl font-bold mb-8 text-center text-gradient">常見問題</h2>
 
             <div class="space-y-4">
                 <div class="faq-item border border-gray-800 rounded-lg overflow-hidden">
                     <button class="faq-question w-full px-6 py-4 text-left flex justify-between items-center">
                         <span class="font-medium text-gray-200">需要攜帶哪些物品？</span>
-                        <svg class="h-5 w-5 text-red-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <svg class="h-5 w-5 text-gradient" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
                         </svg>
                     </button>
@@ -678,7 +684,7 @@
                 <div class="faq-item border border-gray-800 rounded-lg overflow-hidden">
                     <button class="faq-question w-full px-6 py-4 text-left flex justify-between items-center">
                         <span class="font-medium text-gray-200">有提供無線網路嗎？</span>
-                        <svg class="h-5 w-5 text-red-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <svg class="h-5 w-5 text-gradient" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
                         </svg>
                     </button>
@@ -692,7 +698,7 @@
                 <div class="faq-item border border-gray-800 rounded-lg overflow-hidden">
                     <button class="faq-question w-full px-6 py-4 text-left flex justify-between items-center">
                         <span class="font-medium text-gray-200">如何處理語言障礙？</span>
-                        <svg class="h-5 w-5 text-red-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <svg class="h-5 w-5 text-gradient" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
                         </svg>
                     </button>
@@ -706,7 +712,7 @@
                 <div class="faq-item border border-gray-800 rounded-lg overflow-hidden">
                     <button class="faq-question w-full px-6 py-4 text-left flex justify-between items-center">
                         <span class="font-medium text-gray-200">有自由活動時間嗎？</span>
-                        <svg class="h-5 w-5 text-red-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <svg class="h-5 w-5 text-gradient" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
                         </svg>
                     </button>
@@ -720,7 +726,7 @@
                 <div class="faq-item border border-gray-800 rounded-lg overflow-hidden">
                     <button class="faq-question w-full px-6 py-4 text-left flex justify-between items-center">
                         <span class="font-medium text-gray-200">如果我沒有舞蹈基礎可以參加嗎？</span>
-                        <svg class="h-5 w-5 text-red-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <svg class="h-5 w-5 text-gradient" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
                         </svg>
                     </button>
@@ -734,27 +740,27 @@
         </div>
 
         <!-- Contact Section -->
-        <div class="bg-black py-12 px-4 sm:px-6 lg:px-8 border-t border-red-900">
+        <div class="bg-black py-12 px-4 sm:px-6 lg:px-8 border-t border-purple-900">
             <div class="max-w-4xl mx-auto text-center">
-                <h2 class="text-2xl font-bold mb-6 text-red-500">有任何問題嗎？</h2>
+                <h2 class="text-2xl font-bold mb-6 text-gradient">有任何問題嗎？</h2>
                 <p class="mb-8 text-gray-300">如有任何疑問，請隨時聯繫我們的團隊</p>
 
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                    <div class="bg-red-900 bg-opacity-20 p-6 rounded-lg border border-red-800">
+                    <div class="bg-purple-900 bg-opacity-20 p-6 rounded-lg border border-pink-800">
                         <div class="text-3xl mb-4">📧</div>
-                        <h3 class="text-lg font-medium mb-2 text-red-400">電子郵件</h3>
+                        <h3 class="text-lg font-medium mb-2 text-gradient">電子郵件</h3>
                         <p class="text-gray-300">info@bidol2025.com</p>
                     </div>
 
-                    <div class="bg-red-900 bg-opacity-20 p-6 rounded-lg border border-red-800">
+                    <div class="bg-purple-900 bg-opacity-20 p-6 rounded-lg border border-pink-800">
                         <div class="text-3xl mb-4">📱</div>
-                        <h3 class="text-lg font-medium mb-2 text-red-400">電話</h3>
+                        <h3 class="text-lg font-medium mb-2 text-gradient">電話</h3>
                         <p class="text-gray-300">+82-10-3205-5954</p>
                     </div>
 
-                    <div class="bg-red-900 bg-opacity-20 p-6 rounded-lg border border-red-800">
+                    <div class="bg-purple-900 bg-opacity-20 p-6 rounded-lg border border-pink-800">
                         <div class="text-3xl mb-4">💬</div>
-                        <h3 class="text-lg font-medium mb-2 text-red-400">社群媒體</h3>
+                        <h3 class="text-lg font-medium mb-2 text-gradient">社群媒體</h3>
                         <p class="text-gray-300">@B.idol_official</p>
                     </div>
                 </div>
@@ -766,13 +772,13 @@
             <div class="max-w-4xl mx-auto">
                 <p class="text-gray-500 mb-4">© 2025 B.idol. All Rights Reserved.</p>
                 <div class="flex justify-center space-x-4">
-                    <a href="#" class="text-red-500 hover:text-red-400">
+                    <a href="#" class="text-gradient hover:text-gradient">
                         <span>Instagram</span>
                     </a>
-                    <a href="#" class="text-red-500 hover:text-red-400">
+                    <a href="#" class="text-gradient hover:text-gradient">
                         <span>Facebook</span>
                     </a>
-                    <a href="#" class="text-red-500 hover:text-red-400">
+                    <a href="#" class="text-gradient hover:text-gradient">
                         <span>Twitter</span>
                     </a>
                 </div>
