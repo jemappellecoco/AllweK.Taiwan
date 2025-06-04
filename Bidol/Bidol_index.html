@@ -368,12 +368,136 @@
     .carousel-card {
   max-width: 100%;
 }
-
+.masonry {
+      column-count: 2;
+      column-gap: 1rem;
+    }
+    .masonry-item {
+      break-inside: avoid;
+      margin-bottom: 1rem;
+      cursor: pointer;
+      position: relative;
+    }
+    .masonry-item img {
+      width: 100%;
+      border-radius: 0.75rem;
+    }
+    .overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background: rgba(0,0,0,0.7);
+      color: white;
+      padding: 0.5rem;
+      border-radius: 0 0 0.75rem 0.75rem;
+      font-size: 0.9rem;
+      display: none;
+    }
+    .masonry-item:hover .overlay {
+      display: block;
+    }
+    .grid-gallery {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    .grid-item {
+      position: relative;
+      cursor: pointer;
+      flex: 1 0 calc(25% - 1rem);
+      max-width: calc(25% - 1rem);
+      aspect-ratio: 4/3;
+    }
+    .grid-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 0.75rem;
+    }
+    .overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background: rgba(0,0,0,0.7);
+      color: white;
+      padding: 0.5rem;
+      border-radius: 0 0 0.75rem 0.75rem;
+      font-size: 0.9rem;
+      display: none;
+    }
+    .grid-item:hover .overlay {
+      display: block;
+    }
+     .lightbox {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0,0,0,0.9);
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+      flex-direction: row;
+    }
+    .lightbox img {
+      max-height: 80vh;
+      max-width: 50vw;
+    }
+    .lightbox .text {
+      color: white;
+      padding: 2rem;
+      max-width: 30vw;
+    }
+    .lightbox .nav {
+      color: white;
+      font-size: 2rem;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      cursor: pointer;
+      user-select: none;
+    }
+    .lightbox .left { left: 1rem; }
+    .lightbox .right { right: 1rem; }
+    .lightbox .close {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      font-size: 2rem;
+      cursor: pointer;
+      color: white;
+    }
+    .grid-flow {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 1rem;
+    }
+    .card-random {
+      transform: translateY(0) scale(1);
+      transition: all 0.3s ease-in-out;
+    }
+    .card-random:hover {
+      transform: translateY(-5px) scale(1.05);
+      z-index: 10;
+    }
+    .scrollbar-hide::-webkit-scrollbar {
+      display: none;
+    }
     @media (min-width: 768px) {
       .carousel-card {
         flex: 0 0 60%;
       }
     }
+    @media (max-width: 768px) {
+  .grid-item {
+    flex: 1 0 calc(50% - 1rem);
+    max-width: calc(50% - 1rem);
+  }
+}
   </style>
 </head>
 <body>
@@ -711,11 +835,7 @@
   ></iframe>
 </div>
 
-      </div>
-  <div class="mt-4 text-center">
-    <h3 class="text-xl font-bold text-white">B.IDOL 2025 官方宣傳片</h3>
-    <p class="text-gray-400">體驗韓國偶像培訓的精彩旅程</p>
-  </div>
+
 </div>
         <div class="mt-4 text-center">
           <h3 class="text-xl font-bold text-white">B.IDOL 2025 官方宣傳片</h3>
@@ -786,70 +906,37 @@
     </div>
   </section>
 
-   <!-- 課程介紹 -->
 
-    <section id="courses" class="py-20 px-4 bg-black">
-    <div class="max-w-7xl mx-auto">
+
+
+
+<!-- 特別活動 -->
+  <!-- 特別活動 -->
+  <section id="special" class="py-20 px-4 bg-black">
+    <div class="max-w-6xl mx-auto">
       <h2 class="text-3xl md:text-4xl font-bold text-center mb-16 bg-gradient-to-r from-pink-500 to-purple-600 bg-clip-text text-transparent">
-        專業課程介紹
+        特別課程
       </h2>
-      <div class="carousel-container mx-auto max-w-5xl">
-        <button class="carousel-button left" onclick="moveSlide(-1)">&#10094;</button>
-        <div class="carousel-track" id="carouselTrack">
-          <div class="carousel-card active">
-            <div class="carousel-image">
-              <img src="./img/Korean.jpeg" alt="韓語課程">
-            </div>
-            <h3>韓語課程 (Korean Language)</h3>
-            <p class="mb-4">由知名韓語教師授課，專為 TOPIK 2 級別學員設計的課程，幫助你掌握韓國娛樂產業常用詞彙與表達方式。</p>
-            <ul>
-              <li>娛樂產業專業術語</li>
-              <li>自我介紹與面試用語</li>
-              <li>日常對話與文化交流</li>
-            </ul>
-          </div>
-          <div class="carousel-card">
-            <div class="carousel-image">
-              <img src="./img/dance.png" alt="舞蹈課程">
-            </div>
-            <h3>舞蹈課程 (Dance Classes)</h3>
-            <p class="mb-4">參訪韓國最具代表性的舞蹈工作室，由專業舞者教授 K-POP 舞蹈技巧與表演魅力。</p>
-            <ul>
-              <li>Just Jerk Academy 專業課程</li>
-              <li>1Million Dance Studio 特別課程</li>
-              <li>K-Pop 舞蹈基礎與進階技巧</li>
-            </ul>
-          </div>
-          <div class="carousel-card">
-            <div class="carousel-image">
-              <img src="./img/vocal.png" alt="聲樂課程">
-            </div>
-            <h3>聲樂課程 (Vocal Classes)</h3>
-            <p class="mb-4">由知名聲樂教練 Jiae Kim (@keepgoing_z.ae) 親自授課，曾指導 SNSD、Red Velvet 等團體。</p>
-            <ul>
-              <li>K-Pop 歌唱技巧與呼吸控制</li>
-              <li>舞台表演與歌唱結合技巧</li>
-            </ul>
-          </div>
-          <div class="carousel-card">
-            <div class="carousel-image">
-              <img src="./img/model.png" alt="模特兒課程">
-            </div>
-            <h3>模特兒課程 (Modeling Classes)</h3>
-            <p class="mb-4">由專業模特兒 Gimu 指導，學習專業的舞台走姿、姿態與鏡頭前的表現技巧。</p>
-            <ul>
-              <li>走姿與姿態訓練</li>
-              <li>鏡頭前表情管理與肢體語言</li>
-              <li>個人風格與時尚造型培養</li>
-            </ul>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 ">
+        <div class="relative">
+          <img src="./img/vocal .png" alt="Special Activities" class="rounded-xl shadow-xl w-full">
+          <div class="absolute bottom-2 right-5 text-white p-4 rounded-lg text-sm md:text-base">
+            <h3 class="text-lg font-bold mb-1">Vocal Recording Session</h3>
+            <p>- 在專業錄音室內完成半首歌曲的錄音體驗</p>
           </div>
         </div>
-        <button class="carousel-button right" onclick="moveSlide(1)">&#10095;</button>
+        <div class="relative">
+          <img src="./img/photo_shoot.png" alt="Special Activities" class="rounded-xl shadow-xl w-full">
+          <div class="absolute bottom-2 right-5 text-white p-4 rounded-lg text-sm md:text-base">
+            <h3 class="text-lg font-bold mb-1">Photo Shoot Session</h3>
+            <p>- 每位學員將獲得 3 張專業拍攝照片</p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-<script>
+  <script>
     let currentIndex = 0;
     const track = document.getElementById('carouselTrack');
 
@@ -869,20 +956,160 @@
     }
 
     window.addEventListener('load', updateCarousel);
-    function updateCarousel() {
-  const cards = document.querySelectorAll('.carousel-card');
-  const offset = currentIndex * (cards[0].offsetWidth + 20);
-  track.style.transform = `translateX(-${offset}px)`;
-  cards.forEach((card, idx) => {
-    if (idx === currentIndex) {
-      card.classList.add('active');
-    } else {
-      card.classList.remove('active');
-    }
-  });
-}
-
   </script>
+
+<section id="tour" class="py-20 px-4 bg-black">
+  <div class="max-w-7xl mx-auto">
+    <h2 class="text-3xl md:text-4xl font-bold bg-gradient-to-r from-pink-500 to-purple-600 bg-clip-text text-transparent glow-text mb-12">
+      → 景點巡禮
+    </h2>
+    <p class="text-gray-300 mb-8">- 景點門票與交通餐食皆包含在行程中<br>- 提供英文導遊全程陪同</p>
+
+    <div class="relative w-full overflow-hidden">
+      <button onclick="moveSlide(-1)" class="absolute left-2 top-1/2 transform -translate-y-1/2 z-10 bg-black/50 text-white text-2xl w-10 h-10 rounded-full">←</button>
+
+      <div id="carouselTrack" class="flex overflow-x-auto scroll-smooth gap-4 px-12 py-4">
+        <!-- 景福宮 -->
+        <div class="shrink-0 w-[500px] h-[280px] relative overflow-hidden rounded-xl cursor-pointer group" onclick="openLightbox(0)">
+          <img src="./img/kyungbok.png" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" />
+          <div class="absolute bottom-0 left-0 w-full bg-black bg-opacity-60 p-4 text-white">
+            <h4 class="font-semibold text-lg">景福宮</h4>
+            <p class="text-sm">朝鮮王朝的正宮，韓國最具代表性的古蹟之一。</p>
+          </div>
+        </div>
+
+        <!-- 上下組合：漢江公園 + 三清洞 -->
+        <div class="flex flex-col gap-4">
+          <div class="shrink-0 w-[320px] h-[200px] relative overflow-hidden rounded-xl cursor-pointer group" onclick="openLightbox(1)">
+            <img src="./img/hanriver.png" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" />
+            <div class="absolute bottom-0 left-0 w-full bg-black bg-opacity-60 p-4 text-white">
+              <h4 class="font-semibold text-lg">漢江公園</h4>
+              <p class="text-sm">首爾人的生活核心，散步野餐最佳地點。</p>
+            </div>
+          </div>
+          <div class="shrink-0 w-[320px] h-[160px] relative overflow-hidden rounded-xl cursor-pointer group" onclick="openLightbox(8)">
+            <img src="./img/Songdo.png" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" />
+            <div class="absolute bottom-0 left-0 w-full bg-black bg-opacity-60 p-4 text-white">
+              <h4 class="font-semibold text-lg">三清洞</h4>
+              <p class="text-sm">融合韓屋與藝廊的藝術小街。</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- COEX -->
+        <div class="shrink-0 w-[420px] h-[260px] relative overflow-hidden rounded-xl cursor-pointer group" onclick="openLightbox(2)">
+          <img src="./img/coex.png" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" />
+          <div class="absolute bottom-0 left-0 w-full bg-black bg-opacity-60 p-4 text-white">
+            <h4 class="font-semibold text-lg">COEX Starfield 圖書館</h4>
+            <p class="text-sm">熱門打卡地標，藏書與拍照皆宜。</p>
+          </div>
+        </div>
+
+        <!-- 國立中央博物館 -->
+        <div class="shrink-0 w-[500px] h-[280px] relative overflow-hidden rounded-xl cursor-pointer group" onclick="openLightbox(3)">
+          <img src="./img/national_museum.png" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" />
+          <div class="absolute bottom-0 left-0 w-full bg-black bg-opacity-60 p-4 text-white">
+            <h4 class="font-semibold text-lg">國立中央博物館</h4>
+            <p class="text-sm">探索韓國歷史與文化的最佳場所。</p>
+          </div>
+        </div>
+
+        <!-- K-Star Road -->
+        <div class="shrink-0 w-[300px] h-[220px] relative overflow-hidden rounded-xl cursor-pointer group" onclick="openLightbox(4)">
+          <img src="./img/kstarroad.png" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" />
+          <div class="absolute bottom-0 left-0 w-full bg-black bg-opacity-60 p-4 text-white">
+            <h4 class="font-semibold text-lg">K-Star Road</h4>
+            <p class="text-sm">追星打卡熱點，偶像粉絲不能錯過。</p>
+          </div>
+        </div>
+
+        <!-- 弘大商圈 -->
+        <div class="shrink-0 w-[400px] h-[240px] relative overflow-hidden rounded-xl cursor-pointer group" onclick="openLightbox(5)">
+          <img src="./img/hongdae.png" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" />
+          <div class="absolute bottom-0 left-0 w-full bg-black bg-opacity-60 p-4 text-white">
+            <h4 class="font-semibold text-lg">弘大商圈</h4>
+            <p class="text-sm">年輕人的天堂，街頭藝人與創意文化聚集地。</p>
+          </div>
+        </div>
+
+         <!-- 海雲台夜景（中） -->
+        <div class="shrink-0 w-[420px] h-[240px] relative overflow-hidden rounded-xl cursor-pointer group" onclick="openLightbox(11)">
+          <img src="./img/Haeundae.png" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" />
+          <div class="absolute bottom-0 left-0 w-full bg-black bg-opacity-60 p-4 text-white">
+            <h4 class="font-semibold text-lg">海雲台</h4>
+            <p class="text-sm">釜山代表性海濱城市與夜景地標。</p>
+          </div>
+        </div>
+
+      </div>
+
+
+      <button onclick="moveSlide(1)" class="absolute right-2 top-1/2 transform -translate-y-1/2 z-10 bg-black/50 text-white text-2xl w-10 h-10 rounded-full">→</button>
+    </div>
+  </div>
+</section>
+
+
+
+  <div id="lightbox" class="lightbox">
+    <span class="close" onclick="closeLightbox()">×</span>
+    <span class="nav left" onclick="changeSlide(-1)">❮</span>
+    <div class="flex">
+      <img id="lightbox-img" src="" alt="">
+      <div id="lightbox-text" class="text"></div>
+    </div>
+    <span class="nav right" onclick="changeSlide(1)">❯</span>
+  </div>
+
+  <script>
+  function moveSlide(direction) {
+    const track = document.getElementById('carouselTrack');
+    const scrollAmount = 500; // 每次滑動 500px
+    track.scrollBy({
+      left: direction * scrollAmount,
+      behavior: 'smooth'
+    });
+  }
+
+  const images = [
+    {src: './img/kyungbok.png', title: '景福宮', text: '景福宮建於1395年，是五大宮殿中最大與最美的。於壬辰倭亂被燒毀，後於高宗年間重建，包含勤政殿、香遠亭等代表性建築。'},
+    {src: './img/hanriver.png', title: '漢江公園', text: '漢江貫穿首爾，是韓國歷史與生活的重要河流，河邊公園為市民提供休憩與散步好去處。'},
+    {src: './img/coex.png', title: 'COEX Starfield 圖書館', text: '位於首爾市中心，集結時尚、娛樂、美食與文化，圖書館是著名地標。'},
+    {src: './img/national_museum.png', title: '國立中央博物館', text: '收藏超過42萬件文物，涵蓋韓國歷史與文化。戶外展示區與兒童博物館也深受歡迎。'},
+    {src: './img/kstarroad.png', title: 'K-Star Road', text: 'K-Star Road 匯集韓流偶像與娛樂文化，是追星族必訪之地，包含四個區段與熱門地標。'},
+    {src: './img/hongdae.png', title: '弘大商圈', text: '以年輕活力與街頭表演聞名，有特色店家、咖啡廳與畫廊，是自由文化的代表。'},
+    {src: './img/namsan.png', title: '南山首爾塔', text: '欣賞夜景的絕佳地點，情侶約會必訪，塔頂展望台可一覽首爾市區。'},
+    {src: './img/lotteworld.png', title: '樂天世界', text: '樂天世界是集室內外遊樂場、水族館與購物中心於一體的綜合設施。'},
+    {src: './img/samcheongdong.png', title: '三清洞', text: '融合韓屋與藝廊的藝術小街，擁有多家特色咖啡館與文創店鋪。'},
+    {src: './img/yeouido.png', title: '汝矣島櫻花道', text: '每年春季櫻花盛開，是浪漫散步與拍照的絕佳地點。'}
+  ];
+
+  let current = 0;
+  function openLightbox(index) {
+    current = index;
+    const lightbox = document.getElementById('lightbox');
+    const img = document.getElementById('lightbox-img');
+    const text = document.getElementById('lightbox-text');
+    img.src = images[index].src;
+    text.innerHTML = `<h3 class='text-2xl font-bold mb-4'>${images[index].title}</h3><p>${images[index].text}</p>`;
+    lightbox.style.display = 'flex';
+  }
+
+  function closeLightbox() {
+    document.getElementById('lightbox').style.display = 'none';
+  }
+
+  function changeSlide(step) {
+    current = (current + step + images.length) % images.length;
+    openLightbox(current);
+  }
+</script>
+
+<style>
+  #carouselTrack::-webkit-scrollbar {
+    display: none;
+  }
+</style>
 
   </body>
 
