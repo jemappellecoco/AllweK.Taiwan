@@ -40,6 +40,12 @@
     .tab-content.active {
       display: block;
     }
+    .tab-button {
+    background-color: rgba(255, 255, 255, 0.05); /* 半透明底 */
+    color: #bbb;
+    transition: all 0.3s ease;
+    border: 1px solid transparent;
+    }
     .accordion-content {
       max-height: 0;
       overflow: hidden;
@@ -122,7 +128,7 @@
 
 <body class="relative">
   <header class="relative overflow-hidden bg-gradient-to-b from-black to-transparent py-16">
-    <a href="Bidol_index.html" class="absolute top-4 left-4 text-gray-300 hover:text-white underline">回首頁</a>
+
     <div class="relative z-10 max-w-4xl mx-auto px-4 text-center">
       <h1 class="text-5xl md:text-6xl font-black mb-4">
         <span class="highlight">BIDOL韓國舞台實戰營</span>
@@ -154,249 +160,191 @@
     </div>
   </header>
 
-</body>
+
 <!-- Navigation Tabs -->
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
             <div class="flex flex-wrap justify-center mb-8 gap-2">
-                <button class="tab-button active px-4 py-2 rounded-full font-medium" data-tab="info">
-                    📅 活動資訊
+                <button class="tab-button px-4 py-2 rounded-full font-medium" data-tab="rules">
+                    📝 活動規定
+                </button>
+
+                <button class="tab-button active px-4 py-2 rounded-full font-medium" data-tab="FQA">
+                    🖊️ 常見問題
                 </button>
                 <button class="tab-button px-4 py-2 rounded-full font-medium" data-tab="facilities">
                     🏢 設施使用
                 </button>
-                <button class="tab-button px-4 py-2 rounded-full font-medium" data-tab="schedule">
-                    🕒 活動時間表
-                </button>
-                <button class="tab-button px-4 py-2 rounded-full font-medium" data-tab="rules">
-                    📝 活動規定
-                </button>
+
                 <button class="tab-button px-4 py-2 rounded-full font-medium" data-tab="audition">
                     🎬 試鏡流程
                 </button>
             </div>
 
-            <!-- Tab Content -->
-            <div class="tab-content active" id="info">
-                <div class="section-card rounded-2xl shadow-lg p-8 mb-8">
-                    <h2 class="text-3xl md:text-4xl font-bold text-center mb-16 bg-gradient-to-r from-pink-500 to-purple-600 bg-clip-text text-transparent glow-text">活動基本資訊</h2>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <div class="flex items-start">
-                            <div class="flex-shrink-0 h-10 w-10 rounded-full bg-red-900 bg-opacity-30 flex items-center justify-center">
-                                <span class="text-xl">📅</span>
-                            </div>
-                            <div class="ml-4">
-                                <h3 class="text-lg font-medium text-pink-400">日期</h3>
-                                <p class="mt-1 text-gray-300">2025 7/24 ~ 8/04</p>
-                            </div>
-                        </div>
-                        <div class="flex items-start">
-                            <div class="flex-shrink-0 h-10 w-10 rounded-full bg-red-900 bg-opacity-30 flex items-center justify-center">
-                                <span class="text-xl">📍</span>
-                            </div>
-                            <div class="ml-4">
-                                <h3 class="text-lg font-medium text-pink-400">地點</h3>
-                                <p class="mt-1 text-gray-300">Hi Seoul Youth Hostel（首爾永登浦區永新路 200 號）</p>
-                            </div>
-                        </div>
-                        <div class="flex items-start">
-                            <div class="flex-shrink-0 h-10 w-10 rounded-full bg-red-900 bg-opacity-30 flex items-center justify-center">
-                                <span class="text-xl">📱</span>
-                            </div>
-                            <div class="ml-4">
-                                <h3 class="text-lg font-medium text-pink-400">聯絡方式</h3>
-                                <p class="mt-1 text-gray-300">活動前 1 週開設 WhatsApp 群組</p>
-                            </div>
-                        </div>
-                        <div class="flex items-start">
-                            <div class="flex-shrink-0 h-10 w-10 rounded-full bg-red-900 bg-opacity-30 flex items-center justify-center">
-                                <span class="text-xl">📞</span>
-                            </div>
-                            <div class="ml-4">
-                                <h3 class="text-lg font-medium text-pink-400">緊急聯絡人</h3>
-                                <p class="mt-1 text-gray-300">Alex Lee（+82-10-3205-5954）</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-<!--
-                <div class="bg-gradient-to-r from-purple-900 to-black bg-opacity-50 rounded-2xl p-6 border border-red-500">
-                    <div class="flex items-center mb-4">
-                        <div class="h-12 w-12 rounded-full bg-purple-900 bg-opacity-30 flex items-center justify-center mr-4">
-                            <span class="text-2xl">✈️</span>
-                        </div>
-                        <h3 class="text-xl font-bold text-red-400">接機資訊</h3>
-                    </div>
-                    <p class="text-gray-300 mb-4">
-                        我們將在仁川國際機場第一航廈與第二航廈安排接機人員。
-                    </p>
 
-                </div> -->
-            </div>
+
 
             <div class="tab-content" id="facilities">
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <!-- 住宿資訊 -->
-                    <div class="section-card rounded-2xl shadow-lg p-6">
-                        <div class="flex items-center mb-4">
-                            <span class="text-3xl mr-3">🛏</span>
-                            <h3 class="text-xl font-bold text-red-500">住宿資訊</h3>
-                        </div>
-                        <ul class="space-y-2 text-gray-300">
-                            <li class="flex items-start">
-                                <span class="text-red-500 mr-2">•</span>
-                                <span>三人房（如需與朋友同住請提前告知）</span>
-                            </li>
-                            <li class="flex items-start">
-                                <span class="text-red-500 mr-2">•</span>
-                                <span>房內設施：獨立衛浴、冷暖空調、電視、冰箱、電熱壺、茶杯組、拖鞋、吹風機、毛巾、洗髮精、沐浴乳</span>
-                            </li>
-                            <li class="flex items-start">
-                                <span class="text-red-500 mr-2">•</span>
-                                <span>免費 Wi-Fi</span>
-                            </li>
-                        </ul>
-                    </div>
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
 
-                    <!-- 餐食資訊 -->
-                    <div class="section-card rounded-2xl shadow-lg p-6">
-                        <div class="flex items-center mb-4">
-                            <span class="text-3xl mr-3">🍽</span>
-                            <h3 class="text-xl font-bold text-red-500">餐食資訊</h3>
-                        </div>
-                        <ul class="space-y-2 text-gray-300">
-                            <li class="flex items-start">
-                                <span class="text-red-500 mr-2">•</span>
-                                <span>早餐與午餐在一樓餐廳提供</span>
-                            </li>
-                            <li class="flex items-start">
-                                <span class="text-red-500 mr-2">•</span>
-                                <span>一樓另設有咖啡烘焙坊（另行付費）</span>
-                            </li>
-                        </ul>
-                    </div>
+    <!-- 住宿資訊 -->
+    <div class="section-card rounded-2xl shadow-lg p-6">
+      <div class="flex items-center mb-4">
+        <span class="text-3xl mr-3">🛏</span>
+        <h3 class="text-xl font-bold text-pink-500">住宿資訊</h3>
+      </div>
+      <ul class="space-y-2 text-gray-300">
+        <li class="flex items-start">
+          <span class="text-red-500 mr-2">•</span>
+          <span>位於首爾永登浦區的 HI Seoul Youth Hostel，距離市中心景點與地鐵交通便利</span>
+        </li>
+        <li class="flex items-start">
+          <span class="text-red-500 mr-2">•</span>
+          <span>三人一室，附書桌、電視，設有空調、冰箱、熱水壺、茶杯組、鞋架、浴室拖鞋與垃圾桶</span>
+        </li>
+        <li class="flex items-start">
+          <span class="text-red-500 mr-2">•</span>
+          <span>浴室配備：獨立衛浴、毛巾、吹風機、洗髮精與沐浴乳（建議可自備習慣用品）</span>
+        </li>
+        <li class="flex items-start">
+          <span class="text-red-500 mr-2">•</span>
+          <span>全棟提供免費 Wi-Fi</span>
+        </li>
+      </ul>
+    </div>
 
-                    <!-- 公用廚房 -->
-                    <div class="section-card rounded-2xl shadow-lg p-6">
-                        <div class="flex items-center mb-4">
-                            <span class="text-3xl mr-3">👨‍🍳</span>
-                            <h3 class="text-xl font-bold text-red-500">公用廚房</h3>
-                        </div>
-                        <ul class="space-y-2 text-gray-300">
-                            <li class="flex items-start">
-                                <span class="text-red-500 mr-2">•</span>
-                                <span>位置：三樓</span>
-                            </li>
-                            <li class="flex items-start">
-                                <span class="text-red-500 mr-2">•</span>
-                                <span>設備：5 個電磁爐、5 個洗手槽、1 台微波爐、2 台大型冰箱、1 台電子鍋</span>
-                            </li>
-                            <li class="flex items-start">
-                                <span class="text-red-500 mr-2">•</span>
-                                <span>營運時間：07:00～22:00</span>
-                            </li>
-                            <li class="flex items-start">
-                                <span class="text-red-500 mr-2">•</span>
-                                <span>歡迎自備食材體驗韓國自煮生活</span>
-                            </li>
-                        </ul>
-                    </div>
+    <!-- 餐廳資訊 -->
+    <div class="section-card rounded-2xl shadow-lg p-6">
+      <div class="flex items-center mb-4">
+        <span class="text-3xl mr-3">🍽</span>
+        <h3 class="text-xl font-bold text-pink-500">用餐空間</h3>
+      </div>
+      <ul class="space-y-2 text-gray-300">
+        <li class="flex items-start">
+          <span class="text-red-500 mr-2">•</span>
+          <span>早餐與午餐於一樓 Cafeteria 供應（包含於營隊）</span>
+        </li>
+        <li class="flex items-start">
+          <span class="text-red-500 mr-2">•</span>
+          <span>一樓設有 Bakery Café（<strong>不包含於營隊費用內</strong>）</span>
+        </li>
+      </ul>
+    </div>
 
-                    <!-- 課程教室 -->
-                    <div class="section-card rounded-2xl shadow-lg p-6">
-                        <div class="flex items-center mb-4">
-                            <span class="text-3xl mr-3">🏢</span>
-                            <h3 class="text-xl font-bold text-red-500">課程教室</h3>
-                        </div>
-                        <ul class="space-y-2 text-gray-300">
-                            <li class="flex items-start">
-                                <span class="text-red-500 mr-2">•</span>
-                                <span>地點：地下一樓</span>
-                            </li>
-                            <li class="flex items-start">
-                                <span class="text-red-500 mr-2">•</span>
-                                <span>面積：75.4 平方公尺</span>
-                            </li>
-                            <li class="flex items-start">
-                                <span class="text-red-500 mr-2">•</span>
-                                <span>開放時間：09:00～13:00</span>
-                            </li>
-                        </ul>
-                    </div>
+    <!-- 公用廚房 -->
+    <div class="section-card rounded-2xl shadow-lg p-6">
+      <div class="flex items-center mb-4">
+        <span class="text-3xl mr-3">👨‍🍳</span>
+        <h3 class="text-xl font-bold text-pink-500">公用廚房</h3>
+      </div>
+      <ul class="space-y-2 text-gray-300">
+        <li class="flex items-start">
+          <span class="text-red-500 mr-2">•</span>
+          <span>位置：三樓，開放時間 07:00～22:00</span>
+        </li>
+        <li class="flex items-start">
+          <span class="text-red-500 mr-2">•</span>
+          <span>設備：5 台電磁爐、5 個洗手槽、1 台微波爐、2 台冰箱、1 台電子鍋</span>
+        </li>
+        <li class="flex items-start">
+          <span class="text-red-500 mr-2">•</span>
+          <span>歡迎自備食材體驗韓式自煮生活</span>
+        </li>
+      </ul>
+    </div>
 
-                    <!-- 休憩與上網空間 -->
-                    <div class="section-card rounded-2xl shadow-lg p-6">
-                        <div class="flex items-center mb-4">
-                            <span class="text-3xl mr-3">💻</span>
-                            <h3 class="text-xl font-bold text-red-500">休憩與上網空間</h3>
-                        </div>
-                        <ul class="space-y-2 text-gray-300">
-                            <li class="flex items-start">
-                                <span class="text-red-500 mr-2">•</span>
-                                <span>三樓休息室（07:00～24:00）：大螢幕電視</span>
-                            </li>
-                            <li class="flex items-start">
-                                <span class="text-red-500 mr-2">•</span>
-                                <span>一樓網路區（07:00～24:00）：提供電腦（₩500 / 每 30 分鐘）</span>
-                            </li>
-                        </ul>
-                    </div>
+    <!-- 課程教室 -->
+    <div class="section-card rounded-2xl shadow-lg p-6">
+      <div class="flex items-center mb-4">
+        <span class="text-3xl mr-3">🏫</span>
+        <h3 class="text-xl font-bold text-pink-500">課程教室</h3>
+      </div>
+      <ul class="space-y-2 text-gray-300">
+        <li class="flex items-start">
+          <span class="text-red-500 mr-2">•</span>
+          <span>地點：Lower Lobby（地下一樓）</span>
+        </li>
+        <li class="flex items-start">
+          <span class="text-red-500 mr-2">•</span>
+          <span>空間面積：75.4 平方公尺</span>
+        </li>
+        <li class="flex items-start">
+          <span class="text-red-500 mr-2">•</span>
+          <span>開放時間：09:00～13:00</span>
+        </li>
+      </ul>
+    </div>
 
-                    <!-- 洗衣房 -->
-                    <div class="section-card rounded-2xl shadow-lg p-6">
-                        <div class="flex items-center mb-4">
-                            <span class="text-3xl mr-3">🧺</span>
-                            <h3 class="text-xl font-bold text-red-500">洗衣房</h3>
-                        </div>
-                        <ul class="space-y-2 text-gray-300">
-                            <li class="flex items-start">
-                                <span class="text-red-500 mr-2">•</span>
-                                <span>地點：三樓</span>
-                            </li>
-                            <li class="flex items-start">
-                                <span class="text-red-500 mr-2">•</span>
-                                <span>營運時間：07:00～22:00</span>
-                            </li>
-                            <li class="flex items-start">
-                                <span class="text-red-500 mr-2">•</span>
-                                <span>設備：洗衣機 4 台、烘鞋機（需向櫃檯借鑰匙）</span>
-                            </li>
-                            <li class="flex items-start">
-                                <span class="text-red-500 mr-2">•</span>
-                                <span>費用：₩2,000 / 次（₩1,000 紙鈔或 ₩500 硬幣）</span>
-                            </li>
-                            <li class="flex items-start">
-                                <span class="text-red-500 mr-2">•</span>
-                                <span>洗衣粉可於自動販賣機購買</span>
-                            </li>
-                        </ul>
-                    </div>
+    <!-- 休息區 -->
+    <div class="section-card rounded-2xl shadow-lg p-6">
+      <div class="flex items-center mb-4">
+        <span class="text-3xl mr-3">💻</span>
+        <h3 class="text-xl font-bold text-pink-500">休憩與上網空間</h3>
+      </div>
+      <ul class="space-y-2 text-gray-300">
+        <li class="flex items-start">
+          <span class="text-red-500 mr-2">•</span>
+          <span>三樓設有大型休息室，配有大螢幕電視（07:00～24:00）</span>
+        </li>
+        <li class="flex items-start">
+          <span class="text-red-500 mr-2">•</span>
+          <span>一樓網路區提供 3 台電腦，使用費用 ₩500 / 30 分鐘（需自費）</span>
+        </li>
+      </ul>
+    </div>
 
-                    <!-- 其他補充 -->
-                    <div class="section-card rounded-2xl shadow-lg p-6 md:col-span-2">
-                        <div class="flex items-center mb-4">
-                            <span class="text-3xl mr-3">🧼</span>
-                            <h3 class="text-xl font-bold text-red-500">其他補充</h3>
-                        </div>
-                        <ul class="space-y-2 text-gray-300">
-                            <li class="flex items-start">
-                                <span class="text-red-500 mr-2">•</span>
-                                <span>每人每日提供一條毛巾</span>
-                            </li>
-                            <li class="flex items-start">
-                                <span class="text-red-500 mr-2">•</span>
-                                <span>提供洗髮精與香皂（建議自備習慣用品）</span>
-                            </li>
-                            <li class="flex items-start">
-                                <span class="text-red-500 mr-2">•</span>
-                                <span>現場有飲水機，請自備水壺</span>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
+    <!-- 洗衣設備 -->
+    <div class="section-card rounded-2xl shadow-lg p-6">
+      <div class="flex items-center mb-4">
+        <span class="text-3xl mr-3">🧺</span>
+        <h3 class="text-xl font-bold text-pink-500">洗衣設備</h3>
+      </div>
+      <ul class="space-y-2 text-gray-300">
+        <li class="flex items-start">
+          <span class="text-red-500 mr-2">•</span>
+          <span>地點：三樓，營運時間 07:00～22:00</span>
+        </li>
+        <li class="flex items-start">
+          <span class="text-red-500 mr-2">•</span>
+          <span>設備：洗衣機 4 台、鞋子烘乾機（鑰匙須向櫃台借用）</span>
+        </li>
+        <li class="flex items-start">
+          <span class="text-red-500 mr-2">•</span>
+          <span>費用：₩2,000 / 次（可使用 ₩1,000 紙鈔或 ₩500 硬幣）</span>
+        </li>
+        <li class="flex items-start">
+          <span class="text-red-500 mr-2">•</span>
+          <span>洗衣粉可於販賣機購買（需自費）</span>
+        </li>
+      </ul>
+    </div>
+
+    <!-- 其他補充 -->
+    <div class="section-card rounded-2xl shadow-lg p-6 md:col-span-2">
+      <div class="flex items-center mb-4">
+        <span class="text-3xl mr-3">📌</span>
+        <h3 class="text-xl font-bold text-pink-500">其他補充</h3>
+      </div>
+      <ul class="space-y-2 text-gray-300">
+        <li class="flex items-start">
+          <span class="text-red-500 mr-2">•</span>
+          <span>每日提供 1 條毛巾</span>
+        </li>
+        <li class="flex items-start">
+          <span class="text-red-500 mr-2">•</span>
+          <span>備有洗髮精與香皂，建議可自備習慣用品</span>
+        </li>
+        <li class="flex items-start">
+          <span class="text-red-500 mr-2">•</span>
+          <span>設有飲水機，請自備水壺</span>
+        </li>
+      </ul>
+    </div>
+
+  </div>
+</div>
 
             <div class="tab-content" id="schedule">
-                 <h1 class=" text-3xl font-bold text-center mb-8 text-pink-500">B.idol K-Pop 偶像體驗計畫 – 2025 夏季行程表</h1>
+                 <h1 class="text-center  text-2xl font-bold mb-6 bg-gradient-to-r from-pink-500 to-purple-600 bg-clip-text text-transparent glow-text">B.idol K-Pop 偶像體驗計畫 – 2025 夏季行程表</h1>
 
   <div class=" max-w-[850px] mx-auto overflow-x-auto space-y-10">
     <div class=" max-w-[850px] mx-auto overflow-x-auto space-y-10">
@@ -476,193 +424,104 @@
                 </div>
             </div>
 
-            <div class="tab-content" id="rules">
-                <div class="section-card rounded-2xl shadow-lg p-8">
-                    <h2 class="text-2xl font-bold mb-6 text-pink-500">活動規定</h2>
+           <div class="tab-content" id="rules">
+  <div class="section-card rounded-2xl shadow-lg p-8">
+    <h2 class="text-2xl font-bold mb-6 bg-gradient-to-r from-pink-500 to-purple-600 bg-clip-text text-transparent glow-text">活動規定</h2>
 
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                        <div class="bg-purple-900 bg-opacity-20 p-5 rounded-xl">
-                            <h3 class="text-lg font-semibold text-pink-400 mb-3">🕒 出席與時間管理</h3>
-                            <ul class="space-y-2 text-gray-300">
-                                <li class="flex items-start">
-                                    <span class="text-red-500 mr-2">•</span>
-                                    <span>所有課程均需準時參加，如有特殊情況請提前向工作人員請假</span>
-                                </li>
-                                <li class="flex items-start">
-                                    <span class="text-red-500 mr-2">•</span>
-                                    <span>每日晚上 22:00 後請保持安靜，尊重他人休息時間</span>
-                                </li>
-                                <li class="flex items-start">
-                                    <span class="text-red-500 mr-2">•</span>
-                                    <span>外出活動請於晚上 21:00 前返回宿舍</span>
-                                </li>
-                            </ul>
-                        </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
 
-                        <div class="bg-purple-900 bg-opacity-20 p-5 rounded-xl">
-                            <h3 class="text-lg font-semibold text-pink-400 mb-3">🧹 環境維護</h3>
-                            <ul class="space-y-2 text-gray-300">
-                                <li class="flex items-start">
-                                    <span class="text-red-500 mr-2">•</span>
-                                    <span>請保持房間與公共區域整潔</span>
-                                </li>
-                                <li class="flex items-start">
-                                    <span class="text-pink-500 mr-2">•</span>
-                                    <span>使用公共廚房後請清理乾淨</span>
-                                </li>
-                                <li class="flex items-start">
-                                    <span class="text-pink-500 mr-2">•</span>
-                                    <span>禁止在房間內烹飪食物</span>
-                                </li>
-                            </ul>
-                        </div>
+      <!-- 時間與秩序 -->
+      <div class="bg-purple-900 bg-opacity-20 p-5 rounded-xl">
+        <h3 class="text-lg font-semibold text-pink-400 mb-3">🕒 時間與秩序</h3>
+        <ul class="space-y-2 text-gray-300">
+          <li class="flex items-start">
+            <span class="text-red-500 mr-2">•</span>
+            <span>請依照活動時間表準時出席課程與活動</span>
+          </li>
+          <li class="flex items-start">
+            <span class="text-red-500 mr-2">•</span>
+            <span>禁止喧嘩、飲酒與賭博，違者將可能被要求離營</span>
+          </li>
+        </ul>
+      </div>
 
+      <!-- 安全與禁令 -->
+      <div class="bg-purple-900 bg-opacity-20 p-5 rounded-xl">
+        <h3 class="text-lg font-semibold text-pink-400 mb-3">🚫 禁止事項與安全</h3>
+        <ul class="space-y-2 text-gray-300">
+          <li class="flex items-start">
+            <span class="text-red-500 mr-2">•</span>
+            <span>營區內全面禁菸，如需吸菸僅限於指定區域（建議勿攜帶香菸）</span>
+          </li>
+          <li class="flex items-start">
+            <span class="text-red-500 mr-2">•</span>
+            <span>禁止在室內烹飪食物</span>
+          </li>
+        </ul>
+      </div>
 
+      <!-- 醫療與協助 -->
+      <div class="bg-purple-900 bg-opacity-20 p-5 rounded-xl">
+        <h3 class="text-lg font-semibold text-pink-400 mb-3">🧑‍⚕️ 醫療與協助</h3>
+        <ul class="space-y-2 text-gray-300">
+          <li class="flex items-start">
+            <span class="text-red-500 mr-2">•</span>
+            <span>營隊期間現場皆有工作人員值勤</span>
+          </li>
+          <li class="flex items-start">
+            <span class="text-red-500 mr-2">•</span>
+            <span>若有食物過敏或特殊飲食需求，請於報到時主動告知</span>
+          </li>
+        </ul>
+      </div>
 
-                        <div class="bg-purple-900 bg-opacity-20 p-5 rounded-xl">
-                            <h3 class="text-lg font-semibold text-pink-400 mb-3">📱 社群媒體使用</h3>
-                            <ul class="space-y-2 text-gray-300">
-                                <li class="flex items-start">
-                                    <span class="text-pink-500 mr-2">•</span>
-                                    <span>歡迎分享活動照片與影片，請使用標籤 #Bidol2025</span>
-                                </li>
-                                <li class="flex items-start">
-                                    <span class="text-pink-500 mr-2">•</span>
-                                    <span>未經同意，請勿發布其他參與者的照片或影片</span>
-                                </li>
-                                <li class="flex items-start">
-                                    <span class="text-pink-500 mr-2">•</span>
-                                    <span>請勿在社群媒體上發布負面或不當內容</span>
-                                </li>
-                            </ul>
-                        </div>
+      <!-- 家長探視 -->
+      <div class="bg-purple-900 bg-opacity-20 p-5 rounded-xl">
+        <h3 class="text-lg font-semibold text-pink-400 mb-3">👪 家長探訪</h3>
+        <ul class="space-y-2 text-gray-300">
+          <li class="flex items-start">
+            <span class="text-red-500 mr-2">•</span>
+            <span>營隊期間歡迎家長前來探視（請提前與工作人員聯繫）</span>
+          </li>
+        </ul>
+      </div>
 
-                        <div class="bg-purple-900 bg-opacity-20 p-5 rounded-xl">
-                            <h3 class="text-lg font-semibold text-pink-400 mb-3">⚠️ 安全事項</h3>
-                            <ul class="space-y-2 text-gray-300">
-                                <li class="flex items-start">
-                                    <span class="text-red-500 mr-2">•</span>
-                                    <span>請隨時保管好個人貴重物品</span>
-                                </li>
-                                <li class="flex items-start">
-                                    <span class="text-pink-500 mr-2">•</span>
-                                    <span>外出時請結伴同行，注意人身安全</span>
-                                </li>
-                                <li class="flex items-start">
-                                    <span class="text-pink-500 mr-2">•</span>
-                                    <span>如有身體不適，請立即通知工作人員</span>
-                                </li>
-                                <li class="flex items-start">
-                                    <span class="text-pink-500 mr-2">•</span>
-                                    <span>嚴禁攜帶或使用酒精、煙草及其他違禁品</span>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
+    </div>
+  </div>
+</div>
 
             <div class="tab-content" id="audition">
-                <div class="section-card rounded-2xl shadow-lg p-8">
-                    <h2 class="text-2xl font-bold mb-6 text-red-500">試鏡流程</h2>
+  <div class="section-card rounded-2xl shadow-lg p-8">
+    <h2 class="text-2xl font-bold mb-6 bg-gradient-to-r from-pink-500 to-purple-600 bg-clip-text text-transparent glow-text">試鏡流程</h2>
 
-                    <div class="mb-8">
-                        <p class="text-gray-300 mb-4">
-                            本次營隊將安排與韓國娛樂公司的試鏡機會，這是一個難得的展示自我的機會！以下是試鏡流程與準備事項：
-                        </p>
-                    </div>
+    <p class="text-gray-300 mb-6 leading-relaxed">
+      K-Pop 練習生試鏡將於 <span class="text-pink-400 font-semibold">7 月 31 日</span> 舉行，將有 <span class="text-pink-400 font-semibold">2～3 間公司現場參與</span>，並有 <span class="text-pink-400 font-semibold">超過 15 間公司線上參與</span>，提供你一個直接面對業界的舞台。
+    </p>
 
-                    <div class="space-y-8">
-                        <div class="flex">
-                            <div class="flex-shrink-0">
-                                <div class="flex items-center justify-center h-12 w-12 rounded-md bg-red-800 text-white">
-                                    <span class="font-bold">1</span>
-                                </div>
-                            </div>
-                            <div class="ml-4">
-                                <h3 class="text-lg font-medium text-red-400">試鏡時間</h3>
-                                <p class="mt-1 text-gray-300">
-                                    試鏡將於 8 月 2 日下午 2:00 - 6:00 進行，每位參與者有 3 分鐘的展示時間。
-                                </p>
-                            </div>
-                        </div>
+    <div class="space-y-6 text-gray-300">
+      <p><strong>✦ 試鏡準備：</strong><br>
+        所有參與者需準備 <strong>1 分鐘清唱（Acapella）</strong> 進行聲樂測試，及 <strong>1 分鐘舞蹈表演</strong>。
+      </p>
 
-                        <div class="flex">
-                            <div class="flex-shrink-0">
-                                <div class="flex items-center justify-center h-12 w-12 rounded-md bg-red-800 text-white">
-                                    <span class="font-bold">2</span>
-                                </div>
-                            </div>
-                            <div class="ml-4">
-                                <h3 class="text-lg font-medium text-red-400">準備內容</h3>
-                                <p class="mt-1 text-gray-300">
-                                    請準備一段 1-2 分鐘的舞蹈表演，可以是營隊中學習的舞蹈或自選曲目。如有其他才藝（唱歌、樂器等），也可以在剩餘時間展示。
-                                </p>
-                            </div>
-                        </div>
+      <p><strong>✦ 音樂播放：</strong><br>
+        請將舞蹈音樂檔案儲存在手機中，作為現場播放使用。
+      </p>
 
-                        <div class="flex">
-                            <div class="flex-shrink-0">
-                                <div class="flex items-center justify-center h-12 w-12 rounded-md bg-red-800 text-white">
-                                    <span class="font-bold">3</span>
-                                </div>
-                            </div>
-                            <div class="ml-4">
-                                <h3 class="text-lg font-medium text-red-400">音樂準備</h3>
-                                <p class="mt-1 text-gray-300">
-                                    請提前準備好表演音樂的 MP3 檔案，並於 8 月 1 日前交給工作人員。檔案請以「姓名_曲目名稱」格式命名。
-                                </p>
-                            </div>
-                        </div>
+      <p><strong>✦ 第二輪試鏡：</strong><br>
+        若你通過第一輪，招募人員將再度聯繫，安排詳細的第二輪試鏡。
+      </p>
 
-                        <div class="flex">
-                            <div class="flex-shrink-0">
-                                <div class="flex items-center justify-center h-12 w-12 rounded-md bg-red-800 text-white">
-                                    <span class="font-bold">4</span>
-                                </div>
-                            </div>
-                            <div class="ml-4">
-                                <h3 class="text-lg font-medium text-red-400">服裝建議</h3>
-                                <p class="mt-1 text-gray-300">
-                                    請穿著合適的表演服裝，展現個人風格。建議選擇舒適且便於活動的服裝，妝容自然得體。
-                                </p>
-                            </div>
-                        </div>
+      <p><strong>✦ 錄取結果：</strong><br>
+        若你被選中，即可成為該公司旗下的 <strong>練習生（Trainee）</strong>。
+      </p>
+    </div>
+  </div>
+</div>
 
-
-                    </div>
-
-                    <div class="mt-8 bg-red-900 bg-opacity-20 p-6 rounded-xl">
-                        <h3 class="text-lg font-semibold text-red-400 mb-3">💡 試鏡小提示</h3>
-                        <ul class="space-y-2 text-gray-300">
-                            <li class="flex items-start">
-                                <span class="text-red-500 mr-2">•</span>
-                                <span>保持自信，展現真實的自我</span>
-                            </li>
-                            <li class="flex items-start">
-                                <span class="text-red-500 mr-2">•</span>
-                                <span>充分利用空間，展示舞台表現力</span>
-                            </li>
-                            <li class="flex items-start">
-                                <span class="text-red-500 mr-2">•</span>
-                                <span>與評審保持適當的眼神交流</span>
-                            </li>
-                            <li class="flex items-start">
-                                <span class="text-red-500 mr-2">•</span>
-                                <span>試鏡前做好充分的熱身準備</span>
-                            </li>
-                            <li class="flex items-start">
-                                <span class="text-red-500 mr-2">•</span>
-                                <span>記得在表演結束後有禮貌地感謝評審</span>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
 
         <!-- FAQ Section -->
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+          <!-- Tab Content -->
+            <div class="tab-content active" id="FQA">
             <h2 class="text-2xl font-bold mb-8 text-center text-pink-500">常見問題</h2>
 
             <div class="space-y-4">
@@ -734,37 +593,171 @@
                             當然可以！我們的課程設計適合各種程度的學員，從初學者到有經驗的舞者都能獲得成長。教練會根據不同學員的程度提供適當的指導。
                         </p>
                     </div>
+
                 </div>
+                <div class="faq-item border border-gray-800 rounded-lg overflow-hidden">
+  <button class="faq-question w-full px-6 py-4 text-left flex justify-between items-center">
+    <span class="font-medium text-gray-200">如果取消報名，有退費嗎？</span>
+    <svg class="h-5 w-5 text-red-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+    </svg>
+  </button>
+  <div class="faq-answer px-6 py-4 hidden">
+    <p class="text-gray-300 mb-4">
+      若因個人因素取消報名，退費規則如下：
+    </p>
+    <ul class="list-disc list-inside text-gray-300 space-y-1">
+      <li>出發前 <strong>60 天以上</strong>：全額退費（扣除手續費 NT$1,000）</li>
+      <li>出發前 <strong>30–59 天</strong>：退還 <strong>70%</strong> 費用</li>
+      <li>出發前 <strong>15–29 天</strong>：退還 <strong>50%</strong> 費用</li>
+      <li>出發前 <strong>14 天內</strong>：恕不退費</li>
+    </ul>
+    <p class="text-gray-300 mt-4">
+      💡 填寫報名表單後，請務必加入我們的官方 LINE 並主動告知姓名與報名完成，以利後續付款與行前通知作業。
+    </p>
+  </div>
+</div>
+
+<div class="faq-item border border-gray-800 rounded-lg overflow-hidden">
+      <button class="faq-question w-full px-6 py-4 text-left flex justify-between items-center">
+        <span class="font-medium text-gray-200">未成年可以參加嗎？</span>
+        <svg class="h-5 w-5 text-red-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+        </svg>
+      </button>
+      <div class="faq-answer px-6 py-4 hidden">
+        <p class="text-gray-300">
+          可以的，活動不限年齡，未成年人也能報名參加。
+        </p>
+      </div>
+    </div>
+
+    <div class="faq-item border border-gray-800 rounded-lg overflow-hidden">
+      <button class="faq-question w-full px-6 py-4 text-left flex justify-between items-center">
+        <span class="font-medium text-gray-200">可以分期付款嗎？</span>
+        <svg class="h-5 w-5 text-red-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+        </svg>
+      </button>
+      <div class="faq-answer px-6 py-4 hidden">
+        <p class="text-gray-300">
+          可以分期，但須於營隊開始前完成全部款項。請與我們聯繫安排。
+        </p>
+      </div>
+    </div>
+
+    <div class="faq-item border border-gray-800 rounded-lg overflow-hidden">
+      <button class="faq-question w-full px-6 py-4 text-left flex justify-between items-center">
+        <span class="font-medium text-gray-200">何時可以預約課程？</span>
+        <svg class="h-5 w-5 text-red-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+        </svg>
+      </button>
+      <div class="faq-answer px-6 py-4 hidden">
+        <p class="text-gray-300">
+          完成付款後，我們會提供課程預約流程與說明。
+        </p>
+      </div>
+    </div>
+
+    <div class="faq-item border border-gray-800 rounded-lg overflow-hidden">
+      <button class="faq-question w-full px-6 py-4 text-left flex justify-between items-center">
+        <span class="font-medium text-gray-200">是否包含門票與導覽費用？</span>
+        <svg class="h-5 w-5 text-red-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+        </svg>
+      </button>
+      <div class="faq-answer px-6 py-4 hidden">
+        <p class="text-gray-300">
+          是的，活動中安排的景點門票與導覽費用皆已包含在營隊費用中。
+        </p>
+      </div>
+    </div>
+
+    <div class="faq-item border border-gray-800 rounded-lg overflow-hidden">
+      <button class="faq-question w-full px-6 py-4 text-left flex justify-between items-center">
+        <span class="font-medium text-gray-200">是否有提供機場接送？</span>
+        <svg class="h-5 w-5 text-red-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+        </svg>
+      </button>
+      <div class="faq-answer px-6 py-4 hidden">
+        <p class="text-gray-300">
+          有的，提供 7/24 與 8/04 當日的機場接送服務。
+        </p>
+      </div>
+    </div>
+
+    <div class="faq-item border border-gray-800 rounded-lg overflow-hidden">
+      <button class="faq-question w-full px-6 py-4 text-left flex justify-between items-center">
+        <span class="font-medium text-gray-200">外國人可以參加嗎？</span>
+        <svg class="h-5 w-5 text-red-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+        </svg>
+      </button>
+      <div class="faq-answer px-6 py-4 hidden">
+        <p class="text-gray-300">
+          當然可以，本活動不限制國籍與種族。
+        </p>
+      </div>
+    </div>
+
+   <div class="faq-item border border-gray-800 rounded-lg overflow-hidden">
+      <button class="faq-question w-full px-6 py-4 text-left flex justify-between items-center">
+        <span class="font-medium text-gray-200">機票有包含嗎？</span>
+        <svg class="h-5 w-5 text-red-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+        </svg>
+      </button>
+      <div class="faq-answer px-6 py-4 hidden">
+        <p class="text-gray-300">
+          機票需自行購買，未包含於營隊費用中。
+        </p>
+      </div>
+    </div>
+    <div class="faq-item border border-gray-800 rounded-lg overflow-hidden">
+      <button class="faq-question w-full px-6 py-4 text-left flex justify-between items-center">
+        <span class="font-medium text-gray-200">可以提前一天抵達或延後一天離開嗎？</span>
+        <svg class="h-5 w-5 text-red-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+        </svg>
+      </button>
+      <div class="faq-answer px-6 py-4 hidden">
+        <p class="text-gray-300">
+          可以，將酌收每晚住宿費（限 7/23 提前入住或 8/5 延後退房）。
+        </p>
+      </div>
+    </div>
             </div>
         </div>
 
         <!-- Contact Section -->
-        <div class="bg-black py-12 px-4 sm:px-6 lg:px-8 border-t border-red-900">
+        <div class=" py-12 px-4 sm:px-6 lg:px-8 ">
             <div class="max-w-4xl mx-auto text-center">
-                <h2 class="text-2xl font-bold mb-6 text-pink-500">有任何問題嗎？</h2>
-                <p class="mb-8 text-gray-300">如有任何疑問，請隨時聯繫我們的團隊</p>
+                <!-- <h2 class="text-2xl font-bold mb-6 text-pink-500">有任何問題嗎？</h2> -->
+                <!-- <p class="mb-8 text-gray-300">如有任何疑問，請隨時聯繫我們的團隊</p>
 
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                    <div class="bg-purple-900 bg-opacity-20 p-6 rounded-lg border border-black">
+                    <div class="bg-purple-900 bg-opacity-20 p-6 rounded-lg  ">
                         <div class="text-3xl mb-4">📧</div>
                         <h3 class="text-lg font-medium mb-2 text-red-400">電子郵件</h3>
-                        <p class="text-gray-300">info@bidol2025.com</p>
+                        <p class="text-gray-300">Allwek.taiwan@gamil.com</p>
                     </div>
 
-                    <div class="bg-purple-900 bg-opacity-20 p-6 rounded-lg border border-black">
+                    <div class="bg-purple-900 bg-opacity-20 p-6 rounded-lg ">
                         <div class="text-3xl mb-4">📱</div>
                         <h3 class="text-lg font-medium mb-2 text-puple-400">電話</h3>
                         <p class="text-gray-300">+82-10-3205-5954</p>
                     </div>
 
-                    <div class="bg-purple-900 bg-opacity-20 p-6 rounded-lg border border-black">
+                    <div class="bg-purple-900 bg-opacity-20 p-6 rounded-lg ">
                         <div class="text-3xl mb-4">💬</div>
                         <h3 class="text-lg font-medium mb-2 text-red-400">社群媒體</h3>
                         <p class="text-gray-300">@B.idol_official</p>
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
 
 
     </div>
@@ -811,4 +804,36 @@
         });
     </script>
 <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'937f11cfa28d3303',t:'MTc0NTkzMjU0MS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+<div include-html="../components/footer_kpop.html"></div>
+ <script>
+  function includeHTML() {
+    var z, i, elmnt, file, xhttp;
+    z = document.getElementsByTagName("*");
+    for (i = 0; i < z.length; i++) {
+      elmnt = z[i];
+      file = elmnt.getAttribute("include-html");
+      if (file) {
+        xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+          if (this.readyState == 4) {
+            if (this.status == 200) {elmnt.innerHTML = this.responseText;}
+            if (this.status == 404) {elmnt.innerHTML = "Page not found.";}
+            elmnt.removeAttribute("include-html");
+            includeHTML();
+          }
+        }
+        xhttp.open("GET", file, true);
+        xhttp.send();
+        return;
+      }
+    }
+  }
+  includeHTML();
+   document.addEventListener('DOMContentLoaded', function() {
+    setTimeout(function() {
+      var homeBtn = document.getElementById('homeBtn');
+      if (homeBtn) homeBtn.setAttribute('href', './Bidol_index.html');
+    }, 200);
+  });
+</script>
 </html>
