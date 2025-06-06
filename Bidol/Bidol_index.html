@@ -521,18 +521,18 @@
             <a href="#register" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">活動詳細內容</a>
           </div>
         </div>
-        <div class="md:hidden">
+        <!-- <div class="md:hidden">
           <button id="mobile-menu-button" class="text-gray-400 hover:text-white focus:outline-none">
             <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
             </svg>
           </button>
-        </div>
+        </div> -->
       </div>
     </div>
 
     <!-- 行動版選單 -->
-    <div id="mobile-menu" class="hidden md:hidden bg-black/95 border-b border-pink-900/30">
+    <!-- <div id="mobile-menu" class="hidden md:hidden bg-black/95 border-b border-pink-900/30">
       <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
         <a href="#about" class="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium">關於營隊</a>
         <a href="#posters" class="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium">活動海報</a>
@@ -540,9 +540,9 @@
 
         <a href="#instructors" class="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium">師資陣容</a>
 
-        <a href="#register" class="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium">報名方式</a>
+
       </div>
-    </div>
+    </div> -->
   </nav>
 
   <!-- 英雄區塊 -->
@@ -1463,6 +1463,16 @@ const images = [
       var homeBtn = document.getElementById('homeBtn');
       if (homeBtn) homeBtn.setAttribute('href', './Bidol_index.html');
     }, 200);
+  });
+   document.addEventListener('DOMContentLoaded', function () {
+    const menuButton = document.getElementById('mobile-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    if (menuButton && mobileMenu) {
+      menuButton.addEventListener('click', function () {
+        mobileMenu.classList.toggle('hidden');
+      });
+    }
   });
 </script>
   </body>
