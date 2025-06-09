@@ -441,17 +441,27 @@
       justify-content: center;
       align-items: center;
       z-index: 9999;
-      flex-direction: row;
+      flex-direction: column;
+      padding: 1rem;
+      overflow-y: auto;
     }
+
     .lightbox img {
       max-height: 80vh;
-      max-width: 50vw;
+      max-width: 90vw;
+      margin-bottom: 1rem;
     }
+
     .lightbox .text {
       color: white;
-      padding: 2rem;
-      max-width: 30vw;
+      padding: 1rem;
+      max-width: 90vw;
+      text-align: left;
+      font-size: 1rem;
+      line-height: 1.6;
+      word-break: break-word;
     }
+
     .lightbox .nav {
       color: white;
       font-size: 2rem;
@@ -461,8 +471,10 @@
       cursor: pointer;
       user-select: none;
     }
+
     .lightbox .left { left: 1rem; }
     .lightbox .right { right: 1rem; }
+
     .lightbox .close {
       position: absolute;
       top: 1rem;
@@ -470,6 +482,21 @@
       font-size: 2rem;
       cursor: pointer;
       color: white;
+    }
+
+    @media (min-width: 768px) {
+      .lightbox {
+        flex-direction: row;
+      }
+      .lightbox img {
+        max-height: 80vh;
+        max-width: 50vw;
+        margin-bottom: 0;
+      }
+      .lightbox .text {
+        padding: 2rem;
+        max-width: 30vw;
+      }
     }
     .grid-flow {
       display: grid;
@@ -487,6 +514,7 @@
     .scrollbar-hide::-webkit-scrollbar {
       display: none;
     }
+
     @media (min-width: 768px) {
       .carousel-card {
         flex: 0 0 60%;
@@ -1228,7 +1256,7 @@
   <div id="lightbox" class="lightbox">
     <span class="close" onclick="closeLightbox()">×</span>
     <span class="nav left" onclick="changeSlide(-1)">❮</span>
-    <div class="flex">
+    <div class="flex flex-col md:flex-row justify-center items-center">
       <img id="lightbox-img" src="" alt="">
       <div id="lightbox-text" class="text"></div>
     </div>
