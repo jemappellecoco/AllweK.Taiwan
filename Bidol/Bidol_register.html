@@ -341,30 +341,70 @@
     </div>
 
   </div>
-<!-- 圖片輪播區塊 -->
-<section class="min-h-[300px] px-4 py-20 relative">
-  <div class="relative w-full max-w-4xl mx-auto">
-    <!-- 左右箭頭 -->
-    <button onclick="changeCard(-1)" class="absolute left-0 top-1/2 -translate-y-1/2 text-white text-4xl z-30 px-3 py-2 bg-black/40 rounded-full hover:scale-110 transition">
-      ‹
-    </button>
-    <button onclick="changeCard(1)" class="absolute right-0 top-1/2 -translate-y-1/2 text-white text-4xl z-30 px-3 py-2 bg-black/40 rounded-full hover:scale-110 transition">
-      ›
-    </button>
+<!-- 1. CSS 引入 -->
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"
+/>
+<style>
+  /* 中央 slide 放大 */
+  .swiper-slide-active .card-img {
+    transform: scale(1.05);
+    opacity: 1;
+  }
+  .card-img {
+    transform: scale(0.85);
+    opacity: 0.5;
+    transition: transform 0.5s ease, opacity 0.5s ease;
+  }
+  .swiper-slide {
+  z-index: 1;
+}
+.swiper-slide-active {
+  z-index: 10;
+}
 
-    <!-- 卡片容器 -->
-    <div id="cards-wrapper" class="flex justify-center items-center gap-8 px-6 sm:px-12">
-      <!-- 卡片由 JS 動態插入 -->
+</style>
+
+<!-- 2. HTML 內容 -->
+<section class="min-h-[300px] px-4 py-20">
+  <div class="relative w-full max-w-4xl mx-auto">
+    <!-- Swiper 主體 -->
+    <div class="swiper">
+      <div class="swiper-wrapper">
+        <!-- Slide 卡片 -->
+        <!-- JS 會動態注入 content -->
+      </div>
+      <!-- 左右箭頭 -->
+      <div class="swiper-button-prev text-white"></div>
+      <div class="swiper-button-next text-white"></div>
+      <!-- 分頁點 -->
+      <div class="swiper-pagination !bottom-4"></div>
     </div>
   </div>
 </section>
 
 <!-- Lightbox -->
-<div id="lightbox" class="fixed inset-0 bg-black/90 hidden items-center justify-center z-50">
-  <button onclick="closeLightbox()" class="absolute top-6 right-6 text-white text-3xl z-50">✕</button>
-  <img id="lightboxImg" src="" alt="放大圖片" class="max-w-[90vw] max-h-[90vh] rounded-xl shadow-2xl" />
+<div
+  id="lightbox"
+  class="fixed inset-0 bg-black/90 hidden items-center justify-center z-50"
+>
+  <button
+    onclick="closeLightbox()"
+    class="absolute top-6 right-6 text-white text-3xl z-50"
+  >
+    ✕
+  </button>
+  <img
+    id="lightboxImg"
+    src=""
+    alt="放大圖片"
+    class="max-w-[95vw] max-h-[95vh] rounded-xl shadow-2xl"
+  />
 </div>
 
+<!-- 3. JS 引入 -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
 <script>
   const imageCards = [
     { src: './img/hotel/hotel_1.png', title: '飯店外觀 I' },
@@ -379,67 +419,62 @@
     { src: './img/hotel/room.png', title: '住宿房間' },
   ];
 
-  let currentIndex = 0;
-
-  function renderCards() {
-  const wrapper = document.getElementById('cards-wrapper');
-  wrapper.innerHTML = '';
-
-  const range = [-1, 0, 1];
-  range.forEach(offset => {
-    const idx = (currentIndex + offset + imageCards.length) % imageCards.length;
-    const isActive = offset === 0;
-    const className = isActive
-      ? 'scale-105 opacity-100 z-20'
-      : 'scale-90 opacity-60 z-10';
-
-    const card = document.createElement('div');
-    card.className = `
-      w-[100vw] sm:w-[600px] max-w-[800px] aspect-[3/4] rounded-2xl overflow-hidden shadow-xl
-      bg-white/10 backdrop-blur-md transform transition-all duration-500 ease-in-out ${className}
-      cursor-pointer relative
-    `;
-
-    card.innerHTML = `
-      <img src="${imageCards[idx].src}" alt="${imageCards[idx].title}" class="w-full h-full object-cover" />
-      <div class="absolute bottom-0 left-0 right-0 p-3 text-white text-center bg-black bg-opacity-50">
-        <h3 class="text-base sm:text-lg font-bold">${imageCards[idx].title}</h3>
-      </div>
-    `;
-
-    // ✅ 整張卡片可點擊放大
-    card.addEventListener('click', () => {
-      openLightbox(imageCards[idx].src);
+  // 產生 slide
+  const swiperWrapper = document.querySelector('.swiper-wrapper');
+  imageCards.forEach(item => {
+    const slide = document.createElement('div');
+    slide.className = 'swiper-slide flex justify-center';
+    slide.innerHTML = `
+      <div class="w-[40vw] sm:w-[280px] max-w-[320px] aspect-[3/4] sm:aspect-[4/3]
+                  bg-white/10 backdrop-blur-md rounded-2xl overflow-hidden shadow-xl
+                  cursor-pointer card-img relative">
+        <img src="${item.src}" alt="${item.title}" class="w-full h-full object-cover" />
+        <div class="absolute bottom-0 left-0 right-0 p-3 text-white text-center bg-black bg-opacity-50">
+          <h3 class="text-base sm:text-lg font-bold">${item.title}</h3>
+        </div>
+      </div>`;
+    // 點擊放大
+    slide.querySelector('.card-img').addEventListener('click', () => {
+      openLightbox(item.src);
     });
-
-    wrapper.appendChild(card);
+    swiperWrapper.appendChild(slide);
   });
-}
+
+ const swiper = new Swiper('.swiper', {
+  loop: true,
+  autoplay: { delay: 3500, disableOnInteraction: false },
+  spaceBetween: 20,
 
 
-  function changeCard(direction) {
-    currentIndex = (currentIndex + direction + imageCards.length) % imageCards.length;
-    renderCards();
+  breakpoints: {
+    0: {
+      slidesPerView: 3,        // ✅ 手機顯示三張
+      centeredSlides: true, // ✅ 中央對齊
+      spaceBetween: 12,
+    },
+    768: {
+      slidesPerView: 3,
+      centeredSlides: false,
+      spaceBetween: 32,
+    }
+  },
+
+  pagination: { el: '.swiper-pagination', clickable: true },
+  navigation: {
+    nextEl: '.swiper-button-next',
+    prevEl: '.swiper-button-prev'
   }
-
+});
+  // Lightbox 邏輯
   function openLightbox(src) {
     document.getElementById('lightboxImg').src = src;
-    document.getElementById('lightbox').classList.remove('hidden');
-    document.getElementById('lightbox').classList.add('flex');
+    document.getElementById('lightbox').classList.replace('hidden', 'flex');
   }
-
   function closeLightbox() {
-    document.getElementById('lightbox').classList.remove('flex');
-    document.getElementById('lightbox').classList.add('hidden');
+    document.getElementById('lightbox').classList.replace('flex', 'hidden');
   }
-
-  document.addEventListener('DOMContentLoaded', () => {
-    renderCards();
-    setInterval(() => {
-      changeCard(1); // 自動輪播
-    }, 3500);
-  });
 </script>
+
 
 </div>
 
