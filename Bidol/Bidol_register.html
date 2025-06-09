@@ -341,6 +341,106 @@
     </div>
 
   </div>
+<!-- 圖片輪播區塊 -->
+<section class="min-h-[300px] px-4 py-20 relative">
+  <div class="relative w-full max-w-4xl mx-auto">
+    <!-- 左右箭頭 -->
+    <button onclick="changeCard(-1)" class="absolute left-0 top-1/2 -translate-y-1/2 text-white text-4xl z-30 px-3 py-2 bg-black/40 rounded-full hover:scale-110 transition">
+      ‹
+    </button>
+    <button onclick="changeCard(1)" class="absolute right-0 top-1/2 -translate-y-1/2 text-white text-4xl z-30 px-3 py-2 bg-black/40 rounded-full hover:scale-110 transition">
+      ›
+    </button>
+
+    <!-- 卡片容器 -->
+    <div id="cards-wrapper" class="flex justify-center items-center gap-8 px-6 sm:px-12">
+      <!-- 卡片由 JS 動態插入 -->
+    </div>
+  </div>
+</section>
+
+<!-- Lightbox -->
+<div id="lightbox" class="fixed inset-0 bg-black/90 hidden items-center justify-center z-50">
+  <button onclick="closeLightbox()" class="absolute top-6 right-6 text-white text-3xl z-50">✕</button>
+  <img id="lightboxImg" src="" alt="放大圖片" class="max-w-[90vw] max-h-[90vh] rounded-xl shadow-2xl" />
+</div>
+
+<script>
+  const imageCards = [
+    { src: './img/hotel/hotel_1.png', title: '飯店外觀 I' },
+    { src: './img/hotel/hotel_2.png', title: '飯店外觀 II' },
+    { src: './img/hotel/hotel_3.png', title: '洗衣房' },
+    { src: './img/hotel/lobby_img.png', title: '大廳 Lobby' },
+    { src: './img/hotel/lounge.png', title: '交誼廳 Lounge' },
+    { src: './img/hotel/meetingroom.png', title: '會議空間' },
+    { src: './img/hotel/restaurant.png', title: '餐廳' },
+    { src: './img/hotel/bakery.png', title: '咖啡烘焙坊' },
+    { src: './img/hotel/kitchen.png', title: '公用廚房' },
+    { src: './img/hotel/room.png', title: '住宿房間' },
+  ];
+
+  let currentIndex = 0;
+
+  function renderCards() {
+  const wrapper = document.getElementById('cards-wrapper');
+  wrapper.innerHTML = '';
+
+  const range = [-1, 0, 1];
+  range.forEach(offset => {
+    const idx = (currentIndex + offset + imageCards.length) % imageCards.length;
+    const isActive = offset === 0;
+    const className = isActive
+      ? 'scale-105 opacity-100 z-20'
+      : 'scale-90 opacity-60 z-10';
+
+    const card = document.createElement('div');
+    card.className = `
+      w-[100vw] sm:w-[600px] max-w-[800px] aspect-[3/4] rounded-2xl overflow-hidden shadow-xl
+      bg-white/10 backdrop-blur-md transform transition-all duration-500 ease-in-out ${className}
+      cursor-pointer relative
+    `;
+
+    card.innerHTML = `
+      <img src="${imageCards[idx].src}" alt="${imageCards[idx].title}" class="w-full h-full object-cover" />
+      <div class="absolute bottom-0 left-0 right-0 p-3 text-white text-center bg-black bg-opacity-50">
+        <h3 class="text-base sm:text-lg font-bold">${imageCards[idx].title}</h3>
+      </div>
+    `;
+
+    // ✅ 整張卡片可點擊放大
+    card.addEventListener('click', () => {
+      openLightbox(imageCards[idx].src);
+    });
+
+    wrapper.appendChild(card);
+  });
+}
+
+
+  function changeCard(direction) {
+    currentIndex = (currentIndex + direction + imageCards.length) % imageCards.length;
+    renderCards();
+  }
+
+  function openLightbox(src) {
+    document.getElementById('lightboxImg').src = src;
+    document.getElementById('lightbox').classList.remove('hidden');
+    document.getElementById('lightbox').classList.add('flex');
+  }
+
+  function closeLightbox() {
+    document.getElementById('lightbox').classList.remove('flex');
+    document.getElementById('lightbox').classList.add('hidden');
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    renderCards();
+    setInterval(() => {
+      changeCard(1); // 自動輪播
+    }, 3500);
+  });
+</script>
+
 </div>
 
             <div class="tab-content" id="schedule">
