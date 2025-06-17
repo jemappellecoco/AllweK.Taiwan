@@ -1225,7 +1225,7 @@ startMobileAutoPlay();
   </section>
 
   <script>
-    // let currentIndex = 0; // ← 已經在上方宣告過，這行請移除或註解
+
     const track = document.getElementById('carouselTrack');
 
     function updateCarousel() {
@@ -1438,15 +1438,18 @@ startMobileAutoPlay();
 
 
 
-  <div id="lightbox" class="lightbox">
-    <span class="close" onclick="closeLightbox()">×</span>
-    <span class="nav left" onclick="changeSlide(-1)">❮</span>
-    <div class="flex flex-col md:flex-row justify-center items-center">
-      <img id="lightbox-img" src="" alt="">
-      <div id="lightbox-text" class="text"></div>
-    </div>
-    <span class="nav right" onclick="changeSlide(1)">❯</span>
+<div id="lightbox" class="lightbox fixed inset-0 bg-black bg-opacity-90 z-50 hidden flex justify-center items-center p-4">
+  <span class="absolute top-4 right-6 text-white text-3xl cursor-pointer z-50" onclick="closeLightbox()">×</span>
+  <span class="absolute left-4 top-1/2 transform -translate-y-1/2 text-white text-3xl cursor-pointer z-50" onclick="changeSlide(-1)">❮</span>
+
+  <div class="flex flex-col md:flex-row justify-center items-center bg-black rounded-xl p-6 w-full max-w-6xl max-h-[80vh] overflow-y-auto">
+    <img id="lightbox-img" src="" alt="" class="w-full md:w-1/2 object-contain mb-4 md:mb-0 md:mr-6 max-h-[60vh]" />
+    <div id="lightbox-text" class="text text-white w-full md:w-1/2"></div>
   </div>
+
+  <span class="absolute right-4 top-1/2 transform -translate-y-1/2 text-white text-3xl cursor-pointer z-50" onclick="changeSlide(1)">❯</span>
+</div>
+
 
   <script>
   function moveSlide(direction) {
