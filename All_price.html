@@ -1,0 +1,831 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KDCC 韓國夏令營方案</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&display=swap');
+
+        body {
+            font-family: 'Noto Sans TC', sans-serif;
+            background: linear-gradient(to bottom, #0f0f0f, #1a1a1a);
+        }
+
+        .plan-card {
+            background: rgba(30, 30, 30, 0.8);
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .plan-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(255, 50, 50, 0.2);
+        }
+
+        .shine {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .shine::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(
+                to bottom right,
+                rgba(255, 255, 255, 0) 0%,
+                rgba(255, 255, 255, 0.03) 40%,
+                rgba(255, 255, 255, 0.1) 50%,
+                rgba(255, 255, 255, 0.03) 60%,
+                rgba(255, 255, 255, 0) 100%
+            );
+            transform: rotate(30deg);
+            transition: all 0.5s;
+            opacity: 0;
+        }
+
+        .shine:hover::after {
+            opacity: 1;
+            transform: rotate(30deg) translate(50%, -50%);
+        }
+
+        .glow {
+            position: relative;
+        }
+
+        .glow::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.2), transparent);
+        }
+
+        .medal {
+            font-size: 1.2rem;
+            margin-right: 0.5rem;
+            vertical-align: middle;
+        }
+
+        .original-price {
+            text-decoration: line-through;
+            color: #888;
+            font-size: 0.9rem;
+        }
+
+        .tab-button {
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .tab-button::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background-color: #fff;
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
+
+        .tab-button:hover::after {
+            width: 80%;
+        }
+
+        .tab-button.active::after {
+            width: 80%;
+            background-color: #f87171;
+        }
+
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .feature-icon {
+            display: inline-block;
+            width: 20px;
+            text-align: center;
+            margin-right: 5px;
+        }
+
+        .cta-button {
+            background: linear-gradient(135deg, #ff4b4b, #ff0844);
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(255, 8, 68, 0.4);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 8, 68, 0.6);
+        }
+
+        .comparison-table th, .comparison-table td {
+            padding: 12px 16px;
+            text-align: center;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .comparison-table th {
+            background-color: rgba(255, 50, 50, 0.2);
+        }
+
+        .comparison-table tr:hover {
+            background-color: rgba(255, 255, 255, 0.05);
+        }
+
+        .header-bg {
+            background: linear-gradient(135deg, #ff4b4b22, #ff084422);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .faq-item {
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .faq-question {
+            cursor: pointer;
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 500px;
+        }
+
+        .comparison-tab-button {
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .comparison-tab-button.active {
+            background-color: rgba(255, 50, 50, 0.2);
+            color: white;
+        }
+
+        .comparison-tab-content {
+            display: none;
+        }
+
+        .comparison-tab-content.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+    </style>
+</head>
+<body class="bg-black text-white font-sans">
+  <div class="header-bg py-6">
+    <div class="container mx-auto px-4 max-w-5xl">
+      <div class="flex justify-between items-center">
+        <div class="text-2xl font-bold">KDCC <span class="text-red-500">韓國夏令營</span></div>
+        <div class="hidden md:flex space-x-6">
+          <a href="#plans" class="hover:text-red-400 transition">方案介紹</a>
+          <a href="#comparison" class="hover:text-red-400 transition">方案比較</a>
+          <a href="#faq" class="hover:text-red-400 transition">常見問題</a>
+          <a href="#contact" class="hover:text-red-400 transition">聯絡我們</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container mx-auto px-4 py-8 max-w-5xl">
+    <div class="text-center mb-12">
+      <h1 class="text-4xl font-bold text-white mb-3">KDCC <span class="text-red-500">韓國夏令營</span>方案介紹</h1>
+      <p class="text-gray-300 mt-2 text-lg">依據不同需求，為學生與家長設計了兩大類方案</p>
+      <div class="mt-6 inline-block bg-red-900/30 px-4 py-2 rounded-lg">
+        <p class="text-red-200">2024年夏季班 | 7月15日-7月28日 | 首爾明洞校區</p>
+      </div>
+    </div>
+
+    <!-- Tab Navigation -->
+    <div id="plans" class="flex justify-center space-x-4 mb-6">
+      <button class="tab-button active px-6 py-3 rounded-t bg-red-600 text-white font-medium" data-tab="student">學生專案</button>
+      <button class="tab-button px-6 py-3 rounded-t bg-gray-700 text-white font-medium" data-tab="parent">家長專案</button>
+    </div>
+
+    <!-- 學生專案內容開始 -->
+    <div class="tab-content active" id="student">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+        <!-- Plan A -->
+        <div class="plan-card rounded-lg overflow-hidden border-t-4 border-red-500 shine glow">
+          <div class="p-6">
+            <h2 class="text-xl font-bold text-center mb-2 text-white">
+              <span class="medal">🥇</span>A | 全程無憂方案
+            </h2>
+            <div class="text-center">
+              <div class="original-price">NT$47,800</div>
+              <span class="text-2xl font-bold text-red-500">NT$43,800</span>
+            </div>
+            <div class="mt-4 text-center">
+              <span class="inline-block bg-red-900 text-red-100 text-xs px-3 py-1 rounded-full">最完整照護</span>
+            </div>
+            <div class="mt-4 text-sm text-gray-300">
+              <p>適合對象：<span class="font-medium text-white">出國需照顧、語言需要協助者</span></p>
+              <ul class="mt-3 space-y-1">
+                <li><span class="feature-icon">✓</span>KPOP課程（英文韓文授課）＋台籍老師協助</li>
+                <li><span class="feature-icon">✓</span>台灣機場集合→一同搭機出發與返台</li>
+                <li><span class="feature-icon">✓</span>台籍老師管家式照顧</li>
+                <li><span class="feature-icon">✓</span>韓國機場接送服務</li>
+                <li><span class="feature-icon">✓</span>老師協助簡易妝髮</li>
+                <li><span class="feature-icon">✓</span>含文化體驗2場</li>
+                <li><span class="feature-icon">✓</span>旅平險（300萬）</li>
+                <li><span class="feature-icon">✓</span>每日回報與側拍</li>
+                <li><span class="feature-icon">✓</span>台籍老師與家長聯繫</li>
+                <li><span class="feature-icon">✓</span>出入境協助</li>
+              </ul>
+            </div>
+            <div class="mt-6">
+              <button class="cta-button w-full py-3 rounded-lg text-white font-bold">立即報名</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Plan B -->
+        <div class="plan-card rounded-lg overflow-hidden border-t-4 border-pink-400 shine glow">
+          <div class="p-6">
+            <h2 class="text-xl font-bold text-center mb-2 text-white">
+              <span class="medal">🧳</span>B | 半自助探索方案
+            </h2>
+            <div class="text-center">
+              <span class="text-2xl font-bold text-pink-400">NT$38,800</span>
+            </div>
+            <div class="mt-4 text-center">
+              <span class="inline-block bg-pink-900 text-pink-100 text-xs px-3 py-1 rounded-full">彈性選擇</span>
+            </div>
+            <div class="mt-4 text-sm text-gray-300">
+              <p>適合對象：<span class="font-medium text-white">有一定獨立能力但仍需語言協助</span></p>
+              <ul class="mt-3 space-y-1">
+                <li><span class="feature-icon">✓</span>KPOP課程（英文韓文授課）＋台籍老師協助</li>
+                <li><span class="feature-icon">✗</span>無陪同搭機服務</li>
+                <li><span class="feature-icon">✓</span>台籍老師管家式照顧</li>
+                <li><span class="feature-icon">+</span>可加購韓國機場接送 NT$1,200（須配合團體時間）</li>
+                <li><span class="feature-icon">✓</span>提供彩妝品，學生自理</li>
+                <li><span class="feature-icon">+</span>可加購文化體驗 NT$2,800/場</li>
+                <li><span class="feature-icon">+</span>可加購旅平險 NT$800</li>
+                <li><span class="feature-icon">✗</span>無每日回報與側拍</li>
+                <li><span class="feature-icon">✓</span>台籍老師與家長聯繫</li>
+              </ul>
+            </div>
+            <div class="mt-6">
+              <button class="cta-button w-full py-3 rounded-lg text-white font-bold">立即報名</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Plan C -->
+        <div class="plan-card rounded-lg overflow-hidden border-t-4 border-gray-400 shine glow">
+          <div class="p-6">
+            <h2 class="text-xl font-bold text-center mb-2 text-white">
+              <span class="medal">🛏</span>C | 營區自助方案
+            </h2>
+            <div class="text-center">
+              <span class="text-2xl font-bold text-gray-300">NT$32,800</span>
+            </div>
+            <div class="mt-4 text-center">
+              <span class="inline-block bg-gray-800 text-gray-200 text-xs px-3 py-1 rounded-full">經濟實惠</span>
+            </div>
+            <div class="mt-4 text-sm text-gray-300">
+              <p>適合對象：<span class="font-medium text-white">有海外經驗＆獨立自主者，具備英文/韓文能力</span></p>
+              <ul class="mt-3 space-y-1">
+                <li><span class="feature-icon">✓</span>KPOP課程（英文韓文授課）</li>
+                <li><span class="feature-icon">✗</span>無陪同搭機服務</li>
+                <li><span class="feature-icon">✗</span>無台籍老師管家式照顧</li>
+                <li><span class="feature-icon">+</span>可加購韓國機場接送 NT$1,200（須配合團體時間）</li>
+                <li><span class="feature-icon">✗</span>無提供彩妝品</li>
+                <li><span class="feature-icon">+</span>可加購文化體驗 NT$2,800/場</li>
+                <li><span class="feature-icon">+</span>可加購旅平險 NT$800</li>
+                <li><span class="feature-icon">✗</span>無每日回報與側拍</li>
+                <li><span class="feature-icon">✗</span>無台籍老師與家長聯繫</li>
+              </ul>
+            </div>
+            <div class="mt-6">
+              <button class="cta-button w-full py-3 rounded-lg text-white font-bold">立即報名</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-gray-900/50 p-6 rounded-lg mb-8">
+        <h3 class="text-xl font-bold mb-4">學生方案課程內容</h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div>
+            <h4 class="font-bold text-red-400 mb-2">KPOP 舞蹈課程</h4>
+            <ul class="space-y-2 text-gray-300">
+              <li>• 專業韓國舞蹈老師指導</li>
+              <li>• 每日4小時密集訓練</li>
+              <li>• 學習當季最新KPOP舞蹈</li>
+              <li>• 結業成果展演</li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="font-bold text-red-400 mb-2">文化體驗活動</h4>
+            <ul class="space-y-2 text-gray-300">
+              <li>• 韓服體驗與拍攝</li>
+              <li>• 韓式美妝課程</li>
+              <li>• 韓國傳統文化體驗</li>
+              <li>• 韓國娛樂公司參訪</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 家長專案內容開始 -->
+    <div class="tab-content" id="parent">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+        <!-- Parent Plan A -->
+        <div class="plan-card rounded-lg overflow-hidden border-t-4 border-blue-500 shine glow">
+          <div class="p-6">
+            <h2 class="text-xl font-bold text-center mb-2 text-white">
+              <span class="medal">🏨</span>D | 親子同行方案
+            </h2>
+            <div class="text-center">
+              <span class="text-2xl font-bold text-blue-400">NT$28,800</span>
+            </div>
+            <div class="mt-4 text-center">
+              <span class="inline-block bg-blue-900 text-blue-100 text-xs px-3 py-1 rounded-full">親子共遊</span>
+            </div>
+            <div class="mt-4 text-sm text-gray-300">
+              <p>適合對象：<span class="font-medium text-white">希望陪同孩子一同前往韓國的家長</span></p>
+              <ul class="mt-3 space-y-1">
+                <li><span class="feature-icon">✓</span>與孩子同住宿舍（雙人房）</li>
+                <li><span class="feature-icon">✓</span>每日早餐與晚餐</li>
+                <li><span class="feature-icon">✓</span>專屬家長休息室</li>
+                <li><span class="feature-icon">✓</span>首爾市區觀光一日遊</li>
+                <li><span class="feature-icon">✓</span>可觀摩孩子課程</li>
+                <li><span class="feature-icon">✓</span>結業成果展優先席位</li>
+                <li><span class="feature-icon">+</span>可加購韓國機場接送 NT$1,200</li>
+                <li><span class="feature-icon">+</span>可加購文化體驗 NT$2,800/場</li>
+              </ul>
+            </div>
+            <div class="mt-6">
+              <button class="cta-button w-full py-3 rounded-lg text-white font-bold">立即報名</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Parent Plan B -->
+        <div class="plan-card rounded-lg overflow-hidden border-t-4 border-purple-500 shine glow">
+          <div class="p-6">
+            <h2 class="text-xl font-bold text-center mb-2 text-white">
+              <span class="medal">🌆</span>E | 家長自由行方案
+            </h2>
+            <div class="text-center">
+              <span class="text-2xl font-bold text-purple-400">NT$18,800</span>
+            </div>
+            <div class="mt-4 text-center">
+              <span class="inline-block bg-purple-900 text-purple-100 text-xs px-3 py-1 rounded-full">彈性安排</span>
+            </div>
+            <div class="mt-4 text-sm text-gray-300">
+              <p>適合對象：<span class="font-medium text-white">希望有自己行程安排的家長</span></p>
+              <ul class="mt-3 space-y-1">
+                <li><span class="feature-icon">✓</span>自行安排住宿（不含住宿）</li>
+                <li><span class="feature-icon">✗</span>不含餐食</li>
+                <li><span class="feature-icon">✓</span>專屬家長休息室使用權</li>
+                <li><span class="feature-icon">+</span>可加購首爾市區觀光 NT$2,500</li>
+                <li><span class="feature-icon">✓</span>可觀摩孩子課程</li>
+                <li><span class="feature-icon">✓</span>結業成果展優先席位</li>
+                <li><span class="feature-icon">+</span>可加購韓國機場接送 NT$1,200</li>
+                <li><span class="feature-icon">+</span>可加購文化體驗 NT$2,800/場</li>
+              </ul>
+            </div>
+            <div class="mt-6">
+              <button class="cta-button w-full py-3 rounded-lg text-white font-bold">立即報名</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-gray-900/50 p-6 rounded-lg mb-8">
+        <h3 class="text-xl font-bold mb-4">家長方案特色</h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div>
+            <h4 class="font-bold text-blue-400 mb-2">家長專屬服務</h4>
+            <ul class="space-y-2 text-gray-300">
+              <li>• 專屬休息室與WiFi</li>
+              <li>• 免費咖啡與茶點</li>
+              <li>• 韓國旅遊諮詢服務</li>
+              <li>• 孩子課程即時影像</li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="font-bold text-blue-400 mb-2">家長專屬活動</h4>
+            <ul class="space-y-2 text-gray-300">
+              <li>• 韓國美食品嚐之旅</li>
+              <li>• 韓國購物指南</li>
+              <li>• 韓式美容體驗</li>
+              <li>• 首爾歷史文化導覽</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 方案比較表 -->
+    <div id="comparison" class="mt-16 mb-12">
+      <h2 class="text-2xl font-bold text-center mb-6">方案比較表</h2>
+
+      <!-- 比較表切換按鈕 -->
+      <div class="flex justify-center space-x-4 mb-6">
+        <button class="comparison-tab-button active px-6 py-2 rounded-t-lg bg-red-600/50 text-white font-medium" data-comparison-tab="student-comparison">學生方案比較</button>
+        <button class="comparison-tab-button px-6 py-2 rounded-t-lg bg-blue-600/50 text-white font-medium" data-comparison-tab="parent-comparison">家長方案比較</button>
+      </div>
+
+      <!-- 學生方案比較表 -->
+      <div class="comparison-tab-content active" id="student-comparison">
+        <div class="overflow-x-auto">
+          <table class="comparison-table w-full">
+            <thead>
+              <tr>
+                <th class="text-left">服務項目</th>
+                <th>A 全程無憂</th>
+                <th>B 半自助探索</th>
+                <th>C 營區自助</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="text-left">KPOP課程</td>
+                <td>✓ 含台籍協助</td>
+                <td>✓ 含台籍協助</td>
+                <td>✓ 無協助</td>
+              </tr>
+              <tr>
+                <td class="text-left">陪同搭機</td>
+                <td>✓</td>
+                <td>✗</td>
+                <td>✗</td>
+              </tr>
+              <tr>
+                <td class="text-left">台籍老師照顧</td>
+                <td>✓</td>
+                <td>✓</td>
+                <td>✗</td>
+              </tr>
+              <tr>
+                <td class="text-left">韓國機場接送</td>
+                <td>✓</td>
+                <td>+ NT$1,200</td>
+                <td>+ NT$1,200</td>
+              </tr>
+              <tr>
+                <td class="text-left">妝髮協助</td>
+                <td>✓ 老師協助</td>
+                <td>✓ 提供彩妝品</td>
+                <td>✗</td>
+              </tr>
+              <tr>
+                <td class="text-left">文化體驗</td>
+                <td>✓ 2場</td>
+                <td>+ NT$2,800/場</td>
+                <td>+ NT$2,800/場</td>
+              </tr>
+              <tr>
+                <td class="text-left">旅平險</td>
+                <td>✓ 300萬</td>
+                <td>+ NT$800</td>
+                <td>+ NT$800</td>
+              </tr>
+              <tr>
+                <td class="text-left">每日回報與側拍</td>
+                <td>✓</td>
+                <td>✗</td>
+                <td>✗</td>
+              </tr>
+              <tr>
+                <td class="text-left">與家長聯繫</td>
+                <td>✓</td>
+                <td>✓</td>
+                <td>✗</td>
+              </tr>
+              <tr>
+                <td class="text-left">住宿</td>
+                <td>✓ 4人房</td>
+                <td>✓ 4人房</td>
+                <td>✓ 6人房</td>
+              </tr>
+              <tr>
+                <td class="text-left">餐食</td>
+                <td>✓ 三餐</td>
+                <td>✓ 三餐</td>
+                <td>✓ 早餐</td>
+              </tr>
+              <tr>
+                <td class="text-left font-bold">價格</td>
+                <td class="font-bold text-red-500">NT$43,800</td>
+                <td class="font-bold text-pink-400">NT$38,800</td>
+                <td class="font-bold text-gray-300">NT$32,800</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- 家長方案比較表 -->
+      <div class="comparison-tab-content" id="parent-comparison">
+        <div class="overflow-x-auto">
+          <table class="comparison-table w-full">
+            <thead>
+              <tr>
+                <th class="text-left">服務項目</th>
+                <th>D 親子同行</th>
+                <th>E 家長自由行</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="text-left">住宿</td>
+                <td>✓ 雙人房</td>
+                <td>✗ 自理</td>
+              </tr>
+              <tr>
+                <td class="text-left">餐食</td>
+                <td>✓ 早晚餐</td>
+                <td>✗ 自理</td>
+              </tr>
+              <tr>
+                <td class="text-left">專屬休息室</td>
+                <td>✓</td>
+                <td>✓</td>
+              </tr>
+              <tr>
+                <td class="text-left">首爾市區觀光</td>
+                <td>✓ 一日遊</td>
+                <td>+ NT$2,500</td>
+              </tr>
+              <tr>
+                <td class="text-left">觀摩課程</td>
+                <td>✓</td>
+                <td>✓</td>
+              </tr>
+              <tr>
+                <td class="text-left">結業展優先席位</td>
+                <td>✓</td>
+                <td>✓</td>
+              </tr>
+              <tr>
+                <td class="text-left">韓國機場接送</td>
+                <td>+ NT$1,200</td>
+                <td>+ NT$1,200</td>
+              </tr>
+              <tr>
+                <td class="text-left">文化體驗</td>
+                <td>+ NT$2,800/場</td>
+                <td>+ NT$2,800/場</td>
+              </tr>
+              <tr>
+                <td class="text-left">免費咖啡茶點</td>
+                <td>✓</td>
+                <td>✓</td>
+              </tr>
+              <tr>
+                <td class="text-left">旅遊諮詢服務</td>
+                <td>✓</td>
+                <td>✓</td>
+              </tr>
+              <tr>
+                <td class="text-left font-bold">價格</td>
+                <td class="font-bold text-blue-400">NT$28,800</td>
+                <td class="font-bold text-purple-400">NT$18,800</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- 常見問題 -->
+    <div id="faq" class="mt-16 mb-12">
+      <h2 class="text-2xl font-bold text-center mb-8">常見問題</h2>
+      <div class="space-y-4">
+        <div class="faq-item p-4 rounded-lg bg-gray-900/50">
+          <div class="faq-question flex justify-between items-center">
+            <h3 class="font-medium">需要具備什麼舞蹈基礎才能參加？</h3>
+            <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+            </svg>
+          </div>
+          <div class="faq-answer mt-2 text-gray-300">
+            <p>不需要舞蹈基礎！我們會依照學員程度分班，從基礎動作開始教學。只要有熱情和毅力，人人都能學好KPOP舞蹈。</p>
+          </div>
+        </div>
+
+        <div class="faq-item p-4 rounded-lg bg-gray-900/50">
+          <div class="faq-question flex justify-between items-center">
+            <h3 class="font-medium">如何處理語言溝通問題？</h3>
+            <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+            </svg>
+          </div>
+          <div class="faq-answer mt-2 text-gray-300">
+            <p>A、B方案有台籍老師全程協助翻譯。C方案需要學員具備基本英文或韓文溝通能力。課程中會使用簡單的英文和韓文教學，並輔以肢體動作示範。</p>
+          </div>
+        </div>
+
+        <div class="faq-item p-4 rounded-lg bg-gray-900/50">
+          <div class="faq-question flex justify-between items-center">
+            <h3 class="font-medium">住宿環境如何？安全嗎？</h3>
+            <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+            </svg>
+          </div>
+          <div class="faq-answer mt-2 text-gray-300">
+            <p>我們提供位於首爾明洞的學生宿舍，24小時保全，男女分層住宿。每間房配有獨立衛浴、空調、WiFi。A、B方案為4人房，C方案為6人房，D方案為雙人房（與孩子同住）。</p>
+          </div>
+        </div>
+
+        <div class="faq-item p-4 rounded-lg bg-gray-900/50">
+          <div class="faq-question flex justify-between items-center">
+            <h3 class="font-medium">如何報名？需要準備什麼文件？</h3>
+            <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+            </svg>
+          </div>
+          <div class="faq-answer mt-2 text-gray-300">
+            <p>請填寫網站上的報名表，並準備護照影本、2吋照片2張、家長同意書（未滿18歲者）。報名確認後需支付30%訂金，餘款於出發前30天繳清。</p>
+          </div>
+        </div>
+
+        <div class="faq-item p-4 rounded-lg bg-gray-900/50">
+          <div class="faq-question flex justify-between items-center">
+            <h3 class="font-medium">可以退費嗎？</h3>
+            <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+            </svg>
+          </div>
+          <div class="faq-answer mt-2 text-gray-300">
+            <p>出發前60天取消，全額退款。出發前30-59天取消，退還70%。出發前15-29天取消，退還50%。出發前14天內取消，恕不退款。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 聯絡我們 -->
+    <div id="contact" class="mt-16 mb-12">
+      <h2 class="text-2xl font-bold text-center mb-8">聯絡我們</h2>
+      <div class="bg-gray-900/50 p-6 rounded-lg">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div>
+            <h3 class="text-xl font-bold mb-4">KDCC 韓國夏令營</h3>
+            <ul class="space-y-3 text-gray-300">
+              <li class="flex items-start">
+                <span class="mr-3">📍</span>
+                <span>台北市信義區松智路17號8樓</span>
+              </li>
+              <li class="flex items-start">
+                <span class="mr-3">📞</span>
+                <span>02-2345-6789</span>
+              </li>
+              <li class="flex items-start">
+                <span class="mr-3">✉️</span>
+                <span>info@kdcc.com.tw</span>
+              </li>
+              <li class="flex items-start">
+                <span class="mr-3">⏰</span>
+                <span>週一至週五 10:00-18:00</span>
+              </li>
+            </ul>
+            <div class="mt-6 flex space-x-4">
+              <a href="#" class="text-2xl">📱</a>
+              <a href="#" class="text-2xl">📘</a>
+              <a href="#" class="text-2xl">📸</a>
+              <a href="#" class="text-2xl">🐦</a>
+            </div>
+          </div>
+          <div>
+            <h3 class="text-xl font-bold mb-4">預約諮詢</h3>
+            <div class="space-y-4">
+              <div>
+                <label class="block text-sm font-medium text-gray-400 mb-1">姓名</label>
+                <input type="text" class="w-full bg-gray-800 border border-gray-700 rounded-lg px-4 py-2 text-white focus:outline-none focus:ring-2 focus:ring-red-500">
+              </div>
+              <div>
+                <label class="block text-sm font-medium text-gray-400 mb-1">電話</label>
+                <input type="tel" class="w-full bg-gray-800 border border-gray-700 rounded-lg px-4 py-2 text-white focus:outline-none focus:ring-2 focus:ring-red-500">
+              </div>
+              <div>
+                <label class="block text-sm font-medium text-gray-400 mb-1">電子郵件</label>
+                <input type="email" class="w-full bg-gray-800 border border-gray-700 rounded-lg px-4 py-2 text-white focus:outline-none focus:ring-2 focus:ring-red-500">
+              </div>
+              <div>
+                <label class="block text-sm font-medium text-gray-400 mb-1">諮詢內容</label>
+                <textarea rows="3" class="w-full bg-gray-800 border border-gray-700 rounded-lg px-4 py-2 text-white focus:outline-none focus:ring-2 focus:ring-red-500"></textarea>
+              </div>
+              <div>
+                <button class="cta-button w-full py-3 rounded-lg text-white font-bold">送出諮詢</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer class="mt-16 pt-8 border-t border-gray-800 text-center text-gray-400 text-sm">
+      <p>© 2024 KDCC 韓國夏令營 版權所有</p>
+      <div class="mt-2">
+        <a href="#" class="hover:text-white mx-2">隱私政策</a>
+        <a href="#" class="hover:text-white mx-2">服務條款</a>
+        <a href="#" class="hover:text-white mx-2">關於我們</a>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    // Tab switching functionality
+    document.addEventListener('DOMContentLoaded', function() {
+      const tabButtons = document.querySelectorAll('.tab-button');
+      const tabContents = document.querySelectorAll('.tab-content');
+
+      tabButtons.forEach(button => {
+        button.addEventListener('click', () => {
+          const tabId = button.getAttribute('data-tab');
+
+          // Remove active class from all buttons and contents
+          tabButtons.forEach(btn => btn.classList.remove('active', 'bg-red-600'));
+          tabButtons.forEach(btn => btn.classList.add('bg-gray-700'));
+          tabContents.forEach(content => content.classList.remove('active'));
+
+          // Add active class to clicked button and corresponding content
+          button.classList.add('active', 'bg-red-600');
+          button.classList.remove('bg-gray-700');
+          document.getElementById(tabId).classList.add('active');
+        });
+      });
+
+      // Comparison tab switching
+      const comparisonTabButtons = document.querySelectorAll('.comparison-tab-button');
+      const comparisonTabContents = document.querySelectorAll('.comparison-tab-content');
+
+      comparisonTabButtons.forEach(button => {
+        button.addEventListener('click', () => {
+          const tabId = button.getAttribute('data-comparison-tab');
+
+          // Remove active class from all buttons and contents
+          comparisonTabButtons.forEach(btn => btn.classList.remove('active'));
+          comparisonTabContents.forEach(content => content.classList.remove('active'));
+
+          // Add active class to clicked button and corresponding content
+          button.classList.add('active');
+          document.getElementById(tabId).classList.add('active');
+        });
+      });
+
+      // FAQ functionality
+      const faqItems = document.querySelectorAll('.faq-item');
+
+      faqItems.forEach(item => {
+        const question = item.querySelector('.faq-question');
+
+        question.addEventListener('click', () => {
+          item.classList.toggle('active');
+        });
+      });
+
+      // Form submission
+      const contactForm = document.querySelector('#contact form');
+      if (contactForm) {
+        contactForm.addEventListener('submit', function(e) {
+          e.preventDefault();
+          alert('感謝您的諮詢！我們將盡快與您聯繫。');
+          contactForm.reset();
+        });
+      }
+
+      // CTA buttons
+      const ctaButtons = document.querySelectorAll('.cta-button');
+      ctaButtons.forEach(button => {
+        button.addEventListener('click', function() {
+          alert('感謝您的興趣！請填寫下方的諮詢表單，我們將盡快與您聯繫。');
+          document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+        });
+      });
+    });
+  </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9521cbc0e4fc4a54',t:'MTc1MDMyMzIwNS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
