@@ -1,0 +1,289 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KDCC 夏令營方案比較</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap');
+
+        body {
+            font-family: 'Noto Sans TC', sans-serif;
+        }
+
+        .plan-card {
+            transition: all 0.3s ease;
+        }
+
+        .plan-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .feature-row:nth-child(odd) {
+            background-color: rgba(249, 250, 251, 0.8);
+        }
+
+        .detail-panel {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+
+        .detail-panel.active {
+            max-height: 500px;
+        }
+
+        .check-icon {
+            color: #22c55e;
+        }
+
+        .x-icon {
+            color: #ef4444;
+        }
+
+        .highlight {
+            position: relative;
+        }
+
+        .highlight::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 100%;
+            height: 8px;
+            background-color: rgba(239, 68, 68, 0.2);
+            z-index: -1;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <div class="container mx-auto px-4 py-8 max-w-5xl">
+        <div class="text-center mb-8">
+            <h1 class="text-3xl font-bold text-gray-800">KDCC <span class="text-red-500">夏令營</span>方案比較</h1>
+            <p class="text-gray-600 mt-2">為您的孩子選擇最適合的韓國文化體驗夏令營方案</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+            <!-- Plan A -->
+            <div class="plan-card bg-white rounded-lg shadow-md overflow-hidden border-t-4 border-red-500">
+                <div class="p-6">
+                    <h2 class="text-xl font-bold text-center mb-2">A | 全程無憂方案</h2>
+                    <div class="text-center">
+                        <span class="text-2xl font-bold text-red-500">NT$43,800</span>
+                    </div>
+                    <div class="mt-4 text-center">
+                        <span class="inline-block bg-red-100 text-red-800 text-xs px-3 py-1 rounded-full">最完整照護</span>
+                    </div>
+                    <div class="mt-4 text-sm text-gray-600">
+                        <p>適合對象：<span class="font-medium">小學生、初次出國者</span></p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Plan B -->
+            <div class="plan-card bg-white rounded-lg shadow-md overflow-hidden border-t-4 border-pink-400">
+                <div class="p-6">
+                    <h2 class="text-xl font-bold text-center mb-2">B | 半自助探索方案</h2>
+                    <div class="text-center">
+                        <span class="text-2xl font-bold text-pink-500">NT$38,800 起</span>
+                    </div>
+                    <div class="mt-4 text-center">
+                        <span class="inline-block bg-pink-100 text-pink-800 text-xs px-3 py-1 rounded-full">彈性選擇</span>
+                    </div>
+                    <div class="mt-4 text-sm text-gray-600">
+                        <p>適合對象：<span class="font-medium">國中／高中、有基本獨立能力</span></p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Plan C -->
+            <div class="plan-card bg-white rounded-lg shadow-md overflow-hidden border-t-4 border-blue-400">
+                <div class="p-6">
+                    <h2 class="text-xl font-bold text-center mb-2">C | 營區自助方案</h2>
+                    <div class="text-center">
+                        <span class="text-2xl font-bold text-blue-500">NT$32,800</span>
+                    </div>
+                    <div class="mt-4 text-center">
+                        <span class="inline-block bg-blue-100 text-blue-800 text-xs px-3 py-1 rounded-full">經濟實惠</span>
+                    </div>
+                    <div class="mt-4 text-sm text-gray-600">
+                        <p>適合對象：<span class="font-medium">高中以上、有國際經驗或家長同行者</span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Comparison Table -->
+        <div class="bg-white rounded-lg shadow-md overflow-hidden mb-8">
+            <div class="overflow-x-auto">
+                <table class="w-full">
+                    <thead>
+                        <tr class="bg-gray-100">
+                            <th class="py-4 px-6 text-left text-gray-700 font-bold">方案內容</th>
+                            <th class="py-4 px-6 text-center text-red-500 font-bold">A | 全程無憂</th>
+                            <th class="py-4 px-6 text-center text-pink-500 font-bold">B | 半自助探索</th>
+                            <th class="py-4 px-6 text-center text-blue-500 font-bold">C | 營區自助</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- 課程與住宿 -->
+                        <tr class="feature-row border-t">
+                            <td class="py-3 px-6 text-gray-700 font-medium">課程與住宿</td>
+                            <td class="py-3 px-6 text-center"><span class="check-icon">✓</span></td>
+                            <td class="py-3 px-6 text-center"><span class="check-icon">✓</span></td>
+                            <td class="py-3 px-6 text-center"><span class="check-icon">✓</span></td>
+                        </tr>
+
+                        <!-- 台灣照護人員 -->
+                        <tr class="feature-row border-t feature-detail cursor-pointer" data-feature="care">
+                            <td class="py-3 px-6 text-gray-700 font-medium flex items-center">
+                                <span>台灣照護人員</span>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-2 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                </svg>
+                            </td>
+                            <td class="py-3 px-6 text-center"><span class="check-icon">✓</span></td>
+                            <td class="py-3 px-6 text-center">可加購</td>
+                            <td class="py-3 px-6 text-center"><span class="x-icon">✕</span></td>
+                        </tr>
+                        <tr class="detail-panel" id="care-detail">
+                            <td colspan="4" class="py-3 px-6 bg-gray-50 text-sm text-gray-600">
+                                <p><span class="font-medium text-red-500">A方案：</span>台灣照護人員全程陪同（1:8 照顧比例）</p>
+                                <p><span class="font-medium text-pink-500">B方案：</span>基本照顧（由韓方工作人員支援），可加購台灣照護人員（第3天起 +4,800）</p>
+                                <p><span class="font-medium text-blue-500">C方案：</span>無照顧人員</p>
+                            </td>
+                        </tr>
+
+                        <!-- 每日家長回報 -->
+                        <tr class="feature-row border-t feature-detail cursor-pointer" data-feature="report">
+                            <td class="py-3 px-6 text-gray-700 font-medium flex items-center">
+                                <span>每日家長回報</span>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-2 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                </svg>
+                            </td>
+                            <td class="py-3 px-6 text-center"><span class="check-icon">✓</span></td>
+                            <td class="py-3 px-6 text-center"><span class="x-icon">✕</span></td>
+                            <td class="py-3 px-6 text-center"><span class="x-icon">✕</span></td>
+                        </tr>
+                        <tr class="detail-panel" id="report-detail">
+                            <td colspan="4" class="py-3 px-6 bg-gray-50 text-sm text-gray-600">
+                                <p><span class="font-medium text-red-500">A方案：</span>每日回報與照片傳送給家長</p>
+                                <p><span class="font-medium text-pink-500">B方案：</span>無每日照片回報</p>
+                                <p><span class="font-medium text-blue-500">C方案：</span>無回報</p>
+                            </td>
+                        </tr>
+
+                        <!-- 機場接送 -->
+                        <tr class="feature-row border-t">
+                            <td class="py-3 px-6 text-gray-700 font-medium">機場接送</td>
+                            <td class="py-3 px-6 text-center"><span class="check-icon">✓</span></td>
+                            <td class="py-3 px-6 text-center">可加購</td>
+                            <td class="py-3 px-6 text-center"><span class="x-icon">✕</span></td>
+                        </tr>
+
+                        <!-- 妝髮支援 -->
+                        <tr class="feature-row border-t">
+                            <td class="py-3 px-6 text-gray-700 font-medium">妝髮支援</td>
+                            <td class="py-3 px-6 text-center"><span class="check-icon">✓</span></td>
+                            <td class="py-3 px-6 text-center">可加購</td>
+                            <td class="py-3 px-6 text-center"><span class="x-icon">✕</span></td>
+                        </tr>
+
+                        <!-- 旅平險 -->
+                        <tr class="feature-row border-t">
+                            <td class="py-3 px-6 text-gray-700 font-medium">旅平險</td>
+                            <td class="py-3 px-6 text-center"><span class="check-icon">✓</span></td>
+                            <td class="py-3 px-6 text-center">可加購</td>
+                            <td class="py-3 px-6 text-center"><span class="x-icon">✕</span></td>
+                        </tr>
+
+                        <!-- 文化體驗 -->
+                        <tr class="feature-row border-t feature-detail cursor-pointer" data-feature="culture">
+                            <td class="py-3 px-6 text-gray-700 font-medium flex items-center">
+                                <span>文化體驗</span>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-2 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                </svg>
+                            </td>
+                            <td class="py-3 px-6 text-center"><span class="check-icon">✓</span></td>
+                            <td class="py-3 px-6 text-center">可加購</td>
+                            <td class="py-3 px-6 text-center"><span class="x-icon">✕</span></td>
+                        </tr>
+                        <tr class="detail-panel" id="culture-detail">
+                            <td colspan="4" class="py-3 px-6 bg-gray-50 text-sm text-gray-600">
+                                <p><span class="font-medium text-red-500">A方案：</span>高陽＋首爾文化體驗活動</p>
+                                <p><span class="font-medium text-pink-500">B方案：</span>可加購旅遊體驗</p>
+                                <p><span class="font-medium text-blue-500">C方案：</span>無額外文化體驗活動</p>
+                            </td>
+                        </tr>
+
+                        <!-- 語言環境 -->
+                        <tr class="feature-row border-t feature-detail cursor-pointer" data-feature="language">
+                            <td class="py-3 px-6 text-gray-700 font-medium flex items-center">
+                                <span>語言環境</span>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-2 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                </svg>
+                            </td>
+                            <td class="py-3 px-6 text-center">無語言壓力</td>
+                            <td class="py-3 px-6 text-center">需簡單溝通</td>
+                            <td class="py-3 px-6 text-center">全英/韓文</td>
+                        </tr>
+                        <tr class="detail-panel" id="language-detail">
+                            <td colspan="4" class="py-3 px-6 bg-gray-50 text-sm text-gray-600">
+                                <p><span class="font-medium text-red-500">A方案：</span>有台灣人員協助，無語言壓力</p>
+                                <p><span class="font-medium text-pink-500">B方案：</span>營區內使用英文與韓文，需能簡單溝通</p>
+                                <p><span class="font-medium text-blue-500">C方案：</span>課程與生活全程以韓文／英文溝通</p>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Recommendation -->
+        <div class="bg-white rounded-lg shadow-md p-6 mb-8">
+            <h3 class="text-lg font-bold text-gray-800 mb-3">方案選擇建議</h3>
+            <p class="text-gray-700">若孩子有<span class="highlight font-medium">英文能力</span>，B/C 兩方案皆可選擇；想要<span class="highlight font-medium">有人陪同</span>則推薦 A 方案。</p>
+        </div>
+
+        <!-- Contact Button -->
+        <div class="text-center">
+            <button class="bg-red-500 hover:bg-red-600 text-white font-bold py-3 px-8 rounded-full shadow-lg transition duration-300 transform hover:scale-105">
+                立即諮詢報名
+            </button>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const featureDetails = document.querySelectorAll('.feature-detail');
+
+            featureDetails.forEach(item => {
+                item.addEventListener('click', function() {
+                    const feature = this.getAttribute('data-feature');
+                    const detailPanel = document.getElementById(`${feature}-detail`);
+
+                    if (detailPanel.classList.contains('active')) {
+                        detailPanel.classList.remove('active');
+                    } else {
+                        // Close all other panels
+                        document.querySelectorAll('.detail-panel').forEach(panel => {
+                            panel.classList.remove('active');
+                        });
+
+                        // Open this panel
+                        detailPanel.classList.add('active');
+                    }
+                });
+            });
+        });
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'951ff18f33b5842d',t:'MTc1MDMwMzc4Mi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
