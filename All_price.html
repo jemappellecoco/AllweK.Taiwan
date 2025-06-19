@@ -12,7 +12,7 @@
 
         body {
             font-family: 'Noto Sans TC', sans-serif;
-            background: linear-gradient(to bottom, #300, #500);
+            background: linear-gradient(to bottom, rgb(0, 0, 0), rgba(21, 0, 0, 0.847));
             overflow-x: hidden;
         }
 
@@ -149,12 +149,13 @@
 
         /* K-pop style frame */
         .kpop-frame {
-            position: relative;
-            padding: 3px;
-            background: linear-gradient(135deg, #ff0844, #ffb199, #ff0844);
-            border-radius: 0.5rem;
-            overflow: hidden;
-        }
+          position: relative;
+          padding: 3px;
+          background: rgba(0, 0, 0, 0.7); /* 半透明黑色外框 */
+          border-radius: 0.5rem;
+          overflow: hidden;
+          border: 1px solid rgba(255, 50, 50, 0.2); /* 柔和紅框，可選 */
+      }
 
         .kpop-frame::before {
             content: '';
@@ -163,7 +164,7 @@
             left: -100%;
             width: 100%;
             height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+            background: linear-gradient(90deg, transparent, rgba(180, 25, 25, 0.4), transparent);
             animation: shine-sweep 3s infinite;
         }
 
@@ -546,7 +547,7 @@
       </div>
 
       <div class="kpop-frame mb-8">
-        <div class="bg-red-900/50 p-6 rounded-lg">
+        <div class="bg-black p-6 rounded-lg">
           <h3 class="text-xl font-bold mb-4 glow-text">學生方案課程內容</h3>
           <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div>
